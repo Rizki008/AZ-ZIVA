@@ -46,13 +46,13 @@
 					<form action="<?= base_url('pasien/berobat') ?>" method="POST">
 						<div class="row g-3">
 							<div class="col-12 col-sm-6">
-								<input type="type" name="id_pasien" value="<?= $this->session->userdata('username') ?>" class="form-control border-0" disabled placeholder="Your Name" style="height: 55px;">
+								<input type="text" name="nama_pasien" value="<?= set_value('nama_pasien') ?>" class="form-control border-0" disabled placeholder="Your Name" style="height: 55px;">
 							</div>
 							<div class="col-12 col-sm-6">
-								<input type="text" name="jenis_kl" value="<?= $this->session->userdata('jenis_kl') ?>" class="form-control border-0" disabled placeholder="Your Name" style="height: 55px;">
+								<input type="text" name="jenis_kl" value="<?= set_value('jenis_kl') ?>" class="form-control border-0" disabled placeholder="Your Name" style="height: 55px;">
 							</div>
 							<div class="col-12 col-sm-6">
-								<input type="text" name="usia" value="<?= $this->session->userdata('usia') ?>" class="form-control border-0" disabled placeholder="Your Name" style="height: 55px;">
+								<input type="text" name="usia" value="<?= set_value('usia') ?>" class="form-control border-0" disabled placeholder="Your Name" style="height: 55px;">
 							</div>
 							<div class="col-12 col-sm-6">
 								<select class="form-select border-0" name="bpjs" style="height: 55px;">
