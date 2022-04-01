@@ -2,7 +2,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
 	<ul class="nav">
 		<li class="nav-item">
-			<a class="nav-link" href="<?= base_url() ?>">
+			<a class="nav-link" href="<?= base_url('admin') ?>">
 				<i class="typcn typcn-device-desktop menu-icon"></i>
 				<span class="menu-title">Dashboard</span>
 			</a>
@@ -15,7 +15,7 @@
 			</a>
 			<div class="collapse" id="ui-basic">
 				<ul class="nav flex-column sub-menu">
-					<li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Data Pasien Berobat</a></li>
+					<li class="nav-item"> <a class="nav-link" href="<?= base_url('berobat') ?>">Data Pasien Berobat</a></li>
 				</ul>
 			</div>
 		</li>
@@ -27,7 +27,19 @@
 			</a>
 			<div class="collapse" id="form-elements">
 				<ul class="nav flex-column sub-menu">
-					<li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Data Obat</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?= base_url('obat') ?>">Data Obat</a></li>
+				</ul>
+			</div>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" data-toggle="collapse" href="#form-logout" aria-expanded="false" aria-controls="form-logout">
+				<i class="typcn typcn-eject"></i>
+				<span class="menu-title">Obat</span>
+				<i class="menu-arrow"></i>
+			</a>
+			<div class="collapse" id="form-logout">
+				<ul class="nav flex-column sub-menu">
+					<li class="nav-item"><a class="nav-link" href="<?= base_url('auth/logout_user') ?>">LogOut</a></li>
 				</ul>
 			</div>
 		</li>
