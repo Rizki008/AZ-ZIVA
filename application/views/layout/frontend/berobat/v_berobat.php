@@ -46,13 +46,17 @@
 					<form action="<?= base_url('pasien/berobat') ?>" method="POST">
 						<div class="row g-3">
 							<div class="col-12 col-sm-6">
-								<input type="text" name="nama_pasien" value="<?= set_value('nama_pasien') ?>" class="form-control border-0" disabled placeholder="Your Name" style="height: 55px;">
+								<input type="text" name="nama_pasien" value="<?= set_value('nama_pasien') ?>" class="form-control border-0" placeholder="Nama Lengkap" style="height: 55px;">
 							</div>
 							<div class="col-12 col-sm-6">
-								<input type="text" name="jenis_kl" value="<?= set_value('jenis_kl') ?>" class="form-control border-0" disabled placeholder="Your Name" style="height: 55px;">
+								<select class="form-select border-0" name="jenis_kel" style="height: 55px;">
+									<option selected>Pilih Berobat Menngunakan</option>
+									<option value="Laki-Laki">Laki-Laki</option>
+									<option value="Perempuan">Perempuan</option>
+								</select>
 							</div>
 							<div class="col-12 col-sm-6">
-								<input type="text" name="usia" value="<?= set_value('usia') ?>" class="form-control border-0" disabled placeholder="Your Name" style="height: 55px;">
+								<input type="text" name="usia" value="<?= set_value('usia') ?>" class="form-control border-0" placeholder="Usia" style="height: 55px;">
 							</div>
 							<div class="col-12 col-sm-6">
 								<select class="form-select border-0" name="bpjs" style="height: 55px;">
@@ -62,7 +66,7 @@
 								</select>
 							</div>
 							<div class="col-12">
-								<textarea class="form-control border-0" name="alamat" rows="5" placeholder="Describe your problem"></textarea>
+								<textarea class="form-control border-0" name="alamat" rows="5" placeholder="Alamat Lengkap"></textarea>
 							</div>
 							<div class="col-12">
 								<button class="btn btn-primary w-100 py-3" type="submit">Daftar Berobat</button>
