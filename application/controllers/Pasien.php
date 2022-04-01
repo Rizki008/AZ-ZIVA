@@ -64,6 +64,8 @@ class Pasien extends CI_Controller
 	public function berobat()
 	{
 		$this->form_validation->set_rules('nama_pasien', 'Alamat', 'required', array('required' => '%s Mohon Untuk Diisi!!'));
+		$this->form_validation->set_rules('jenis_kel', 'Jenis Kelamin', 'required', array('required' => '%s Mohon Untuk diisi!!'));
+		$this->form_validation->set_rules('usia', 'Usia', 'required', array('required' => '%s Mohon Untuk diisi!!'));
 		$this->form_validation->set_rules('alamat', 'Alamat', 'required', array('required' => '%s Mohon Untuk Diisi!!'));
 		$this->form_validation->set_rules('bpjs', 'BPJS', 'required', array('required' => '%s Mohon Untuk Diisi!!'));
 
@@ -78,6 +80,8 @@ class Pasien extends CI_Controller
 			$data = array(
 				'id_pasien' => $this->session->userdata('id_pasien'),
 				'nama_pasien' => $this->input->post('nama_pasien'),
+				'jenis_kel' => $this->input->post('jenis_kel'),
+				'usia' => $this->input->post('usia'),
 				'alamat' => $this->input->post('alamat'),
 				'bpjs' => $this->input->post('bpjs'),
 			);
