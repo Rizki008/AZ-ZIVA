@@ -9,8 +9,8 @@ class M_berobat extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('berobat');
-		$this->db->join('pasien', 'berobat.id_pasien = pasien.id_pasien', 'left');
-		$this->db->join('obat', 'berobat.id_obat = obat.id_obat', 'left');
+		// $this->db->join('pasien', 'berobat.id_pasien = pasien.id_pasien', 'left');
+		// $this->db->join('obat', 'berobat.id_obat = obat.id_obat', 'left');
 		$this->db->order_by('id_berobat', 'desc');
 		return $this->db->get()->result();
 	}
@@ -38,5 +38,15 @@ class M_berobat extends CI_Model
 	{
 		$this->db->where('id_berobat', $data['id_berobat']);
 		$this->db->delete('berobat');
+	}
+
+	public function grafik()
+	{
+		$this->db->select_sum('berobat');
+		$this->db->select('berobat.alamat');
+		$this->db->from('berobat');
+		$this->db->group_by('berobat.id_berobat');
+		$this->db->order_by('berobat', 'desc');
+		return $this->db->get()->result();
 	}
 }

@@ -18,4 +18,7 @@
 	<link rel="stylesheet" href="<?= base_url() ?>template/css/vertical-layout-light/style.css">
 	<!-- endinject -->
 	<link rel="shortcut icon" href="<?= base_url() ?>template/images/favicon.png" />
+
+	<script src="<?= base_url() ?>template/chart/dist/Chart.min.js"></script>
+	<script src="<?= base_url() ?>template/chart/samples/utils.js"></script>
 </head>
