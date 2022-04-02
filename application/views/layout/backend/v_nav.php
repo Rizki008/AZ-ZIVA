@@ -45,5 +45,3 @@
 		</li>
 	</ul>
 </nav>
-<!-- partial -->
-<div class="main-panel">
