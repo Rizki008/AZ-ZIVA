@@ -15,7 +15,9 @@
 			</a>
 			<div class="collapse" id="ui-basic">
 				<ul class="nav flex-column sub-menu">
-					<li class="nav-item"> <a class="nav-link" href="<?= base_url('berobat') ?>">Data Pasien Berobat</a></li>
+					<li class="nav-item"> <a class="nav-link" href="<?= base_url('berobat') ?>">Pasien Booking Berobat</a></li>
+					<li class="nav-item"> <a class="nav-link" href="<?= base_url('berobat/pasien_berobat') ?>">Pasien Berobat</a></li>
+					<li class="nav-item"> <a class="nav-link" href="<?= base_url('berobat/pasien_selesai_berobat') ?>">Pasien Selesai Berobat</a></li>
 				</ul>
 			</div>
 		</li>
@@ -27,6 +29,8 @@
 			</a>
 			<div class="collapse" id="form-elements">
 				<ul class="nav flex-column sub-menu">
+					<li class="nav-item"><a class="nav-link" href="<?= base_url('obat/obat_masuk') ?>">Data Obat Masuk</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?= base_url('obat/obat_keluar') ?>">Data Obat Keluar</a></li>
 					<li class="nav-item"><a class="nav-link" href="<?= base_url('obat') ?>">Data Obat</a></li>
 				</ul>
 			</div>

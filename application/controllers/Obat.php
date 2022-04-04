@@ -20,39 +20,57 @@ class Obat extends CI_Controller
 		);
 		$this->load->view('layout/backend/v_wrapper', $data, FALSE);
 	}
+	public function obat_masuk()
+	{
+		$data = array(
+			'title' => 'Data Obat',
+			'obat_masuk' => $this->m_obat->obat_masuk(),
+			'isi' => 'layout/backend/obat/v_obat_masuk'
+		);
+		$this->load->view('layout/backend/v_wrapper', $data, FALSE);
+	}
+	public function obat_keluar()
+	{
+		$data = array(
+			'title' => 'Data Obat',
+			'obat_keluar' => $this->m_obat->obat_keluar(),
+			'isi' => 'layout/backend/obat/v_obat_keluar'
+		);
+		$this->load->view('layout/backend/v_wrapper', $data, FALSE);
+	}
 
-	public function add()
+	public function add_obat_masuk()
 	{
 		$data = array(
 			'nama_obat' => $this->input->post('nama_obat'),
 			'jenis_obat' => $this->input->post('jenis_obat'),
-			'jml_obat' => $this->input->post('jml_obat'),
+			'qty' => $this->input->post('qty'),
 		);
-		$this->m_obat->add($data);
+		$this->m_obat->add_obat_masuk($data);
 		$this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan');
-		redirect('obat');
+		redirect('obat/obat_masuk');
 	}
 
-	public function edit($id_obat = NULL)
+	public function edit_obat_masuk($id_obat_masuk = NULL)
 	{
 		$data = array(
-			'id_obat' => $id_obat,
+			'id_obat_masuk' => $id_obat_masuk,
 			'nama_obat' => $this->input->post('nama_obat'),
 			'jenis_obat' => $this->input->post('jenis_obat'),
-			'jml_obat' => $this->input->post('jml_obat'),
+			'qty' => $this->input->post('qty'),
 		);
-		$this->m_obat->edit($data);
+		$this->m_obat->edit_obat_masuk($data);
 		$this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan');
-		redirect('obat');
+		redirect('obat/obat_masuk');
 	}
 
-	public function delete($id_obat)
+	public function delete_obat_masuk($id_obat_masuk)
 	{
 		$data = array(
-			'id_obat' => $id_obat
+			'id_obat_masuk' => $id_obat_masuk
 		);
-		$this->m_obat->delete($data);
+		$this->m_obat->delete_obat_masuk($data);
 		$this->session->set_flashdata('pesan', 'Data Obat Berhasil Dihapus');
-		redirect('obat');
+		redirect('obat/obat_masuk');
 	}
 }

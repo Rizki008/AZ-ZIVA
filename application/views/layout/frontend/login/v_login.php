@@ -42,26 +42,27 @@
 				</div>
 			</div>
 			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-				<div class="bg-light rounded h-100 d-flex align-items-center p-5">
-					<?php
-					echo validation_errors('<div class="alert alert-warning alert-dismissible">
+				<?php
+				echo validation_errors('<div class="alert alert-warning alert-dismissible">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 					<h5><i class="icon fa fa-exclamation-triangle"></i> Coba Lagi</h5>', '</div>');
 
-					if ($this->session->flashdata('error')) {
-						echo '<div class="alert alert-danger alert-dismissible">
+				if ($this->session->flashdata('error')) {
+					echo '<div class="alert alert-danger alert-dismissible">
 						<h5><i class="icon fa fa-ban"></i> Gagal</h5>';
-						echo $this->session->flashdata('error');
-						echo '</div>';
-					}
+					echo $this->session->flashdata('error');
+					echo '</div>';
+				}
 
-					if ($this->session->flashdata('pesan')) {
-						echo '<div class="alert alert-success alert-dismissible">
+				if ($this->session->flashdata('pesan')) {
+					echo '<div class="alert alert-success alert-dismissible">
 						<h5><i class="icon fa fa-check"></i> Sukses</h5>';
-						echo $this->session->flashdata('pesan');
-						echo '</div>';
-					}
-					echo form_open('pasien/login') ?>
+					echo $this->session->flashdata('pesan');
+					echo '</div>';
+				}
+				echo form_open('pasien/login') ?>
+				<div class="bg-light rounded h-100 d-flex align-items-center p-5">
+
 					<div class="row g-3">
 						<div class="col-12 col-sm-6">
 							<input type="text" name="username" value="<?= set_value('username') ?>" class="form-control border-0" placeholder="Your Name" style="height: 55px;" required>
@@ -70,11 +71,12 @@
 							<input type="password" name="password" value="<?= set_value('password') ?>" class="form-control border-0" placeholder="Your Password" style="height: 55px;" required>
 						</div>
 						<div class="col-12">
-							<button class="btn btn-primary w-100 py-3" type="submit">Book Appointment</button>
+							<button class="btn btn-primary w-100 py-3" type="submit">Login</button>
 						</div>
 					</div>
-					<?php echo form_close() ?>
+
 				</div>
+				<?php echo form_close() ?>
 			</div>
 		</div>
 	</div>

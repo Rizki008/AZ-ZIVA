@@ -46,27 +46,10 @@
 					<form action="<?= base_url('pasien/berobat') ?>" method="POST">
 						<div class="row g-3">
 							<div class="col-12 col-sm-6">
-								<input type="text" name="nama_pasien" value="<?= set_value('nama_pasien') ?>" class="form-control border-0" placeholder="Nama Lengkap" style="height: 55px;">
+								<input type="number" name="no_antrian" value="<?= set_value('no_antrian') ?>" class="form-control border-0" placeholder="No Antrian" style="height: 55px;">
 							</div>
 							<div class="col-12 col-sm-6">
-								<select class="form-select border-0" name="jenis_kel" style="height: 55px;">
-									<option selected>Pilih Berobat Menngunakan</option>
-									<option value="Laki-Laki">Laki-Laki</option>
-									<option value="Perempuan">Perempuan</option>
-								</select>
-							</div>
-							<div class="col-12 col-sm-6">
-								<input type="text" name="usia" value="<?= set_value('usia') ?>" class="form-control border-0" placeholder="Usia" style="height: 55px;">
-							</div>
-							<div class="col-12 col-sm-6">
-								<select class="form-select border-0" name="bpjs" style="height: 55px;">
-									<option selected>Pilih Berobat Menngunakan</option>
-									<option value="BPJS">BPJS</option>
-									<option value="No_BPJS">Non BPJS</option>
-								</select>
-							</div>
-							<div class="col-12">
-								<textarea class="form-control border-0" name="alamat" rows="5" placeholder="Alamat Lengkap"></textarea>
+								<input type="date" name="tgl_berobat" value="<?= set_value('tgl_berobat') ?>" class="form-control border-0" placeholder="Tanggal Berobat" style="height: 55px;">
 							</div>
 							<div class="col-12">
 								<button class="btn btn-primary w-100 py-3" type="submit">Daftar Berobat</button>

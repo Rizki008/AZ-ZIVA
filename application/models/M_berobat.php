@@ -9,8 +9,36 @@ class M_berobat extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('berobat');
-		// $this->db->join('pasien', 'berobat.id_pasien = pasien.id_pasien', 'left');
-		// $this->db->join('obat', 'berobat.id_obat = obat.id_obat', 'left');
+		$this->db->join('pasien', 'berobat.id_pasien = pasien.id_pasien', 'left');
+		$this->db->where('status=0');
+		$this->db->order_by('id_berobat', 'desc');
+		return $this->db->get()->result();
+	}
+
+	public function resep_obat()
+	{
+		$this->db->select('*');
+		$this->db->from('obat_masuk');
+		$this->db->order_by('id_obat_masuk', 'desc');
+		return $this->db->get()->result();
+	}
+
+	public function data_berobat()
+	{
+		$this->db->select('*');
+		$this->db->from('berobat');
+		$this->db->join('pasien', 'berobat.id_pasien = pasien.id_pasien', 'left');
+		$this->db->where('status=1');
+		$this->db->order_by('id_berobat', 'desc');
+		return $this->db->get()->result();
+	}
+
+	public function data_berobat_selesai()
+	{
+		$this->db->select('*');
+		$this->db->from('berobat');
+		$this->db->join('pasien', 'berobat.id_pasien = pasien.id_pasien', 'left');
+		$this->db->where('status=2');
 		$this->db->order_by('id_berobat', 'desc');
 		return $this->db->get()->result();
 	}
@@ -28,7 +56,7 @@ class M_berobat extends CI_Model
 		$this->db->insert('berobat', $data);
 	}
 
-	public function edit($data)
+	public function update($data)
 	{
 		$this->db->where('id_berobat', $data['id_berobat']);
 		$this->db->update('berobat', $data);

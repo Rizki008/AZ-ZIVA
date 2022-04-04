@@ -17,6 +17,7 @@ class Pasien_login
 		$cek = $this->ci->m_auth->pasien_login($username, $password);
 
 		if ($cek) {
+			$id_pasien = $cek->id_pasien;
 			$username = $cek->username;
 			$password = $cek->password;
 			$jenis_kl = $cek->jenis_kl;
@@ -25,6 +26,7 @@ class Pasien_login
 			$bpjs = $cek->bpjs;
 			$foto = $cek->foto;
 
+			$this->ci->session->set_userdata('id_pasien', $id_pasien);
 			$this->ci->session->set_userdata('username', $username);
 			$this->ci->session->set_userdata('password', $password);
 			$this->ci->session->set_userdata('jenis_kl', $jenis_kl);
@@ -36,6 +38,14 @@ class Pasien_login
 			redirect('home');
 		} else {
 			$this->ci->session->set_flashdata('pesan', 'Username atau password salah');
+			redirect('pasien/login');
+		}
+	}
+
+	public function proteksi_halaman()
+	{
+		if ($this->ci->session->userdata('username') == '') {
+			$this->ci->session->set_flashdata('pesan', 'Anda Belum Login Atau register');
 			redirect('pasien/login');
 		}
 	}

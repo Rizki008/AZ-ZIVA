@@ -58,10 +58,10 @@
 					echo form_open('pasien/register') ?>
 					<div class="row g-3">
 						<div class="col-12 col-sm-6">
-							<input type="text" name="username" value="<?= set_value('username') ?>" class="form-control border-0" placeholder="Your Name" style="height: 55px;" required>
+							<input type="text" name="username" value="<?= set_value('username') ?>" class="form-control border-0" placeholder="Username" style="height: 55px;" required>
 						</div>
 						<div class="col-12 col-sm-6">
-							<input type="password" name="password" value="<?= set_value('password') ?>" class="form-control border-0" placeholder="Your Password" style="height: 55px;" required>
+							<input type="password" name="password" value="<?= set_value('password') ?>" class="form-control border-0" placeholder="Password" style="height: 55px;" required>
 						</div>
 
 						<div class="col-12 col-sm-6">
@@ -72,7 +72,17 @@
 							</select>
 						</div>
 						<div class="col-12 col-sm-6">
-							<input type="number" name="usia" value="<?= set_value('usia') ?>" class="form-control border-0" placeholder="Your Mobile" style="height: 55px;" required>
+							<input type="number" name="usia" value="<?= set_value('usia') ?>" class="form-control border-0" placeholder="Usia" style="height: 55px;" required>
+						</div>
+						<div class="col-12 col-sm-6">
+							<select class="form-select border-0" style="height: 55px;" name="bpjs">
+								<option selected>---BPJS---</option>
+								<option value="BPJS">BPJS</option>
+								<option value="NonBPJS">Non BPJS</option>
+							</select>
+						</div>
+						<div class="col-12 col-sm-6">
+							<input type="text" name="alamat" value="<?= set_value('alamat') ?>" class="form-control border-0" placeholder="Alamat" style="height: 55px;" required>
 						</div>
 						<div class="col-12">
 							<button class="btn btn-primary w-100 py-3" type="submit">Registrasi</button>

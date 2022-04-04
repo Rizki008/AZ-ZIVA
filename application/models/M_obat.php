@@ -12,6 +12,21 @@ class M_obat extends CI_Model
 		$this->db->order_by('id_obat', 'desc');
 		return $this->db->get()->result();
 	}
+	public function obat_masuk()
+	{
+		$this->db->select('*');
+		$this->db->from('obat_masuk');
+		$this->db->order_by('id_obat_masuk', 'desc');
+		return $this->db->get()->result();
+	}
+	public function obat_keluar()
+	{
+		$this->db->select('*');
+		$this->db->from('obat_keluar');
+		$this->db->order_by('id_obat_keluar', 'desc');
+		return $this->db->get()->result();
+	}
+
 
 	public function detail($id_obat)
 	{
@@ -21,9 +36,26 @@ class M_obat extends CI_Model
 		return $this->db->get()->row();
 	}
 
+	public function add_obat_masuk($data)
+	{
+		$this->db->insert('obat_masuk', $data);
+	}
+
+	public function edit_obat_masuk($data)
+	{
+		$this->db->where('id_obat_masuk', $data['id_obat_masuk']);
+		$this->db->update('obat_masuk', $data);
+	}
+
+	public function delete_obat_masuk($data)
+	{
+		$this->db->where('id_obat_masuk', $data['id_obat_masuk']);
+		$this->db->delete('obat_masuk');
+	}
+
 	public function add($data)
 	{
-		$this->db->insert('obat', $data);
+		$this->db->insert('obat_masuk', $data);
 	}
 
 	public function edit($data)

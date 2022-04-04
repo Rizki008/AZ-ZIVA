@@ -17,6 +17,8 @@ class Pasien extends CI_Controller
 		$this->form_validation->set_rules('password', 'Password', 'required', array('required' => '%s Mohon Untuk diisi!!'));
 		$this->form_validation->set_rules('jenis_kl', 'Jenis Kelamin', 'required', array('required' => '%s Mohon Untuk diisi!!'));
 		$this->form_validation->set_rules('usia', 'Usia', 'required', array('required' => '%s Mohon Untuk diisi!!'));
+		$this->form_validation->set_rules('alamat', 'Alamat', 'required', array('required' => '%s Mohon Untuk diisi!!'));
+		$this->form_validation->set_rules('bpjs', 'bpjs', 'required', array('required' => '%s Mohon Untuk diisi!!'));
 
 
 		if ($this->form_validation->run() == FALSE) {
@@ -31,6 +33,8 @@ class Pasien extends CI_Controller
 				'password' => $this->input->post('password'),
 				'jenis_kl' => $this->input->post('jenis_kl'),
 				'usia' => $this->input->post('usia'),
+				'alamat' => $this->input->post('alamat'),
+				'bpjs' => $this->input->post('bpjs'),
 			);
 			$this->m_pasien->register($data);
 			$this->session->set_flashdata('pesan', 'Registrasi Berhasil, Silahkan Untuk Login');
@@ -63,12 +67,9 @@ class Pasien extends CI_Controller
 
 	public function berobat()
 	{
-		$this->form_validation->set_rules('nama_pasien', 'Alamat', 'required', array('required' => '%s Mohon Untuk Diisi!!'));
-		$this->form_validation->set_rules('jenis_kel', 'Jenis Kelamin', 'required', array('required' => '%s Mohon Untuk diisi!!'));
-		$this->form_validation->set_rules('usia', 'Usia', 'required', array('required' => '%s Mohon Untuk diisi!!'));
-		$this->form_validation->set_rules('alamat', 'Alamat', 'required', array('required' => '%s Mohon Untuk Diisi!!'));
-		$this->form_validation->set_rules('bpjs', 'BPJS', 'required', array('required' => '%s Mohon Untuk Diisi!!'));
-
+		$this->pasien_login->proteksi_halaman();
+		$this->form_validation->set_rules('no_antrian', 'No Antrain', 'required', array('required' => '%s Mohon Untuk Diisi!!'));
+		$this->form_validation->set_rules('tgl_berobat', 'Tanggal Berobat', 'required', array('required' => '%s Mohon Untuk diisi!!'));
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = array(
@@ -79,11 +80,9 @@ class Pasien extends CI_Controller
 		} else {
 			$data = array(
 				'id_pasien' => $this->session->userdata('id_pasien'),
-				'nama_pasien' => $this->input->post('nama_pasien'),
-				'jenis_kel' => $this->input->post('jenis_kel'),
-				'usia' => $this->input->post('usia'),
-				'alamat' => $this->input->post('alamat'),
-				'bpjs' => $this->input->post('bpjs'),
+				'no_antrian' => $this->input->post('no_antrian'),
+				'tgl_berobat' => $this->input->post('tgl_berobat'),
+				'status' => 0,
 			);
 			$this->m_pasien->add($data);
 			$this->session->set_flashdata('pesan', 'Daftar Berobat Berhasil');
