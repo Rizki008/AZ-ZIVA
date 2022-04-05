@@ -33,7 +33,6 @@ class M_obat extends CI_Model
 		$id = '0';
 		$this->db->select('*');
 		$this->db->from('obat_masuk');
-		// $this->db->join('supplier', 'obat_masuk.id_supplier = supplier.id_supplier', 'left');
 		$this->db->where('obat_masuk.qty!=', $id);
 
 		return $this->db->get()->result();
