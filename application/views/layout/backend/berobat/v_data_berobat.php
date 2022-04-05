@@ -24,15 +24,12 @@
 						if ($qty != 0) {
 						?>
 							<div class="table-responsive pt-3">
-								<?php echo form_open('data_berobat/cekout'); ?>
+								<?php echo form_open('data_berobat/checkout'); ?>
 								<table class="table table-bordered">
 									<thead>
 										<tr>
 											<th>
 												#
-											</th>
-											<th>
-												No obat
 											</th>
 											<th>
 												Nama Obat
@@ -48,7 +45,8 @@
 									<tbody>
 										<?php
 										$i = 1;
-										foreach ($this->cart->contents as $value) : ?>
+										foreach ($this->cart->contents() as $value) :
+										?>
 											<tr>
 												<td>
 													<?= $value['id'] ?>
@@ -59,20 +57,12 @@
 												<td>
 													<?= $value['qty'] ?>
 												</td>
-												<td class="text-center"><a href="<?= base_url('data_berobat/delete/' . $value['rowid']) ?>"><i class="fas fa-times"></i></a></td>
+												<td class="text-center"><a href="<?= base_url('data_berobat/delete/' . $value['rowid']) ?>" class="btn btn-danger">Delete</a></td>
 											</tr>
 										<?php
 											$i++;
 										endforeach;
 										?>
-										<tr>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td>Total: <strong>Rp. <?= number_format($this->cart->total(), 0)  ?></strong></td>
-										</tr>
 									</tbody>
 								</table>
 								<?php
@@ -80,54 +70,41 @@
 								foreach ($this->cart->contents() as $items) {
 									echo form_hidden('qty' . $i++, $items['qty']);
 								}
-								$id_berobat = date('Ymd') .  random_int(100, 9999);
+								$no_resep = date('Ymd') .  random_int(100, 9999);
 								?>
-								<input type="hidden" name="id_berobat" value="<?= $id_berobat ?>">
+								<input type="hidden" name="no_resep" value="<?= $no_resep ?>">
+							</div>
+
+							<div class="card-footer clearfix">
+								<button type="submit" class="btn btn-sm btn-info float-left">Order</button>
+
 							</div>
 							<?php
 							echo form_close();
 							?>
 					</div>
-				<?php } ?>
-				<div class="list_open col-lg-5">
-					<!-- PRODUCT LIST -->
-					<div id="open" class="card">
-						<div class="card-header">
-							<h3 class="card-title">Resep Obat</h3>
-							<div class="card-tools">
-								<button type="button" class="btn btn-tool" data-card-widget="collapse">
-									<i class="fas fa-minus"></i>
-								</button>
-							</div>
-						</div>
-						<!-- /.card-header -->
-						<div class="card-body p-0">
-							<ul id="list_detail_obat" class="products-list product-list-in-card pl-2 pr-2">
-						</div>
-						<!-- /.card-body -->
 
-						<!-- /.card-footer -->
-					</div>
-					<!-- /.card -->
+				<?php } ?>
+				<div class="card-body p-0">
+					<ul id="list_detail_obat" class="products-list product-list-in-card pl-2 pr-2">
 				</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
 <div class="main-panel">
 	<div class="content-wrapper">
 		<div class="row">
 			<div class="col-lg-12 grid-margin stretch-card">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title">Striped Table</h4>
+						<h4 class="card-title"><?= $title ?></h4>
 						<p class="card-description">
-							Add class <code>.table-striped</code>
+
 						</p>
-						<div class="table-responsive">
-							<table class="table table-striped">
+						<div class="table-responsive pt-3">
+							<table class="table table-bordered">
 								<thead>
 									<tr>
 										<th>
@@ -165,16 +142,29 @@
 												if ($value->status == '0') {
 													echo '<span class="badge badge-danger">Periksa</span>';
 												} else if ($value->status == '1') {
-													echo '<span class="badge badge-warning">Menunggu Konfirmasi</span>';
+													echo '<span class="badge badge-warning">Proses</span>';
 												} else if ($value->status == '2') {
-													echo '<span class="badge bg-olive">Diproses</span>';
+													echo '<span class="badge badge-success">Selesai</span>';
 												}
 												?>
 											</td>
 											<td>
-												<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update">
-													<i class="mdi mdi-cart-plus"></i> Resep Obat
-												</button>
+												<?php
+												if ($value->status == '0') {
+												?>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update">
+														<i class="mdi mdi-cart-plus"></i> Resep Obat
+													</button>
+												<?php
+												} else if ($value->status == '1') {
+												?>
+													<button type="button" class="btn btn-success" data-toggle="modal" data-target="#selesai<?= $value->id_berobat ?>">
+														Selesai
+													</button>
+												<?php
+												}
+												?>
+
 											</td>
 										</tr>
 									<?php } ?>
@@ -206,7 +196,7 @@
 					<label>Nama Obat</label>
 					<input type="hidden" name="name" class="name">
 					<input type="hidden" name="jenis_obat" class="form-control">
-					<select name="pesan_obat" id="pesan_obat" class="form-control">
+					<select name="id" id="pesan_obat" class="form-control">
 						<option>---Pilih Resep Obat---</option>
 						<?php foreach ($obat as $key => $value) { ?>
 							<option value="<?= $value->id_obat_masuk ?>" data-name=<?= $value->nama_obat ?>><?= $value->nama_obat ?></option>
@@ -232,4 +222,35 @@
 <!-- /.modal -->
 <?php
 echo form_close();
+?>
+
+<?php
+foreach ($pesanan as $key => $value) {
+	echo form_open('data_berobat/selesai/' . $value->id_berobat)
+?>
+	<div class="modal fade" id="selesai<?= $value->id_berobat ?>">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Pesanan Diterima</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Apakah Pesanan <strong><?= $value->id_berobat ?></strong> Sudah Diterima?</p>
+				</div>
+				<div class="modal-footer justify-content-between">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+<?php
+	echo form_close();
+}
 ?>
