@@ -15,14 +15,6 @@ class M_berobat extends CI_Model
 		return $this->db->get()->result();
 	}
 
-	public function resep_obat()
-	{
-		$this->db->select('*');
-		$this->db->from('obat_masuk');
-		$this->db->order_by('id_obat_masuk', 'desc');
-		return $this->db->get()->result();
-	}
-
 	public function data_berobat()
 	{
 		$this->db->select('*');
@@ -70,11 +62,11 @@ class M_berobat extends CI_Model
 
 	public function grafik()
 	{
-		$this->db->select_sum('berobat');
-		$this->db->select('berobat.alamat');
+		// $this->db->select_sum('');
+		$this->db->select('*');
 		$this->db->from('berobat');
 		$this->db->group_by('berobat.id_berobat');
-		$this->db->order_by('berobat', 'desc');
+		$this->db->order_by('id_berobat', 'desc');
 		return $this->db->get()->result();
 	}
 }

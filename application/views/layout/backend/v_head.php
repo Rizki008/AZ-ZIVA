@@ -14,7 +14,7 @@
 	<!-- plugin css for this page -->
 	<!-- End plugin css for this page -->
 	<!-- inject:css -->
-	<link rel="stylesheet" href="<?= base_url() ?>template/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="<?= base_url() ?>template/vendors/select2-bootstrap-theme/select2-bootstrap.min.css"> -->
 	<link rel="stylesheet" href="<?= base_url() ?>template/css/vertical-layout-light/style.css">
 	<!-- endinject -->
 	<link rel="shortcut icon" href="<?= base_url() ?>template/images/favicon.png" />

@@ -92,10 +92,10 @@
 		</div>
 	</div>
 
-
+	<!-- 
 	<?php
 	foreach ($grafik as $key => $value) {
-		$alamat[] = $value->alamat;
+		$status[] = $value->status;
 		$berobat[] = $value->berobat;
 	}
 	?>
@@ -107,7 +107,7 @@
 		var myChart = new Chart(ctx, {
 			type: 'bar',
 			data: {
-				labels: <?= json_encode($alamat) ?>,
+				labels: <?= json_encode($status) ?>,
 				datasets: [{
 					label: 'Grafik Analisis',
 					data: <?= json_encode($berobat) ?>,
@@ -201,7 +201,7 @@
 				}
 			}
 		});
-	</script>
+	</script> -->
 
 
 </div>
