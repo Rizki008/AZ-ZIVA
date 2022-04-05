@@ -25,11 +25,13 @@ class Data_berobat extends CI_Controller
 	{
 		$this->user_login->proteksi_halaman();
 		$data = array(
-			'id' => $this->input->post('pesan_obat'),
+			'id' => $this->input->post('id'),
 			'qty' => $this->input->post('qty'),
-			'name' => $this->input->post('nama'),
+			'name' => $this->input->post('name'),
+			'price' => '0'
 		);
 		$this->cart->insert($data);
+		$this->session->set_flashdata('pesan', 'Berhasil');
 		redirect('data_berobat');
 	}
 
@@ -42,16 +44,16 @@ class Data_berobat extends CI_Controller
 	public function checkout()
 	{
 		$data = array(
-			'id_berobat' => $this->input->post('id_berobat'),
-			'tgl_berobat' => date('Y-m-d'),
+			'no_resep' => $this->input->post('no_resep'),
+			// 'tgl_berobat' => date('Y-m-d'),
 			'status' => '1',
 		);
-		$this->db->insert('berobat', $data);
+		$this->db->update('berobat', $data);
 
 		$i = 1;
 		foreach ($this->cart->contents() as $item) {
 			$data_rinci = array(
-				'id_berobat' => $this->input->post('id_berobat'),
+				'no_resep' => $this->input->post('no_resep'),
 				'id_obat_masuk' => $item['id'],
 				'qty' => $this->input->post('qty' . $i++)
 			);
@@ -70,17 +72,8 @@ class Data_berobat extends CI_Controller
 
 	public function selesai($id_berobat)
 	{
-		$obat = $this->m_obat->detail_pemesanan($id_berobat);
-		foreach ($obat as $key => $value) {
-			$data = array(
-				'tgl_berobat' => date('Y-m-d'),
-				'id_obat_masuk' => $value->id_obat_masuk,
-				'qty' => $value->qty
-			);
-			$this->db->insert('obat_berobat', $data);
-		}
 		$data = array(
-			'status' => '3'
+			'status' => '2'
 		);
 		$this->db->where('id_berobat', $id_berobat);
 		$this->db->update('berobat', $data);
