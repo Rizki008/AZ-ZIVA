@@ -82,8 +82,8 @@
 	console.log = function() {}
 	$("#pesan_obat").on('change', function() {
 
-		$(".nama").html($(this).find(':selected').attr('data-nama'));
-		$(".nama").val($(this).find(':selected').attr('data-nama'));
+		$(".name").html($(this).find(':selected').attr('data-name'));
+		$(".name").val($(this).find(':selected').attr('data-name'));
 	});
 </script>
 <script>
