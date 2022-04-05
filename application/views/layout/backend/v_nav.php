@@ -36,16 +36,10 @@
 			</div>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" data-toggle="collapse" href="#form-logout" aria-expanded="false" aria-controls="form-logout">
-				<i class="typcn typcn-eject"></i>
-				<span class="menu-title">Obat</span>
-				<i class="menu-arrow"></i>
+			<a class="nav-link" href="<?= base_url('auth/logout') ?>">
+				<i class="typcn typcn-arrow-back menu-icon"></i>
+				<span class="menu-title">Logout</span>
 			</a>
-			<div class="collapse" id="form-logout">
-				<ul class="nav flex-column sub-menu">
-					<li class="nav-item"><a class="nav-link" href="<?= base_url('auth/logout_user') ?>">LogOut</a></li>
-				</ul>
-			</div>
 		</li>
 	</ul>
 </nav>
