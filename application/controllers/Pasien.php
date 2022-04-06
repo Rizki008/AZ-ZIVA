@@ -13,6 +13,8 @@ class Pasien extends CI_Controller
 
 	public function register()
 	{
+		$this->form_validation->set_rules('nama_pasien', 'Nama Pasien', 'required', array('required' => '%s Mohon Untuk diisi!!'));
+		$this->form_validation->set_rules('no_berobat', 'Nama Pasien', 'required', array('required' => '%s Mohon Untuk diisi!!'));
 		$this->form_validation->set_rules('username', 'Username', 'required', array('required' => '%s Mohon Untuk diisi!!'));
 		$this->form_validation->set_rules('password', 'Password', 'required', array('required' => '%s Mohon Untuk diisi!!'));
 		$this->form_validation->set_rules('jenis_kl', 'Jenis Kelamin', 'required', array('required' => '%s Mohon Untuk diisi!!'));
@@ -29,12 +31,15 @@ class Pasien extends CI_Controller
 			$this->load->view('layout/frontend/v_wrapper', $data, FALSE);
 		} else {
 			$data = array(
+				'nama_pasien' => $this->input->post('nama_pasien'),
+				'no_berobat' => $this->input->post('no_berobat'),
 				'username' => $this->input->post('username'),
 				'password' => $this->input->post('password'),
 				'jenis_kl' => $this->input->post('jenis_kl'),
 				'usia' => $this->input->post('usia'),
 				'alamat' => $this->input->post('alamat'),
 				'bpjs' => $this->input->post('bpjs'),
+				'datang_berobat' => 1,
 			);
 			$this->m_pasien->register($data);
 			$this->session->set_flashdata('pesan', 'Registrasi Berhasil, Silahkan Untuk Login');
@@ -68,25 +73,36 @@ class Pasien extends CI_Controller
 	public function berobat()
 	{
 		$this->pasien_login->proteksi_halaman();
+		$data = array(
+			'title' => 'Daftar Berobat',
+			'isi' => 'layout/frontend/berobat/v_berobat'
+		);
+		$this->load->view('layout/frontend/v_wrapper', $data, FALSE);
+	}
+
+	public function berobat_baru()
+	{
+		$this->pasien_login->proteksi_halaman();
 		$this->form_validation->set_rules('no_antrian', 'No Antrain', 'required', array('required' => '%s Mohon Untuk Diisi!!'));
-		$this->form_validation->set_rules('tgl_berobat', 'Tanggal Berobat', 'required', array('required' => '%s Mohon Untuk diisi!!'));
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = array(
 				'title' => 'Daftar Berobat',
-				'isi' => 'layout/frontend/berobat/v_berobat'
+				'isi' => 'layout/frontend/berobat/v_berobat_baru'
 			);
 			$this->load->view('layout/frontend/v_wrapper', $data, FALSE);
 		} else {
 			$data = array(
 				'id_pasien' => $this->session->userdata('id_pasien'),
 				'no_antrian' => $this->input->post('no_antrian'),
-				'tgl_berobat' => $this->input->post('tgl_berobat'),
+				'tgl_berobat' => date('Y-m-d'),
 				'status' => 0,
+				'berobat' => 1,
 			);
 			$this->m_pasien->add($data);
 			$this->session->set_flashdata('pesan', 'Daftar Berobat Berhasil');
 			redirect('home');
+			// }
 		}
 	}
 }
