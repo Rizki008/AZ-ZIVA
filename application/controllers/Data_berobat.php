@@ -16,6 +16,7 @@ class Data_berobat extends CI_Controller
 			'title' => 'Resep Obat',
 			'obat' => $this->m_obat->pesan_obat(),
 			'pesanan' => $this->m_obat->pemesanan(),
+			'berobat' => $this->m_obat->berobat(),
 			'isi' => 'layout/backend/berobat/v_data_berobat'
 		);
 		$this->load->view('layout/backend/v_wrapper', $data, FALSE);
@@ -45,8 +46,7 @@ class Data_berobat extends CI_Controller
 	{
 		$data = array(
 			'no_resep' => $this->input->post('no_resep'),
-			// 'tgl_berobat' => date('Y-m-d'),
-			'status' => '1',
+			'status' => '3',
 		);
 		$this->db->update('berobat', $data);
 
@@ -73,11 +73,26 @@ class Data_berobat extends CI_Controller
 	public function selesai($id_berobat)
 	{
 		$data = array(
-			'status' => '2'
+			'status' => '4'
 		);
 		$this->db->where('id_berobat', $id_berobat);
 		$this->db->update('berobat', $data);
 		$this->session->set_flashdata('pesan', 'Pesanan Diterima!!!');
+		redirect('data_berobat');
+	}
+
+	public function update($id_berobat = NULL)
+	{
+		$data = array(
+			'id_berobat' => $id_berobat,
+			'tgl_berobat' => date('Y-m-d'),
+			'nama_dokter' => $this->input->post('nama_dokter'),
+			'gejala' => $this->input->post('gejala'),
+			'datang' => $this->input->post('datang'),
+			'status' => 2,
+		);
+		$this->m_obat->periksa($data);
+		$this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan');
 		redirect('data_berobat');
 	}
 }
