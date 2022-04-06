@@ -19,6 +19,11 @@ class M_pasien extends CI_Model
 
 	public function add($data)
 	{
-		$this->db->insert('berobat', $data);
+		$this->db->insert('booking_berobat', $data);
+	}
+
+	public function boking()
+	{
+		return $this->db->query('SELECT MAX(no_antrian +1)AS antrian FROM `booking_berobat` WHERE tgl_berobat GROUP BY tgl_berobat')->row();
 	}
 }
