@@ -43,39 +43,29 @@ class Berobat extends CI_Controller
 		$this->load->view('layout/backend/v_wrapper', $data, FALSE);
 	}
 
-	public function proses($id_berobat = NULL)
+	public function proses($id_boking = NULL)
 	{
 		$data = array(
-			'id_berobat' => $id_berobat,
+			'id_boking' => $id_boking,
 			'status' => 1,
 		);
 		$this->m_berobat->update($data);
 		$this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan');
-		redirect('berobat');
+		redirect('data_berobat');
 	}
 
-	public function resep_obat()
-	{
-		$data = array(
-			'title' => 'Data Obat',
-			'resep_obat' => $this->m_berobat->resep_obat(),
-			'isi' => 'layout/backend/obat/v_detail_obat'
-		);
-		$this->load->view('layout/backend/v_wrapper', $data, FALSE);
-	}
 
 	public function update($id_berobat = NULL)
 	{
 		$data = array(
 			'id_berobat' => $id_berobat,
 			'nama_dokter' => $this->input->post('nama_dokter'),
-			'nama_penyakit' => $this->input->post('nama_penyakit'),
-			'berobat' => $this->input->post('berobat'),
-			'status' => 2,
+			'gejala' => $this->input->post('gejala'),
+			'status' => 1,
 		);
 		$this->m_berobat->update($data);
 		$this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan');
-		redirect('berobat/pasien_berobat');
+		redirect('data_berobat');
 	}
 
 	public function delete($id_berobat = NULL)
