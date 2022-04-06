@@ -44,7 +44,7 @@ class Obat extends CI_Controller
 		$data = array(
 			'nama_obat' => $this->input->post('nama_obat'),
 			'jenis_obat' => $this->input->post('jenis_obat'),
-			'qty' => $this->input->post('qty'),
+			'stock' => $this->input->post('stock'),
 		);
 		$this->m_obat->add_obat_masuk($data);
 		$this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan');
@@ -57,7 +57,7 @@ class Obat extends CI_Controller
 			'id_obat_masuk' => $id_obat_masuk,
 			'nama_obat' => $this->input->post('nama_obat'),
 			'jenis_obat' => $this->input->post('jenis_obat'),
-			'qty' => $this->input->post('qty'),
+			'stock' => $this->input->post('stock'),
 		);
 		$this->m_obat->edit_obat_masuk($data);
 		$this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan');
