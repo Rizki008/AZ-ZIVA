@@ -18,6 +18,9 @@ class Pasien_login
 
 		if ($cek) {
 			$id_pasien = $cek->id_pasien;
+			$nama_pasien = $cek->nama_pasien;
+			$no_berobat = $cek->no_berobat;
+			$datang_berobat = $cek->datang_berobat;
 			$username = $cek->username;
 			$password = $cek->password;
 			$jenis_kl = $cek->jenis_kl;
@@ -27,6 +30,9 @@ class Pasien_login
 			$foto = $cek->foto;
 
 			$this->ci->session->set_userdata('id_pasien', $id_pasien);
+			$this->ci->session->set_userdata('nama_pasien', $nama_pasien);
+			$this->ci->session->set_userdata('no_berobat', $no_berobat);
+			$this->ci->session->set_userdata('datang_berobat', $datang_berobat);
 			$this->ci->session->set_userdata('username', $username);
 			$this->ci->session->set_userdata('password', $password);
 			$this->ci->session->set_userdata('jenis_kl', $jenis_kl);
@@ -52,6 +58,9 @@ class Pasien_login
 
 	public function logout()
 	{
+		$this->ci->session->unset_userdata('nama_pasien');
+		$this->ci->session->unset_userdata('no_berobat');
+		$this->ci->session->unset_userdata('datang_berobat');
 		$this->ci->session->unset_userdata('username');
 		$this->ci->session->unset_userdata('password');
 		$this->ci->session->unset_userdata('jenis_kl');
