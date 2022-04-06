@@ -16,14 +16,14 @@
 										<th>No</th>
 										<th>Nama Obat</th>
 										<th>Jenis Obat</th>
-										<th>jml_obat</th>
+										<th>Jumlah Obat Keluar</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php
 									$no = 1;
-									foreach ($obat as $key => $value) { ?>
+									foreach ($obat_keluar as $key => $value) { ?>
 										<tr>
 											<td><?= $no++ ?></td>
 											<td><?= $value->nama_obat ?></td>
@@ -34,14 +34,14 @@
 											<?php } else { ?>
 												<td><label class="badge badge-warning"><?= $value->jenis_obat ?></label></td>
 											<?php } ?>
-											<?php if ($value->jml_obat <= 50) { ?>
-												<td class="text-danger"> <?= $value->jml_obat ?> <i class="typcn typcn-arrow-down-thick"></i></td>
+											<?php if ($value->qty >= 50) { ?>
+												<td class="text-danger"> <?= $value->qty ?> <i class="typcn typcn-arrow-forward-outline"></i></td>
 											<?php } else { ?>
-												<td class="text-success"> <?= $value->jml_obat ?> <i class="typcn typcn-arrow-up-thick"></i></td>
+												<td class="text-warning"> <?= $value->qty ?> <i class="typcn typcn-arrow-forward-outline"></i></td>
 											<?php } ?>
 											<td>
-												<button class="btn btn-warning btn-rounded btn-fw" data-toggle="modal" data-target="#edit<?= $value->id_obat ?>"><i class="typcn typcn-edit"></i>Edit</button>
-												<button class="btn btn-danger btn-rounded btn-fw" data-toggle="modal" data-target="#delete<?= $value->id_obat ?>"><i class="typcn typcn-delete"></i>Delete</button>
+												<button class="btn btn-warning btn-rounded btn-fw" data-toggle="modal" data-target="#edit<?= $value->id_obat_keluar ?>"><i class="typcn typcn-edit"></i>Edit</button>
+												<button class="btn btn-danger btn-rounded btn-fw" data-toggle="modal" data-target="#delete<?= $value->id_obat_keluar ?>"><i class="typcn typcn-delete"></i>Delete</button>
 											</td>
 										</tr>
 									<?php } ?>
@@ -93,7 +93,7 @@
 		</div>
 	</div>
 </div>
-
+<!-- 
 <?php foreach ($obat as $key => $value) { ?>
 	<div class="modal fade" id="edit<?= $value->id_obat ?>">
 		<div class="modal-dialog">
@@ -154,4 +154,4 @@
 			</div>
 		</div>
 	</div>
-<?php } ?>
+<?php } ?> -->
