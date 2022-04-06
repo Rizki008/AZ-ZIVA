@@ -16,7 +16,7 @@
 										<th>No</th>
 										<th>Nama Obat</th>
 										<th>Jenis Obat</th>
-										<th>qty</th>
+										<th>stock</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -34,10 +34,10 @@
 											<?php } else { ?>
 												<td><label class="badge badge-warning"><?= $value->jenis_obat ?></label></td>
 											<?php } ?>
-											<?php if ($value->qty <= 50) { ?>
-												<td class="text-danger"> <?= $value->qty ?> <i class="typcn typcn-arrow-down-thick"></i></td>
+											<?php if ($value->stock <= 50) { ?>
+												<td class="text-danger"> <?= $value->stock ?> <i class="typcn typcn-arrow-down-thick"></i></td>
 											<?php } else { ?>
-												<td class="text-success"> <?= $value->qty ?> <i class="typcn typcn-arrow-up-thick"></i></td>
+												<td class="text-success"> <?= $value->stock ?> <i class="typcn typcn-arrow-up-thick"></i></td>
 											<?php } ?>
 											<td>
 												<button class="btn btn-warning btn-rounded btn-fw" data-toggle="modal" data-target="#edit<?= $value->id_obat_masuk ?>"><i class="typcn typcn-edit"></i>Edit</button>
@@ -80,7 +80,7 @@
 				</div>
 				<div class="form-group">
 					<label>Jumlah Obat</label>
-					<input type="text" name="qty" value="<?= set_value('qty') ?>" class="form-control" placeholder="Stokc" required>
+					<input type="text" name="stock" value="<?= set_value('stock') ?>" class="form-control" placeholder="Stokc" required>
 				</div>
 			</div>
 			<div class="modal-footer justify-content-between">
@@ -119,7 +119,7 @@
 					</div>
 					<div class="form-group">
 						<label>Jumlah Obat</label>
-						<input type="text" name="qty" value="<?= $value->qty ?>" class="form-control" placeholder="qty" required>
+						<input type="text" name="stock" value="<?= $value->stock ?>" class="form-control" placeholder="stock" required>
 					</div>
 				</div>
 				<div class="modal-footer justify-content-between">
