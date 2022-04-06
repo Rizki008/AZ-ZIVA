@@ -17,7 +17,6 @@
 				<ul class="nav flex-column sub-menu">
 					<li class="nav-item"> <a class="nav-link" href="<?= base_url('berobat') ?>">Pasien Booking Berobat</a></li>
 					<li class="nav-item"> <a class="nav-link" href="<?= base_url('data_berobat') ?>">Pasien Berobat</a></li>
-					<li class="nav-item"> <a class="nav-link" href="<?= base_url('berobat/pasien_selesai_berobat') ?>">Pasien Selesai Berobat</a></li>
 				</ul>
 			</div>
 		</li>
@@ -31,12 +30,24 @@
 				<ul class="nav flex-column sub-menu">
 					<li class="nav-item"><a class="nav-link" href="<?= base_url('obat/obat_masuk') ?>">Data Obat Masuk</a></li>
 					<li class="nav-item"><a class="nav-link" href="<?= base_url('obat/obat_keluar') ?>">Data Obat Keluar</a></li>
-					<li class="nav-item"><a class="nav-link" href="<?= base_url('obat') ?>">Data Obat</a></li>
 				</ul>
 			</div>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="<?= base_url('auth/logout') ?>">
+			<a class="nav-link" data-toggle="collapse" href="#form-elements-tari" aria-expanded="false" aria-controls="form-elements">
+				<i class="typcn typcn-business-card menu-icon"></i>
+				<span class="menu-title">Data Pasien</span>
+				<i class="menu-arrow"></i>
+			</a>
+			<div class="collapse" id="form-elements-tari">
+				<ul class="nav flex-column sub-menu">
+					<li class="nav-item"><a class="nav-link" href="<?= base_url('admin/bpjs') ?>">BPJS</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?= base_url('admin/non_bpjs') ?>">Non BPJS</a></li>
+				</ul>
+			</div>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="<?= base_url('auth/logout_user') ?>">
 				<i class="typcn typcn-arrow-back menu-icon"></i>
 				<span class="menu-title">Logout</span>
 			</a>
