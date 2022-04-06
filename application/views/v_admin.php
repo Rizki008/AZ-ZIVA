@@ -8,10 +8,10 @@
 					<div class="card">
 						<div class="card-body d-flex flex-column justify-content-between">
 							<div class="d-flex justify-content-between align-items-center mb-2">
-								<p class="mb-0 text-muted">Transactions</p>
-								<p class="mb-0 text-muted">+1.37%</p>
+								<p class="mb-0 text-muted">Data Pasien</p>
+								<p class="mb-0 text-muted"></p>
 							</div>
-							<h4>1352</h4>
+							<h4><?= $total_pasien ?></h4>
 							<canvas id="transactions-chart" class="mt-auto" height="65"></canvas>
 						</div>
 					</div>
@@ -21,16 +21,12 @@
 						<div class="card-body d-flex flex-column justify-content-between">
 							<div class="d-flex justify-content-between align-items-center mb-2">
 								<div>
-									<p class="mb-2 text-muted">Sales</p>
-									<h6 class="mb-0">563</h6>
+									<p class="mb-2 text-muted">Daftar Berobat</p>
+									<h6 class="mb-0"><?= $total_daftar ?></h6>
 								</div>
 								<div>
-									<p class="mb-2 text-muted">Orders</p>
-									<h6 class="mb-0">720</h6>
-								</div>
-								<div>
-									<p class="mb-2 text-muted">Revenue</p>
-									<h6 class="mb-0">5900</h6>
+									<p class="mb-2 text-muted">Total Pasien Berobat</p>
+									<h6 class="mb-0"><?= $total_berobat ?></h6>
 								</div>
 							</div>
 							<canvas id="sales-chart-a" class="mt-auto" height="65"></canvas>
@@ -42,36 +38,35 @@
 				<div class="col-md-6 stretch-card grid-margin grid-margin-md-0">
 					<div class="card">
 						<div class="card-body d-flex flex-column justify-content-between">
-							<p class="text-muted">Sales Analytics</p>
+							<p class="text-muted">Total Obat</p>
 							<div class="d-flex justify-content-between align-items-center mb-2">
-								<h3 class="mb-">27632</h3>
-								<h3 class="mb-">78%</h3>
+								<h3 class="mb-"><?= $total_obat ?></h3>
 							</div>
 							<canvas id="sales-chart-b" class="mt-auto" height="38"></canvas>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6 stretch-card">
+				<!-- <div class="col-md-6 stretch-card">
 					<div class="card">
 						<div class="card-body">
 							<div class="row h-100">
 								<div class="col-6 d-flex flex-column justify-content-between">
-									<p class="text-muted">CPU</p>
+									<p class="text-muted">BPJS</p>
 									<h4>55%</h4>
 									<canvas id="cpu-chart" class="mt-auto"></canvas>
 								</div>
 								<div class="col-6 d-flex flex-column justify-content-between">
-									<p class="text-muted">Memory</p>
-									<h4>123,65</h4>
+									<p class="text-muted">Non BPJS</p>
+									<h4><?= $total_non_bpjs ?></h4>
 									<canvas id="memory-chart" class="mt-auto"></canvas>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
-		<div class="col-xl-6 grid-margin stretch-card flex-column">
+		<!-- <div class="col-xl-6 grid-margin stretch-card flex-column">
 			<h5 class="mb-2 text-titlecase mb-4">Income statistics</h5>
 			<div class="row h-100">
 				<div class="col-md-12 stretch-card">
@@ -89,14 +84,14 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
-	<!-- 
+
 	<?php
 	foreach ($grafik as $key => $value) {
-		$status[] = $value->status;
-		$berobat[] = $value->berobat;
+		$nama_obat[] = $value->nama_obat;
+		$qty[] = $value->qty;
 	}
 	?>
 
@@ -107,10 +102,10 @@
 		var myChart = new Chart(ctx, {
 			type: 'bar',
 			data: {
-				labels: <?= json_encode($status) ?>,
+				labels: <?= json_encode($nama_obat) ?>,
 				datasets: [{
-					label: 'Grafik Analisis',
-					data: <?= json_encode($berobat) ?>,
+					label: 'Grafik Analisis Stock Obat',
+					data: <?= json_encode($qty) ?>,
 					backgroundColor: [
 						'rgba(255, 99, 132, 0.80)',
 						'rgba(54, 162, 235, 0.80)',
@@ -201,7 +196,7 @@
 				}
 			}
 		});
-	</script> -->
+	</script>
 
 
 </div>
