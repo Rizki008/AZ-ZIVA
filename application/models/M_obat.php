@@ -23,7 +23,17 @@ class M_obat extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('obat_keluar');
+		$this->db->join('obat_masuk', 'obat_keluar.id_obat_masuk = obat_masuk.id_obat_masuk', 'left');
 		$this->db->order_by('id_obat_keluar', 'desc');
+		return $this->db->get()->result();
+	}
+	public function berobat()
+	{
+		$this->db->select('*');
+		$this->db->from('berobat');
+		$this->db->join('booking_berobat', 'berobat.id_boking = booking_berobat.id_boking', 'left');
+		$this->db->join('pasien', 'booking_berobat.id_pasien = pasien.id_pasien', 'left');
+		$this->db->order_by('id_berobat', 'desc');
 		return $this->db->get()->result();
 	}
 
@@ -33,7 +43,7 @@ class M_obat extends CI_Model
 		$id = '0';
 		$this->db->select('*');
 		$this->db->from('obat_masuk');
-		$this->db->where('obat_masuk.qty!=', $id);
+		$this->db->where('obat_masuk.stock!=', $id);
 
 		return $this->db->get()->result();
 	}
@@ -70,6 +80,12 @@ class M_obat extends CI_Model
 		$this->db->from('obat');
 		$this->db->where('id_obat', $id_obat);
 		return $this->db->get()->row();
+	}
+
+	public function periksa($data)
+	{
+		$this->db->where('id_berobat', $data['id_berobat']);
+		$this->db->update('berobat', $data);
 	}
 
 	public function add_obat_masuk($data)
