@@ -85,13 +85,38 @@
 				</div>
 			</div>
 		</div> -->
+		<div class="col-md-6">
+			<div class="card">
+				<div class="table-responsive pt-3">
+					<table class="table table-striped project-orders-table">
+						<thead>
+							<tr>
+								<th class="ml-5">ID</th>
+								<th>Alamat</th>
+								<th>Total Alamat Pasein</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php $no = 1;
+							foreach ($grafik_alamat as $key => $value) {
+								$total = $this->m_pasien->grafik_alamat(); ?>
+								<tr>
+									<td><?= $no++ ?></td>
+									<td><?= $value->alamat ?></td>
+									<td><?= $value->total ?></td>
+								</tr>
+							<?php } ?>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
 	</div>
-
 
 	<?php
 	foreach ($grafik as $key => $value) {
 		$nama_obat[] = $value->nama_obat;
-		$qty[] = $value->qty;
+		$stock[] = $value->stock;
 	}
 	?>
 
@@ -105,7 +130,7 @@
 				labels: <?= json_encode($nama_obat) ?>,
 				datasets: [{
 					label: 'Grafik Analisis Stock Obat',
-					data: <?= json_encode($qty) ?>,
+					data: <?= json_encode($stock) ?>,
 					backgroundColor: [
 						'rgba(255, 99, 132, 0.80)',
 						'rgba(54, 162, 235, 0.80)',
@@ -197,6 +222,7 @@
 			}
 		});
 	</script>
+
 
 
 </div>

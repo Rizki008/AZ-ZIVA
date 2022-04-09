@@ -57,10 +57,10 @@
 				<ul class="nav flex-column sub-menu">
 					<li class="nav-item"><a class="nav-link <?php if ($this->uri->segment(1) == 'bpjs') {
 																echo "active";
-															} ?>" href="<?= base_url('admin/bpjs') ?>">BPJS</a></li>
+															} ?>" href="<?= base_url('obat/bpjs') ?>">BPJS</a></li>
 					<li class="nav-item"><a class="nav-link <?php if ($this->uri->segment(1) == 'non_bpjs') {
 																echo "active";
-															} ?>" href="<?= base_url('admin/non_bpjs') ?>">Non BPJS</a></li>
+															} ?>" href="<?= base_url('obat/non_bpjs') ?>">Non BPJS</a></li>
 				</ul>
 			</div>
 		</li>

@@ -9,6 +9,7 @@ class Obat extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('m_obat');
+		$this->load->model('m_admin');
 	}
 
 	public function index()
@@ -35,6 +36,28 @@ class Obat extends CI_Controller
 			'title' => 'Data Obat',
 			'obat_keluar' => $this->m_obat->obat_keluar(),
 			'isi' => 'layout/backend/obat/v_obat_keluar'
+		);
+		$this->load->view('layout/backend/v_wrapper', $data, FALSE);
+	}
+
+	// Add a new item
+	public function bpjs()
+	{
+		$data = array(
+			'title' => 'Data Pasien BPJS',
+			'bpjs' => $this->m_admin->bpjs(),
+			'isi' => 'layout/backend/pasien/v_bpjs'
+		);
+		$this->load->view('layout/backend/v_wrapper', $data, FALSE);
+	}
+
+	//Update one item
+	public function non_bpjs()
+	{
+		$data = array(
+			'title' => 'Data Pasien BPJS',
+			'non_bpjs' => $this->m_admin->non_bpjs(),
+			'isi' => 'layout/backend/pasien/v_non_bpjs'
 		);
 		$this->load->view('layout/backend/v_wrapper', $data, FALSE);
 	}

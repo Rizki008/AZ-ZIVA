@@ -10,6 +10,7 @@ class Admin extends CI_Controller
 		parent::__construct();
 		$this->load->model('m_berobat');
 		$this->load->model('m_admin');
+		$this->load->model('m_pasien');
 	}
 
 	// List all your items
@@ -22,6 +23,7 @@ class Admin extends CI_Controller
 			'total_daftar' => $this->m_admin->total_daftar(),
 			'total_berobat' => $this->m_admin->total_berobat(),
 			'grafik' => $this->m_berobat->grafik(),
+			'grafik_alamat' => $this->m_pasien->grafik_alamat(),
 			'isi' => 'v_admin'
 		);
 		$this->load->view('layout/backend/v_wrapper', $data, FALSE);

@@ -63,12 +63,12 @@ class M_berobat extends CI_Model
 
 	public function grafik()
 	{
-		$this->db->select_sum('qty');
-		$this->db->select('obat_masuk.nama_obat');
-		$this->db->from('obat_keluar');
-		$this->db->join('obat_masuk', 'obat_keluar.id_obat_masuk = obat_masuk.id_obat_masuk', 'left');
-		$this->db->group_by('obat_keluar.id_obat_keluar');
-		$this->db->order_by('id_obat_keluar', 'desc');
+		// $this->db->select_sum('qty');
+		$this->db->select('*');
+		$this->db->from('obat_masuk');
+		// $this->db->join('obat_masuk', 'obat_keluar.id_obat_masuk = obat_masuk.id_obat_masuk', 'left');
+		// $this->db->group_by('obat_keluar.id_obat_keluar');
+		$this->db->order_by('stock', 'desc');
 		return $this->db->get()->result();
 	}
 }
