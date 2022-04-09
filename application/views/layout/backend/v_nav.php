@@ -2,7 +2,11 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
 	<ul class="nav">
 		<li class="nav-item">
-			<a class="nav-link" href="<?= base_url('admin') ?>">
+			<a class="nav-link <?php if (
+									$this->uri->segment(1) == 'admin' and $this->uri->segment(2) == " "
+								) {
+									echo "active";
+								} ?>" href="<?= base_url('admin') ?>">
 				<i class="typcn typcn-device-desktop menu-icon"></i>
 				<span class="menu-title">Dashboard</span>
 			</a>
@@ -15,8 +19,14 @@
 			</a>
 			<div class="collapse" id="ui-basic">
 				<ul class="nav flex-column sub-menu">
-					<li class="nav-item"> <a class="nav-link" href="<?= base_url('berobat') ?>">Pasien Booking Berobat</a></li>
-					<li class="nav-item"> <a class="nav-link" href="<?= base_url('data_berobat') ?>">Pasien Berobat</a></li>
+					<li class="nav-item"> <a class="nav-link <?php if (
+																	$this->uri->segment(1) == 'berobat'
+																) {
+																	echo "active";
+																} ?>" href="<?= base_url('berobat') ?>">Pasien Booking Berobat</a></li>
+					<li class="nav-item"> <a class="nav-link <?php if ($this->uri->segment(1) == 'data_berobat') {
+																	echo "active";
+																} ?>" href="<?= base_url('data_berobat') ?>">Pasien Berobat</a></li>
 				</ul>
 			</div>
 		</li>
@@ -28,8 +38,12 @@
 			</a>
 			<div class="collapse" id="form-elements">
 				<ul class="nav flex-column sub-menu">
-					<li class="nav-item"><a class="nav-link" href="<?= base_url('obat/obat_masuk') ?>">Data Obat Masuk</a></li>
-					<li class="nav-item"><a class="nav-link" href="<?= base_url('obat/obat_keluar') ?>">Data Obat Keluar</a></li>
+					<li class="nav-item"><a class="nav-link <?php if ($this->uri->segment(1) == 'berobat') {
+																echo "active";
+															} ?>" href="<?= base_url('obat/obat_masuk') ?>">Data Obat Masuk</a></li>
+					<li class="nav-item"><a class="nav-link <?php if ($this->uri->segment(1) == "obat_keluar") {
+																echo "active";
+															} ?>" href="<?= base_url('obat/obat_keluar') ?>">Data Obat Keluar</a></li>
 				</ul>
 			</div>
 		</li>
@@ -41,8 +55,12 @@
 			</a>
 			<div class="collapse" id="form-elements-tari">
 				<ul class="nav flex-column sub-menu">
-					<li class="nav-item"><a class="nav-link" href="<?= base_url('admin/bpjs') ?>">BPJS</a></li>
-					<li class="nav-item"><a class="nav-link" href="<?= base_url('admin/non_bpjs') ?>">Non BPJS</a></li>
+					<li class="nav-item"><a class="nav-link <?php if ($this->uri->segment(1) == 'bpjs') {
+																echo "active";
+															} ?>" href="<?= base_url('admin/bpjs') ?>">BPJS</a></li>
+					<li class="nav-item"><a class="nav-link <?php if ($this->uri->segment(1) == 'non_bpjs') {
+																echo "active";
+															} ?>" href="<?= base_url('admin/non_bpjs') ?>">Non BPJS</a></li>
 				</ul>
 			</div>
 		</li>

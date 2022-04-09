@@ -88,8 +88,8 @@ class Pasien extends CI_Controller
 		if ($this->form_validation->run() == FALSE) {
 			$data = array(
 				'title' => 'Daftar Berobat',
-				'hapus_otomatis' => $this->m_pasien->hapus_otomatis(),
-				'hapus_data' => $this->m_pasien->hapus_data(),
+				// 'hapus_otomatis' => $this->m_pasien->hapus_otomatis(),
+				// 'hapus_data' => $this->m_pasien->hapus_data(),
 				'isi' => 'layout/frontend/berobat/v_berobat_baru'
 			);
 			$this->load->view('layout/frontend/v_wrapper', $data, FALSE);

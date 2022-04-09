@@ -13,8 +13,8 @@ class Home extends CI_Controller
 	{
 		$data = array(
 			'title' => 'Home',
-			'hapus_otomatis' => $this->m_pasien->hapus_otomatis(),
-			'hapus_data' => $this->m_pasien->hapus_data(),
+			// 'hapus_otomatis' => $this->m_pasien->hapus_otomatis(),
+			// 'hapus_data' => $this->m_pasien->hapus_data(),
 			'isi' => 'v_home'
 		);
 		$this->load->view('layout/frontend/v_wrapper', $data, FALSE);
