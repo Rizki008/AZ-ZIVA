@@ -30,7 +30,7 @@
 						<div class="row g-3">
 							<div class="col-12 col-sm-6">
 								<label for="">No Berobat</label>
-								<input type="number" name="no_berobat" value="<?= $this->session->userdata('no_berobat') ?>" class="form-control border-0" readonly style="height: 55px;">
+								<input type="text" name="no_berobat" value="<?= $this->session->userdata('no_berobat') ?>" class="form-control border-0" readonly style="height: 55px;">
 							</div>
 							<div class="col-12 col-sm-6">
 								<label for="">Nama</label>
