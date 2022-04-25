@@ -14,6 +14,10 @@ class M_admin extends CI_Model
 	{
 		return $this->db->get('obat_masuk')->num_rows();
 	}
+	public function total_obat_keluar()
+	{
+		return $this->db->get('obat_keluar')->num_rows();
+	}
 	public function total_daftar()
 	{
 		return $this->db->get('booking_berobat')->num_rows();

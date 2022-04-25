@@ -30,7 +30,9 @@ class User_login
 			if ($level == 1) {
 				redirect('admin');
 			} elseif ($level == 2) {
-				redirect('meneger');
+				redirect('pemilik');
+			}elseif ($level == 3) {
+				redirect('apotek');
 			}
 		} else {
 			$this->ci->session->set_flashdata('pesan', 'Username atau Password Salah');

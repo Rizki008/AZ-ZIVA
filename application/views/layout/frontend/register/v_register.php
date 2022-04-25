@@ -84,7 +84,7 @@
 							<button class="btn btn-primary w-100 py-3" type="submit">Registrasi</button>
 						</div>
 						<div class="col-12">
-							<a href="<?= base_url('pasien/login') ?>" class="btn btn-primary w-100 py-3">Login</a>
+							<a href="<?= base_url('pasien/login') ?>" class="btn btn-success w-100 py-3">Login</a>
 						</div>
 					</div>
 					<?php echo form_close() ?>

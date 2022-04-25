@@ -35,82 +35,9 @@
 				</div>
 			</div>
 			<div class="row h-100">
-				<div class="col-md-6 stretch-card grid-margin grid-margin-md-0">
-					<div class="card">
-						<div class="card-body d-flex flex-column justify-content-between">
-							<p class="text-muted">Total Obat</p>
-							<div class="d-flex justify-content-between align-items-center mb-2">
-								<h3 class="mb-"><?= $total_obat ?></h3>
-							</div>
-							<canvas id="sales-chart-b" class="mt-auto" height="38"></canvas>
-						</div>
-					</div>
-				</div>
-				<!-- <div class="col-md-6 stretch-card">
-					<div class="card">
-						<div class="card-body">
-							<div class="row h-100">
-								<div class="col-6 d-flex flex-column justify-content-between">
-									<p class="text-muted">BPJS</p>
-									<h4>55%</h4>
-									<canvas id="cpu-chart" class="mt-auto"></canvas>
-								</div>
-								<div class="col-6 d-flex flex-column justify-content-between">
-									<p class="text-muted">Non BPJS</p>
-									<h4><?= $total_non_bpjs ?></h4>
-									<canvas id="memory-chart" class="mt-auto"></canvas>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> -->
 			</div>
 		</div>
-		<!-- <div class="col-xl-6 grid-margin stretch-card flex-column">
-			<h5 class="mb-2 text-titlecase mb-4">Income statistics</h5>
-			<div class="row h-100">
-				<div class="col-md-12 stretch-card">
-					<div class="card">
-						<div class="card-body">
-							<div class="d-flex justify-content-between align-items-start flex-wrap">
-								<div>
-									<p class="mb-3">Monthly Increase</p>
-									<h3>67842</h3>
-								</div>
-								<div id="income-chart-legend" class="d-flex flex-wrap mt-1 mt-md-0"></div>
-							</div>
-							<canvas id="income-chart"></canvas>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> -->
-		<div class="col-md-6">
-			<div class="card">
-				<div class="table-responsive pt-3">
-					<table class="table table-striped project-orders-table">
-						<thead>
-							<tr>
-								<th class="ml-5">ID</th>
-								<th>Alamat</th>
-								<th>Total Alamat Pasein</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php $no = 1;
-							foreach ($grafik_alamat as $key => $value) {
-								$total = $this->m_pasien->grafik_alamat(); ?>
-								<tr>
-									<td><?= $no++ ?></td>
-									<td><?= $value->alamat ?></td>
-									<td><?= $value->total ?></td>
-								</tr>
-							<?php } ?>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
+		
 	</div>
 
 	<?php

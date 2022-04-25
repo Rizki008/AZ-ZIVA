@@ -30,7 +30,7 @@
 				</ul>
 			</div>
 		</li>
-		<li class="nav-item">
+		<!-- <li class="nav-item">
 			<a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
 				<i class="typcn typcn-film menu-icon"></i>
 				<span class="menu-title">Obat</span>
@@ -63,7 +63,7 @@
 															} ?>" href="<?= base_url('obat/non_bpjs') ?>">Non BPJS</a></li>
 				</ul>
 			</div>
-		</li>
+		</li> -->
 		<li class="nav-item">
 			<a class="nav-link" href="<?= base_url('auth/logout_user') ?>">
 				<i class="typcn typcn-arrow-back menu-icon"></i>

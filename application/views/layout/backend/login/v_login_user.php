@@ -26,10 +26,10 @@
 					<div class="col-lg-4 mx-auto">
 						<div class="auth-form-light text-left py-5 px-4 px-sm-5">
 							<div class="brand-logo">
-								<img src="<?= base_url() ?>template/images/logo-dark.svg" alt="logo">
+								<!-- <img src="<?= base_url() ?>template/images/logo-dark.svg" alt="logo"> -->
 							</div>
-							<h4>Hello! let's get started</h4>
-							<h6 class="font-weight-light">Sign in to continue.</h6>
+							<h4>Klinik Az-ziva</h4>
+							<h6 class="font-weight-light">Silahkan Untuk Login</h6>
 							<form class="pt-3" action="<?= base_url('auth/user_login') ?>" method="POST">
 								<div class="form-group">
 									<input type="text" name="username" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
@@ -38,7 +38,7 @@
 									<input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
 								</div>
 								<div class="mt-3">
-									<button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN IN</button>
+									<button type="submit" class="btn btn-block btn-success btn-lg font-weight-medium auth-form-btn">SIGN IN</button>
 								</div>
 							</form>
 						</div>

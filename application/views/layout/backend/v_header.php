@@ -1,7 +1,7 @@
-<body>
+<body class="sidebar-dark">
 	<div class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
-		<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+		<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row navbar-dark">
 			<div class="navbar-brand-wrapper d-flex justify-content-center">
 				<div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
 					<a class="navbar-brand brand-logo" href="<?= base_url('admin') ?>"><img src="<?= base_url() ?>template/images/logo.svg" alt="logo" /></a>

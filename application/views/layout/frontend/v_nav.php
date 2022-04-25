@@ -13,7 +13,7 @@
 				<?php if ($this->session->userdata('username') == "") { ?>
 					<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Register/Login</a>
 					<div class="dropdown-menu rounded-0 rounded-bottom m-0">
-						<a href="<?= base_url('pasien/register') ?>" class="dropdown-item">Register/Login</a>
+						<a href="<?= base_url('pasien/login') ?>" class="dropdown-item">Register/Login</a>
 					</div>
 				<?php } else { ?>
 					<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><?= $this->session->userdata('username'); ?></a>

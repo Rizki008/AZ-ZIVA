@@ -17,49 +17,27 @@ class Obat extends CI_Controller
 		$data = array(
 			'title' => 'Data Obat',
 			'obat' => $this->m_obat->obat(),
-			'isi' => 'layout/backend/obat/v_obat'
+			'isi' => 'layout/apotek/obat/v_obat'
 		);
-		$this->load->view('layout/backend/v_wrapper', $data, FALSE);
+		$this->load->view('layout/apotek/v_wrapper', $data, FALSE);
 	}
 	public function obat_masuk()
 	{
 		$data = array(
 			'title' => 'Data Obat',
 			'obat_masuk' => $this->m_obat->obat_masuk(),
-			'isi' => 'layout/backend/obat/v_obat_masuk'
+			'isi' => 'layout/apotek/obat/v_obat_masuk'
 		);
-		$this->load->view('layout/backend/v_wrapper', $data, FALSE);
+		$this->load->view('layout/apotek/v_wrapper', $data, FALSE);
 	}
 	public function obat_keluar()
 	{
 		$data = array(
 			'title' => 'Data Obat',
 			'obat_keluar' => $this->m_obat->obat_keluar(),
-			'isi' => 'layout/backend/obat/v_obat_keluar'
+			'isi' => 'layout/apotek/obat/v_obat_keluar'
 		);
-		$this->load->view('layout/backend/v_wrapper', $data, FALSE);
-	}
-
-	// Add a new item
-	public function bpjs()
-	{
-		$data = array(
-			'title' => 'Data Pasien BPJS',
-			'bpjs' => $this->m_admin->bpjs(),
-			'isi' => 'layout/backend/pasien/v_bpjs'
-		);
-		$this->load->view('layout/backend/v_wrapper', $data, FALSE);
-	}
-
-	//Update one item
-	public function non_bpjs()
-	{
-		$data = array(
-			'title' => 'Data Pasien BPJS',
-			'non_bpjs' => $this->m_admin->non_bpjs(),
-			'isi' => 'layout/backend/pasien/v_non_bpjs'
-		);
-		$this->load->view('layout/backend/v_wrapper', $data, FALSE);
+		$this->load->view('layout/apotek/v_wrapper', $data, FALSE);
 	}
 
 	public function add_obat_masuk()
@@ -95,5 +73,27 @@ class Obat extends CI_Controller
 		$this->m_obat->delete_obat_masuk($data);
 		$this->session->set_flashdata('pesan', 'Data Obat Berhasil Dihapus');
 		redirect('obat/obat_masuk');
+	}
+
+	// Add a new item
+	public function bpjs()
+	{
+		$data = array(
+			'title' => 'Data Pasien BPJS',
+			'bpjs' => $this->m_admin->bpjs(),
+			'isi' => 'layout/pemilik/pasien/v_bpjs'
+		);
+		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
+	}
+
+	//Update one item
+	public function non_bpjs()
+	{
+		$data = array(
+			'title' => 'Data Pasien BPJS',
+			'non_bpjs' => $this->m_admin->non_bpjs(),
+			'isi' => 'layout/pemilik/pasien/v_non_bpjs'
+		);
+		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
 	}
 }
