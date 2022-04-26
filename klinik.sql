@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Apr 2022 pada 09.02
--- Versi server: 10.4.22-MariaDB
--- Versi PHP: 7.4.27
+-- Waktu pembuatan: 26 Apr 2022 pada 06.00
+-- Versi server: 10.4.20-MariaDB
+-- Versi PHP: 7.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,9 +43,7 @@ CREATE TABLE `berobat` (
 --
 
 INSERT INTO `berobat` (`id_berobat`, `id_boking`, `tgl_berobat`, `status`, `no_resep`, `gejala`, `nama_dokter`, `datang`) VALUES
-(1, 3, '2022-04-16', '4', 2147483647, 'muriang', 'jamal', NULL),
-(2, 2, '2022-04-16', '4', 2147483647, 'muriang', 'jamal', NULL),
-(3, 1, '2022-04-16', '4', 2147483647, 'muriang', 'jamal', NULL);
+(1, 3, '2022-04-25', '4', 2147483647, 'muriang', 'husna', NULL);
 
 -- --------------------------------------------------------
 
@@ -67,9 +65,9 @@ CREATE TABLE `booking_berobat` (
 --
 
 INSERT INTO `booking_berobat` (`id_boking`, `id_pasien`, `no_antrian`, `tgl_berobat`, `status`, `berobat`) VALUES
-(1, 1, '1', '2022-04-16', '1', '1'),
-(2, 1, '2', '2022-04-16', '1', '1'),
-(3, 3, '3', '2022-04-16', '1', '1');
+(1, 1, '1', '2022-04-25', '1', '1'),
+(2, 3, '2', '2022-04-25', '1', '1'),
+(3, 2, '3', '2022-04-25', '1', '1');
 
 --
 -- Trigger `booking_berobat`
@@ -100,11 +98,7 @@ CREATE TABLE `obat_keluar` (
 --
 
 INSERT INTO `obat_keluar` (`id_obat_keluar`, `id_obat_masuk`, `no_resep`, `qty`) VALUES
-(1, 2, 2147483647, '2'),
-(2, 3, 2147483647, '2'),
-(3, 5, 2147483647, '4'),
-(4, 2, 2147483647, '2'),
-(5, 3, 2147483647, '4');
+(1, 3, 2147483647, '10');
 
 --
 -- Trigger `obat_keluar`
@@ -136,8 +130,8 @@ CREATE TABLE `obat_masuk` (
 --
 
 INSERT INTO `obat_masuk` (`id_obat_masuk`, `nama_obat`, `jenis_obat`, `stock`, `tgl_masuk`) VALUES
-(2, 'parasetamol', 'tablet', '5', NULL),
-(3, 'Abacavir', 'tablet', '89', NULL),
+(2, 'parasetamol', 'tablet', '55', NULL),
+(3, 'Abacavir', 'tablet', '79', NULL),
 (4, 'Allylestrenol', 'tablet', '200', NULL),
 (5, 'Ambroxol', 'cair', '44', NULL),
 (6, 'Cataflam   ', 'kapsul', '76', NULL),
@@ -168,9 +162,9 @@ CREATE TABLE `pasien` (
 --
 
 INSERT INTO `pasien` (`id_pasien`, `username`, `password`, `jenis_kl`, `usia`, `alamat`, `bpjs`, `foto`, `nama_pasien`, `no_berobat`, `datang_berobat`) VALUES
-(1, 'linda', '12345', '1', '21', 'cikaso', 'BPJS', NULL, 'linda', '2022041612WC4', '3'),
-(2, 'adinda', '12345', '1', '21', 'sindang barang', 'NonBPJS', NULL, 'dinda', '2022041612WR2', '1'),
-(3, 'admin', '12345', '1', '25', 'cipicung rt.01 rw.02', '1', NULL, 'jamaludin', '2022041612WD3', '2');
+(1, 'husna', '12345', '1', '25', 'cikaso', '2', NULL, 'husna', '20220425Y7SB2', '3'),
+(2, 'jamal', '12345', '1', '23', 'jalaksana', '1', NULL, 'jamaludin', '20220425E8UDS', '2'),
+(3, 'linda', '12345', '2', '21', 'kadungarung', '1', NULL, 'linda', '20220425VLDJK', '1');
 
 -- --------------------------------------------------------
 
@@ -190,7 +184,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `level`) VALUES
-(1, 'admin', 'admin', 1);
+(1, 'admin', 'admin', 1),
+(2, 'pemilik', 'pemilik', 2),
+(3, 'apoteker', 'apoteker', 3);
 
 --
 -- Indexes for dumped tables
@@ -240,7 +236,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `berobat`
 --
 ALTER TABLE `berobat`
-  MODIFY `id_berobat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_berobat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `booking_berobat`
@@ -252,7 +248,7 @@ ALTER TABLE `booking_berobat`
 -- AUTO_INCREMENT untuk tabel `obat_keluar`
 --
 ALTER TABLE `obat_keluar`
-  MODIFY `id_obat_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_obat_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `obat_masuk`
@@ -270,7 +266,7 @@ ALTER TABLE `pasien`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
