@@ -1,46 +1,34 @@
-</div>
-</div>
 <!-- partial:partials/_footer.html -->
 <footer class="footer">
-	<div class="card">
-		<div class="card-body">
-			<div class="d-sm-flex justify-content-center justify-content-sm-between">
-			</div>
-		</div>
+	<div class="container-fluid clearfix">
+		<span class="float-right">
+			<a href="#">Star Admin</a> &copy; 2017
+		</span>
 	</div>
 </footer>
+<?php
+foreach ($grafik as $key => $value) {
+	$nama_obat[] = $value->nama_obat;
+	$stock[] = $value->stock;
+}
+?>
 <!-- partial -->
 </div>
-<!-- main-panel ends -->
 </div>
-<!-- page-body-wrapper ends -->
+
 </div>
-<!-- container-scroller -->
-<!-- base:js -->
-<script src="<?= base_url() ?>template/vendors/js/vendor.bundle.base.js"></script>
-<!-- endinject -->
-<!-- Plugin js for this page-->
-<script src="<?= base_url() ?>template/vendors/chart.js/Chart.min.js"></script>
-<!-- End plugin js for this page-->
-<!-- inject:js -->
-<script src="<?= base_url() ?>template/js/off-canvas.js"></script>
-<script src="<?= base_url() ?>template/js/hoverable-collapse.js"></script>
-<script src="<?= base_url() ?>template/js/template.js"></script>
-<script src="<?= base_url() ?>template/js/settings.js"></script>
-<script src="<?= base_url() ?>template/js/todolist.js"></script>
-<!-- endinject -->
-<!-- plugin js for this page -->
-<script src="<?= base_url() ?>template/vendors/typeahead.js/typeahead.bundle.min.js"></script>
-<script src="<?= base_url() ?>template/vendors/select2/select2.min.js"></script>
-<!-- End plugin js for this page -->
-<!-- Custom js for this page-->
-<script src="<?= base_url() ?>template/js/file-upload.js"></script>
-<script src="<?= base_url() ?>template/js/typeahead.js"></script>
-<script src="<?= base_url() ?>template/js/select2.js"></script>
-<!-- End custom js for this page-->
-<!-- Custom js for this page-->
-<script src="<?= base_url() ?>template/js/dashboard.js"></script>
-<!-- End custom js for this page-->
+
+<script src="<?= base_url() ?>backend/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="<?= base_url() ?>backend/node_modules/popper.js/dist/umd/popper.min.js"></script>
+<script src="<?= base_url() ?>backend/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?= base_url() ?>backend/node_modules/chart.js/dist/Chart.min.js"></script>
+<script src="<?= base_url() ?>backend/node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5NXz9eVnyJOA81wimI8WYE08kW_JMe8g&callback=initMap" async defer></script>
+<script src="<?= base_url() ?>backend/js/off-canvas.js"></script>
+<script src="<?= base_url() ?>backend/js/hoverable-collapse.js"></script>
+<script src="<?= base_url() ?>backend/js/misc.js"></script>
+<script src="<?= base_url() ?>backend/js/chart.js"></script>
+<script src="<?= base_url() ?>backend/js/maps.js"></script>
 
 <script>
 	$(function() {
@@ -108,6 +96,107 @@
 				console.log(errorThrown);
 			}
 		});
+	});
+</script>
+
+<script>
+	var ctx = document.getElementById('myChart');
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: <?= json_encode($nama_obat) ?>,
+			datasets: [{
+				label: 'Grafik Analisis Stock Obat',
+				data: <?= json_encode($stock) ?>,
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)'
+				],
+				fill: false,
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true
+					}
+				}]
+			}
+		}
 	});
 </script>
 </body>

@@ -1,60 +1,55 @@
-<!-- partial -->
-<div class="main-panel">
-	<div class="content-wrapper">
-		<div class="row">
-			<div class="col-lg-12 grid-margin stretch-card">
-				<div class="card">
-					<div class="card-body">
-						<h4 class="card-title">Hoverable Table</h4>
-						<p class="card-description">
-							<button class="btn btn-primary btn rounded btn fw" data-toggle="modal" data-target="#add"><i class="typcn typcn-plus"></i>Add Obat Masuk</button>
-						</p>
-						<div class="table-responsive">
-							<table class="table table-hover">
-								<thead>
-									<tr>
-										<th>No</th>
-										<th>Nama Obat</th>
-										<th>Jenis Obat</th>
-										<th>stock</th>
-										<th>Action</th>
+<div class="content-wrapper">
+	<h3 class="page-heading mb-4">Bootstrap Tables</h3>
+	<div class="row mb-2">
+		<div class="col-lg-12">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title mb-4">Advanced Table</h5>
+					<button class="btn btn-primary btn rounded btn fw" data-toggle="modal" data-target="#add"><i class="typcn typcn-plus"></i>Add Obat Masuk</button>
+					<div class="table-responsive">
+						<table class="table center-aligned-table">
+							<thead>
+								<tr class="text-primary">
+									<th>No</th>
+									<th>Nama Obat</th>
+									<th>Jenis Obat</th>
+									<th>stock</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+								$no = 1;
+								foreach ($obat_masuk as $key => $value) { ?>
+									<tr class="">
+										<td><?= $no++ ?></td>
+										<td><?= $value->nama_obat ?></td>
+										<?php if ($value->jenis_obat == 'tablet') { ?>
+											<td><label class="badge badge-primary"><?= $value->jenis_obat ?></label></td>
+										<?php } elseif ($value->jenis_obat == 'kapsul') { ?>
+											<td><label class="badge badge-success"><?= $value->jenis_obat ?></label></td>
+										<?php } else { ?>
+											<td><label class="badge badge-warning"><?= $value->jenis_obat ?></label></td>
+										<?php } ?>
+										<?php if ($value->stock <= 50) { ?>
+											<td class="text-danger"> <?= $value->stock ?> <i class="typcn typcn-arrow-down-thick"></i></td>
+										<?php } else { ?>
+											<td class="text-success"> <?= $value->stock ?> <i class="typcn typcn-arrow-up-thick"></i></td>
+										<?php } ?>
+										<td>
+											<button class="btn btn-warning btn-rounded btn-fw" data-toggle="modal" data-target="#edit<?= $value->id_obat_masuk ?>"><i class="typcn typcn-edit"></i>Edit</button>
+											<button class="btn btn-danger btn-rounded btn-fw" data-toggle="modal" data-target="#delete<?= $value->id_obat_masuk ?>"><i class="typcn typcn-delete"></i>Delete</button>
+										</td>
 									</tr>
-								</thead>
-								<tbody>
-									<?php
-									$no = 1;
-									foreach ($obat_masuk as $key => $value) { ?>
-										<tr>
-											<td><?= $no++ ?></td>
-											<td><?= $value->nama_obat ?></td>
-											<?php if ($value->jenis_obat == 'tablet') { ?>
-												<td><label class="badge badge-primary"><?= $value->jenis_obat ?></label></td>
-											<?php } elseif ($value->jenis_obat == 'kapsul') { ?>
-												<td><label class="badge badge-success"><?= $value->jenis_obat ?></label></td>
-											<?php } else { ?>
-												<td><label class="badge badge-warning"><?= $value->jenis_obat ?></label></td>
-											<?php } ?>
-											<?php if ($value->stock <= 50) { ?>
-												<td class="text-danger"> <?= $value->stock ?> <i class="typcn typcn-arrow-down-thick"></i></td>
-											<?php } else { ?>
-												<td class="text-success"> <?= $value->stock ?> <i class="typcn typcn-arrow-up-thick"></i></td>
-											<?php } ?>
-											<td>
-												<button class="btn btn-warning btn-rounded btn-fw" data-toggle="modal" data-target="#edit<?= $value->id_obat_masuk ?>"><i class="typcn typcn-edit"></i>Edit</button>
-												<button class="btn btn-danger btn-rounded btn-fw" data-toggle="modal" data-target="#delete<?= $value->id_obat_masuk ?>"><i class="typcn typcn-delete"></i>Delete</button>
-											</td>
-										</tr>
-									<?php } ?>
-								</tbody>
-							</table>
-						</div>
+								<?php } ?>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
 
 <div class="modal fade" id="add">
 	<div class="modal-dialog">

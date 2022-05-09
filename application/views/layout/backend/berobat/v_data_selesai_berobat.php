@@ -1,82 +1,79 @@
-<div class="main-panel">
-	<div class="content-wrapper">
-		<div class="row">
-			<div class="col-lg-12 grid-margin stretch-card">
-				<div class="card">
-					<div class="card-body">
-						<h4 class="card-title"><?= $title ?></h4>
-						<p class="card-description">
-						</p>
-						<div class="table-responsive pt-3">
-							<table class="table table-bordered">
-								<thead>
+<div class="content-wrapper">
+	<h3 class="page-heading mb-4">Bootstrap Tables</h3>
+	<div class="row mb-2">
+		<div class="col-lg-12">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title mb-4">Advanced Table</h5>
+					<div class="table-responsive">
+						<table class="table center-aligned-table">
+							<thead>
+								<tr class="text-primary">
+									<th>
+										#
+									</th>
+									<th>
+										No Antrian
+									</th>
+									<th>
+										Tanggal Berobat
+									</th>
+									<th>
+										Nama Pasien
+									</th>
+									<th>
+										Jenis Kelamin
+									</th>
+									<th>
+										Usia
+									</th>
+									<th>
+										Keluhan
+									</th>
+									<th>
+										Resep Obat
+									</th>
+									<th>
+										Aksi
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+								$no = 1;
+								foreach ($pasien_selesai_berobat as $key => $value) { ?>
 									<tr>
-										<th>
-											#
-										</th>
-										<th>
-											No Antrian
-										</th>
-										<th>
-											Tanggal Berobat
-										</th>
-										<th>
-											Nama Pasien
-										</th>
-										<th>
-											Jenis Kelamin
-										</th>
-										<th>
-											Usia
-										</th>
-										<th>
-											Keluhan
-										</th>
-										<th>
-											Resep Obat
-										</th>
-										<th>
-											Aksi
-										</th>
+										<td>
+											<?= $no++ ?>
+										</td>
+										<td>
+											<?= $value->no_antrian ?>
+										</td>
+										<td>
+											<?= $value->tgl_berobat ?>
+										</td>
+										<td>
+											<?= $value->username ?>
+										</td>
+										<td>
+											<?= $value->jenis_kl ?>
+										</td>
+										<td>
+											<?= $value->usia ?> thn
+										</td>
+										<td>
+											<?= $value->bpjs ?>
+										</td>
+										<td>
+											<?= $value->alamat ?>
+										</td>
+										<td>
+											<button class="btn btn-danger btn-rounded btn-fw" data-toggle="modal" data-target="#delete<?= $value->id_berobat ?>"><i class="typcn typcn-delete"></i>Hapus</button>
+										</td>
 									</tr>
-								</thead>
-								<tbody>
-									<?php
-									$no = 1;
-									foreach ($pasien_selesai_berobat as $key => $value) { ?>
-										<tr>
-											<td>
-												<?= $no++ ?>
-											</td>
-											<td>
-												<?= $value->no_antrian ?>
-											</td>
-											<td>
-												<?= $value->tgl_berobat ?>
-											</td>
-											<td>
-												<?= $value->username ?>
-											</td>
-											<td>
-												<?= $value->jenis_kl ?>
-											</td>
-											<td>
-												<?= $value->usia ?> thn
-											</td>
-											<td>
-												<?= $value->bpjs ?>
-											</td>
-											<td>
-												<?= $value->alamat ?>
-											</td>
-											<td>
-												<button class="btn btn-danger btn-rounded btn-fw" data-toggle="modal" data-target="#delete<?= $value->id_berobat ?>"><i class="typcn typcn-delete"></i>Hapus</button>
-											</td>
-										</tr>
-									<?php } ?>
-								</tbody>
-							</table>
-						</div>
+								<?php } ?>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
