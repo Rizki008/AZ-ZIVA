@@ -11,6 +11,7 @@ class Apotek extends CI_Controller
 		$this->load->model('m_berobat');
 		$this->load->model('m_admin');
 		$this->load->model('m_pasien');
+		$this->load->model('m_obat');
 	}
 
 	// List all your items
@@ -52,8 +53,16 @@ class Apotek extends CI_Controller
 	}
 
 	//Delete one item
-	public function delete($id = NULL)
+	public function resep_pasien()
 	{
+		$data = array(
+			'title' => 'Resep Obat',
+			'obat' => $this->m_obat->pesan_obat(),
+			'pesanan' => $this->m_obat->pemesanan(),
+			'berobat' => $this->m_obat->berobat(),
+			'isi' => 'layout/apotek/berobat/v_data_berobat'
+		);
+		$this->load->view('layout/apotek/v_wrapper', $data, FALSE);
 	}
 }
 
