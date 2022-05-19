@@ -51,7 +51,7 @@ class Berobat extends CI_Controller
 		);
 		$this->m_berobat->update($data);
 		$this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan');
-		redirect('data_berobat');
+		redirect('berobat');
 	}
 
 

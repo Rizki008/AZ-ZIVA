@@ -36,13 +36,13 @@
 									Pasien Booking Berobat
 								</a>
 							</li>
-							<li class="nav-item">
+							<!-- <li class="nav-item">
 								<a class="nav-link <?php if ($this->uri->segment(1) == 'data_berobat') {
 														echo "active";
 													} ?>" href="<?= base_url('data_berobat') ?>">
 									Pasien Berobat
 								</a>
-							</li>
+							</li> -->
 						</ul>
 					</div>
 				</li>

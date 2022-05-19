@@ -17,9 +17,9 @@ class Data_berobat extends CI_Controller
 			'obat' => $this->m_obat->pesan_obat(),
 			'pesanan' => $this->m_obat->pemesanan(),
 			'berobat' => $this->m_obat->berobat(),
-			'isi' => 'layout/backend/berobat/v_data_berobat'
+			'isi' => 'layout/dokter/berobat/v_data_berobat'
 		);
-		$this->load->view('layout/backend/v_wrapper', $data, FALSE);
+		$this->load->view('layout/dokter/v_wrapper', $data, FALSE);
 	}
 
 	public function pesan()
