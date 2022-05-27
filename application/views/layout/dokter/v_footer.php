@@ -6,12 +6,12 @@
 		</span>
 	</div>
 </footer>
-<?php
-foreach ($grafik as $key => $value) {
-	$nama_obat[] = $value->nama_obat;
-	$stock[] = $value->stock;
-}
-?>
+<!-- <?php
+		foreach ($grafik as $key => $value) {
+			$nama_obat[] = $value->nama_obat;
+			$stock[] = $value->stock;
+		}
+		?> -->
 <!-- partial -->
 </div>
 </div>
