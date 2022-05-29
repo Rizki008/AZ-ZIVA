@@ -40,6 +40,10 @@
 								<label for="">No Antrian</label>
 								<input type="number" name="no_antrian" value="<?php echo $antrian->antrian ?>" class="form-control border-0" readonly style="height: 55px;">
 							</div>
+							<div class="col-12 col-sm-6">
+								<label for="">Keluhan</label>
+								<input type="text" name="keluhan" value="<?= set_value('keluhan') ?>" class="form-control border-0" style="height: 55px;">
+							</div>
 							<!-- <div class="col-12 col-sm-6">
 								<input type="date" name="tgl_berobat" value="<?= set_value('tgl_berobat') ?>" class="form-control border-0" placeholder="Tanggal Berobat" style="height: 55px;">
 							</div> -->
