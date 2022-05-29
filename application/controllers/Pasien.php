@@ -97,6 +97,7 @@ class Pasien extends CI_Controller
 			$data = array(
 				'id_pasien' => $this->session->userdata('id_pasien'),
 				'no_antrian' => $this->input->post('no_antrian'),
+				'keluhan' => $this->input->post('keluhan'),
 				'tgl_berobat' => date('Y-m-d'),
 				'status' => 0,
 				'berobat' => 1,
