@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Apr 2022 pada 06.00
+-- Waktu pembuatan: 30 Bulan Mei 2022 pada 00.50
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.4.22
 
@@ -30,20 +30,21 @@ SET time_zone = "+00:00";
 CREATE TABLE `berobat` (
   `id_berobat` int(11) NOT NULL,
   `id_boking` int(11) DEFAULT NULL,
+  `id_user` int(11) DEFAULT NULL,
   `tgl_berobat` date DEFAULT NULL,
-  `status` varchar(11) DEFAULT NULL,
-  `no_resep` int(11) DEFAULT NULL,
+  `status_berobat` varchar(11) DEFAULT NULL,
   `gejala` varchar(125) DEFAULT NULL,
-  `nama_dokter` varchar(50) DEFAULT NULL,
-  `datang` varchar(15) DEFAULT NULL
+  `no_resep` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `berobat`
 --
 
-INSERT INTO `berobat` (`id_berobat`, `id_boking`, `tgl_berobat`, `status`, `no_resep`, `gejala`, `nama_dokter`, `datang`) VALUES
-(1, 3, '2022-04-25', '4', 2147483647, 'muriang', 'husna', NULL);
+INSERT INTO `berobat` (`id_berobat`, `id_boking`, `id_user`, `tgl_berobat`, `status_berobat`, `gejala`, `no_resep`) VALUES
+(1, 7, 4, '2022-05-29', '4', 'radang tenggorokan', '202205296075'),
+(2, 6, 4, '2022-05-29', '2', 'alergi', NULL),
+(3, 4, 4, '2022-05-29', '2', 'radang tenggorokan', NULL);
 
 -- --------------------------------------------------------
 
@@ -56,6 +57,7 @@ CREATE TABLE `booking_berobat` (
   `id_pasien` int(11) DEFAULT NULL,
   `no_antrian` varchar(50) DEFAULT NULL,
   `tgl_berobat` date DEFAULT NULL,
+  `keluhan` varchar(125) DEFAULT NULL,
   `status` varchar(11) DEFAULT NULL,
   `berobat` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -64,10 +66,14 @@ CREATE TABLE `booking_berobat` (
 -- Dumping data untuk tabel `booking_berobat`
 --
 
-INSERT INTO `booking_berobat` (`id_boking`, `id_pasien`, `no_antrian`, `tgl_berobat`, `status`, `berobat`) VALUES
-(1, 1, '1', '2022-04-25', '1', '1'),
-(2, 3, '2', '2022-04-25', '1', '1'),
-(3, 2, '3', '2022-04-25', '1', '1');
+INSERT INTO `booking_berobat` (`id_boking`, `id_pasien`, `no_antrian`, `tgl_berobat`, `keluhan`, `status`, `berobat`) VALUES
+(1, 1, '1', '2022-05-30', 'sakit gigi', '0', '1'),
+(2, 1, '2', '2022-05-29', 'sakit panas', '0', '1'),
+(3, 2, '3', '2022-05-29', 'mencret', '0', '1'),
+(4, 3, '4', '2022-05-29', 'panas', '1', '1'),
+(5, 4, '5', '2022-05-29', 'muriang', '0', '1'),
+(6, 4, '6', '2022-05-29', 'gatal', '1', '1'),
+(7, 1, '7', '2022-05-29', 'batuk', '1', '1');
 
 --
 -- Trigger `booking_berobat`
@@ -98,7 +104,11 @@ CREATE TABLE `obat_keluar` (
 --
 
 INSERT INTO `obat_keluar` (`id_obat_keluar`, `id_obat_masuk`, `no_resep`, `qty`) VALUES
-(1, 3, 2147483647, '10');
+(1, 3, 2147483647, '1'),
+(2, 5, 2147483647, '1'),
+(3, 4, 2147483647, '1'),
+(4, 2, 2147483647, '1'),
+(5, 3, 2147483647, '1');
 
 --
 -- Trigger `obat_keluar`
@@ -130,12 +140,12 @@ CREATE TABLE `obat_masuk` (
 --
 
 INSERT INTO `obat_masuk` (`id_obat_masuk`, `nama_obat`, `jenis_obat`, `stock`, `tgl_masuk`) VALUES
-(2, 'parasetamol', 'tablet', '55', NULL),
-(3, 'Abacavir', 'tablet', '79', NULL),
-(4, 'Allylestrenol', 'tablet', '200', NULL),
-(5, 'Ambroxol', 'cair', '44', NULL),
-(6, 'Cataflam   ', 'kapsul', '76', NULL),
-(7, 'curcuma', 'cair', '100', NULL);
+(2, 'parasetamol', 'tablet', '42', NULL),
+(3, 'Abacavir', 'tablet', '52', NULL),
+(4, 'Allylestrenol', 'tablet', '196', NULL),
+(5, 'Ambroxol', 'cair', '40', NULL),
+(6, 'Cataflam   ', 'kapsul', '66', NULL),
+(7, 'curcuma', 'cair', '99', NULL);
 
 -- --------------------------------------------------------
 
@@ -162,9 +172,10 @@ CREATE TABLE `pasien` (
 --
 
 INSERT INTO `pasien` (`id_pasien`, `username`, `password`, `jenis_kl`, `usia`, `alamat`, `bpjs`, `foto`, `nama_pasien`, `no_berobat`, `datang_berobat`) VALUES
-(1, 'husna', '12345', '1', '25', 'cikaso', '2', NULL, 'husna', '20220425Y7SB2', '3'),
-(2, 'jamal', '12345', '1', '23', 'jalaksana', '1', NULL, 'jamaludin', '20220425E8UDS', '2'),
-(3, 'linda', '12345', '2', '21', 'kadungarung', '1', NULL, 'linda', '20220425VLDJK', '1');
+(1, 'linda', '12345', '2', '25', 'cikaso', '2', NULL, 'linda', '20220529Y1HB5', '4'),
+(2, 'diana', '12345', '2', '21', 'kuningan', '2', NULL, 'diana', '20220529NI9V1', '2'),
+(3, 'adi', '12345', '1', '25', 'Ciawilor', '1', NULL, 'adi', '20220529ZDCWV', '2'),
+(4, 'jamal', '12345', '1', '21', 'jalaksana', '2', NULL, 'jamal', '202205290WYPM', '3');
 
 -- --------------------------------------------------------
 
@@ -186,7 +197,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `username`, `password`, `level`) VALUES
 (1, 'admin', 'admin', 1),
 (2, 'pemilik', 'pemilik', 2),
-(3, 'apoteker', 'apoteker', 3);
+(3, 'apoteker', 'apoteker', 3),
+(4, 'dokter', 'dokter', 4);
 
 --
 -- Indexes for dumped tables
@@ -236,37 +248,37 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `berobat`
 --
 ALTER TABLE `berobat`
-  MODIFY `id_berobat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_berobat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `booking_berobat`
 --
 ALTER TABLE `booking_berobat`
-  MODIFY `id_boking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_boking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `obat_keluar`
 --
 ALTER TABLE `obat_keluar`
-  MODIFY `id_obat_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_obat_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `obat_masuk`
 --
 ALTER TABLE `obat_masuk`
-  MODIFY `id_obat_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_obat_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
