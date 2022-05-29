@@ -7,6 +7,7 @@ class Data_berobat extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('m_obat');
+		$this->load->model('m_berobat');
 	}
 
 	public function index()
@@ -46,7 +47,7 @@ class Data_berobat extends CI_Controller
 	{
 		$data = array(
 			'no_resep' => $this->input->post('no_resep'),
-			'status' => '3',
+			'status_berobat' => '3',
 		);
 		$this->db->update('berobat', $data);
 
@@ -57,10 +58,10 @@ class Data_berobat extends CI_Controller
 				'id_obat_masuk' => $item['id'],
 				'qty' => $this->input->post('qty' . $i++)
 			);
-			$this->db->insert('obat_keluar', $data_rinci);
+			$this->m_berobat->add_obat_keluar($data_rinci);
 		}
 		$this->cart->destroy();
-		redirect('data_berobat', 'refresh');
+		redirect('data_berobat');
 	}
 
 	public function detail_berobat($id_berobat)
@@ -73,7 +74,7 @@ class Data_berobat extends CI_Controller
 	public function selesai($id_berobat)
 	{
 		$data = array(
-			'status' => '4'
+			'status_berobat' => '4'
 		);
 		$this->db->where('id_berobat', $id_berobat);
 		$this->db->update('berobat', $data);
@@ -86,10 +87,9 @@ class Data_berobat extends CI_Controller
 		$data = array(
 			'id_berobat' => $id_berobat,
 			'tgl_berobat' => date('Y-m-d'),
-			'nama_dokter' => $this->input->post('nama_dokter'),
+			'id_user' => $this->session->userdata('id_user'),
 			'gejala' => $this->input->post('gejala'),
-			'datang' => $this->input->post('datang'),
-			'status' => 2,
+			'status_berobat' => 2,
 		);
 		$this->m_obat->periksa($data);
 		$this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan');
