@@ -8,8 +8,9 @@ class M_berobat extends CI_Model
 	public function berobat()
 	{
 		$this->db->select('*');
-		$this->db->from('booking_berobat');
+		$this->db->from('berobat');
 		$this->db->where('status=0');
+		$this->db->join('booking_berobat', 'booking_berobat.id_boking = berobat.id_boking', 'left');
 		$this->db->join('pasien', 'booking_berobat.id_pasien = pasien.id_pasien', 'left');
 		$this->db->order_by('id_boking', 'desc');
 		return $this->db->get()->result();
@@ -47,6 +48,15 @@ class M_berobat extends CI_Model
 	{
 		$this->db->insert('berobat', $data);
 	}
+	public function add_obat_keluar($data)
+	{
+		$this->db->insert('obat_keluar', $data);
+	}
+	public function update_berobat($data)
+	{
+		$this->db->where('id_berobat', $data['id_berobat']);
+		$this->db->update('berobat', $data);
+	}
 
 	public function update($data)
 	{
@@ -54,6 +64,7 @@ class M_berobat extends CI_Model
 		$this->db->update('booking_berobat', $data);
 		$this->db->insert('berobat', $data);
 	}
+
 
 	public function delete($data)
 	{
@@ -70,5 +81,15 @@ class M_berobat extends CI_Model
 		// $this->db->group_by('obat_keluar.id_obat_keluar');
 		$this->db->order_by('stock', 'desc');
 		return $this->db->get()->result();
+	}
+
+	public function data_berobat_pasien($id_pasien)
+	{
+		$this->db->select('*');
+		$this->db->from('berobat');
+		$this->db->join('booking_berobat', 'booking_berobat.id_boking = berobat.id_boking', 'left');
+		$this->db->join('pasien', 'booking_berobat.id_pasien = pasien.id_pasien', 'left');
+		$this->db->where('pasien.id_pasien', $id_pasien);
+		return $this->db->get()->row();
 	}
 }
