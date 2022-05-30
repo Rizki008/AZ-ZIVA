@@ -101,7 +101,7 @@
 										Tanggal Berobat
 									</th>
 									<th>
-										Status
+										status_berobat
 									</th>
 									<th>
 										Aksi
@@ -123,31 +123,31 @@
 										</td>
 										<td>
 											<?php
-											if ($value->status == '1') {
+											if ($value->status_berobat == '1') {
 												echo '<span class="badge badge-danger">Periksa</span>';
-											} else if ($value->status == '2') {
+											} else if ($value->status_berobat == '2') {
 												echo '<span class="badge badge-primary">Resep Obat</span>';
-											} elseif ($value->status == '3') {
+											} elseif ($value->status_berobat == '3') {
 												echo '<span class="badge badge-warning">Proses</span>';
-											} elseif ($value->status == '4') {
+											} elseif ($value->status_berobat == '4') {
 												echo '<span class="badge badge-success">Selesai</span>';
 											} ?>
 										</td>
 										<td>
 											<?php
-											if ($value->status == '1') { ?>
+											if ($value->status_berobat == '1') { ?>
 												<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#berobat<?= $value->id_berobat ?>">
 													<i class="mdi mdi-cart-plus"></i> Periksa
 												</button>
-											<?php } else if ($value->status == '2') { ?>
+											<?php } else if ($value->status_berobat == '2') { ?>
 												<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update">
 													<i class="mdi mdi-cart-plus"></i> Resep Obat
 												</button>
-											<?php } elseif ($value->status == '3') { ?>
+											<?php } elseif ($value->status_berobat == '3') { ?>
 												<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#selesai<?= $value->id_berobat ?>">
 													Selesai
 												</button>
-											<?php } elseif ($value->status == '4') { ?>
+											<?php } elseif ($value->status_berobat == '4') { ?>
 												<button type="button" class="btn btn-success" data-toggle="modal" data-target="#detail<?= $value->id_berobat ?>">
 													Detail Pasien
 												</button>
@@ -269,7 +269,12 @@ echo form_close();
 					</div>
 					<div class="form-group">
 						<label>Jenis Kelamin</label>
-						<input type="text" name="jenis_kl" value="<?= $value->jenis_kl ?>" class="form-control" placeholder="Nama User" disabled>
+						<label>Jenis Kelamin</label>
+						<?php if ($value->jenis_kl == 1) { ?>
+							<input type="text" class="form-control" placeholder="Laki-Laki" disabled>
+						<?php } elseif ($value->bpjs == 2) { ?>
+							<input type="text" class="form-control" placeholder="Perempuan" disabled>
+						<?php } ?>
 					</div>
 					<div class="form-group">
 						<label>Usia</label>
@@ -277,7 +282,11 @@ echo form_close();
 					</div>
 					<div class="form-group">
 						<label>BPJS</label>
-						<input type="text" name="bpjs" value="<?= $value->bpjs ?>" class="form-control" placeholder="Nama User" disabled>
+						<?php if ($value->bpjs == 1) { ?>
+							<input type="text" class="form-control" placeholder="BPJS" disabled>
+						<?php } elseif ($value->bpjs == 2) { ?>
+							<input type="text" class="form-control" placeholder="Non BPJS" disabled>
+						<?php } ?>
 					</div>
 					<div class="form-group">
 						<label>Gejala</label>
@@ -290,6 +299,10 @@ echo form_close();
 					<div class="form-group">
 						<label>Alamat</label>
 						<input type="text" name="alamat" value="<?= $value->alamat ?>" class="form-control" placeholder="Nama User" disabled>
+					</div>
+					<div class="form-group">
+						<label>Nama Obat</label>
+						<input type="text" name="nama_obat" value="<?= $value->nama_obat ?>" class="form-control" placeholder="Nama User" disabled>
 					</div>
 
 				</div>
