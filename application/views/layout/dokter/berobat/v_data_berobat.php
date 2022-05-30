@@ -148,9 +148,9 @@
 													<i class="mdi mdi-cart-plus"></i> Periksa
 												</button>
 											<?php } else if ($value->status_berobat == '2') { ?>
-												<a href="<?= base_url('data_berobat/pesan') ?>" type="button" class="btn btn-primary">
+												<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update">
 													<i class="mdi mdi-cart-plus"></i> Resep Obat
-												</a>
+												</button>
 											<?php } elseif ($value->status_berobat == '3') { ?>
 												<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#selesai<?= $value->id_berobat ?>">
 													Selesai
