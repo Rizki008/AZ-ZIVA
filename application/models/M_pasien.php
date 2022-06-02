@@ -32,6 +32,13 @@ class M_pasien extends CI_Model
 		return $this->db->query('SELECT COUNT(alamat) AS total,pasien.alamat FROM `pasien` GROUP BY alamat')->result();
 	}
 
+	//cek no antrian
+	public function cek_antrian($date)
+	{
+		$data = $this->db->query("SELECT MAX(no_antrian) as no_antrian, tgl_berobat FROM `booking_berobat` WHERE tgl_berobat='" . $date . "' GROUP BY tgl_berobat")->row();
+		return $data;
+	}
+
 	// public function hapus_otomatis()
 	// {
 	// 	$lama =  1;
