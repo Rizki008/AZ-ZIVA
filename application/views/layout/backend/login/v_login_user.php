@@ -1,48 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-	<!-- Required meta tags -->
+	<title><?= $title ?></title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Klinik Az-ziva</title>
-	<link rel="stylesheet" href="<?= base_url() ?>backend/node_modules/font-awesome/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="<?= base_url() ?>backend/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
-	<link rel="stylesheet" href="<?= base_url() ?>backend/css/style.css" />
-	<link rel="shortcut icon" href="<?= base_url() ?>backend/images/favicon.png" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="<?= base_url() ?>login/css/style.css">
+
 </head>
 
-<body>
-	<div class="container-scroller">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="content-wrapper full-page-wrapper d-flex align-items-center auth-pages">
-					<div class="card col-lg-4 mx-auto">
-						<div class="card-body px-5 py-5">
-							<h3 class="card-title text-left mb-3">Login</h3>
-							<form action="<?= base_url('auth/user_login') ?>" method="POST">
-								<div class="form-group">
-									<input type="text" name="username" class="form-control p_input" placeholder="Username">
-								</div>
-								<div class="form-group">
-									<input type="password" name="password" class="form-control p_input" placeholder="Password">
-								</div>
-								<div class="text-center">
-									<button type="submit" class="btn btn-primary btn-block enter-btn">LOG IN</button>
-								</div>
-							</form>
-						</div>
+<body class="img js-fullheight" style="background-image: url(<?= base_url() ?>login/images/bg.jpg);">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Klinik Az-Ziva</h2>
+					<?php
+
+					echo validation_errors('<div class="alert alert-warning alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<h5><i class="icon fa fa-exclamation-triangle"></i> Coba Lagi</h5>', '
+					</div>');
+
+					if ($this->session->flashdata('error')) {
+						echo '<div class="alert alert-danger alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<h5><i class="icon fa fa-ban"></i> Gagal</h5>';
+						echo $this->session->flashdata('error');
+						echo '
+					</div>';
+					}
+
+					if ($this->session->flashdata('pesan')) {
+						echo '<div class="alert alert-success alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<h5><i class="icon fa fa-check"></i> Sukses</h5>';
+						echo $this->session->flashdata('pesan');
+						echo '
+					</div>';
+					} ?>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+						<h3 class="mb-4 text-center">Have an account?</h3>
+						<form action="<?= base_url('auth/user_login') ?>" method="POST" class="signin-form">
+							<div class="form-group">
+								<input type="text" name="username" class="form-control" placeholder="Username" required>
+							</div>
+							<div class="form-group">
+								<input id="password-field" name="password" type="password" class="form-control" placeholder="Password" required>
+								<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
-	<script src="<?= base_url() ?>backend/node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="<?= base_url() ?>backend/node_modules/popper.js/dist/umd/popper.min.js"></script>
-	<script src="<?= base_url() ?>backend/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="<?= base_url() ?>backend/node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
-	<script src="<?= base_url() ?>backend/js/misc.js"></script>
+	<script src="<?= base_url() ?>login/js/jquery.min.js"></script>
+	<script src="<?= base_url() ?>login/js/popper.js"></script>
+	<script src="<?= base_url() ?>login/js/bootstrap.min.js"></script>
+	<script src="<?= base_url() ?>login/js/main.js"></script>
+
 </body>
 
 </html>
