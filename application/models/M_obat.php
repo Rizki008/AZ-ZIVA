@@ -40,6 +40,7 @@ class M_obat extends CI_Model
 	}
 
 	//pesan obat
+	//pesan obat
 	public function pesan_obat()
 	{
 		$id = '0';
@@ -53,6 +54,17 @@ class M_obat extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('berobat');
+		$this->db->join('booking_berobat', 'booking_berobat.id_boking = berobat.id_boking', 'left');
+		$this->db->join('pasien', 'booking_berobat.id_pasien = pasien.id_pasien', 'left');
+		$this->db->order_by('berobat.tgl_berobat', 'desc');
+
+		return $this->db->get()->result();
+	}
+	public function resep()
+	{
+		$this->db->select('*');
+		$this->db->from('berobat');
+		$this->db->where('status_berobat=4');
 		$this->db->join('booking_berobat', 'booking_berobat.id_boking = berobat.id_boking', 'left');
 		$this->db->join('pasien', 'booking_berobat.id_pasien = pasien.id_pasien', 'left');
 		$this->db->order_by('berobat.tgl_berobat', 'desc');
