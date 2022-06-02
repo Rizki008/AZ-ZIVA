@@ -37,7 +37,7 @@ class User_login
 				redirect('dokter');
 			}
 		} else {
-			$this->ci->session->set_flashdata('pesan', 'Username atau Password Salah');
+			$this->ci->session->set_flashdata('error', 'Username atau Password Salah');
 			redirect('auth/user_login');
 		}
 	}
@@ -45,7 +45,7 @@ class User_login
 	public function proteksi_halaman()
 	{
 		if ($this->ci->session->userdata('username') == '') {
-			$this->ci->session->set_flashdata('pesan', 'Maaf Anda Belum Login!!!');
+			$this->ci->session->set_flashdata('error', 'Maaf Anda Belum Login!!!');
 			redirect('auth/user_login');
 		}
 	}
