@@ -23,9 +23,19 @@ class Data_berobat extends CI_Controller
 		$this->load->view('layout/dokter/v_wrapper', $data, FALSE);
 	}
 
+	public function resep_obat($id)
+	{
+		$data = array(
+			'id' => $id,
+			'obat' => $this->m_obat->pesan_obat(),
+			'isi' => 'layout/dokter/berobat/v_resep'
+		);
+		$this->load->view('layout/dokter/v_wrapper', $data);
+	}
 	public function pesan()
 	{
 		$this->user_login->proteksi_halaman();
+		$id_berobat = $this->input->post('id_berobat');
 		$data = array(
 			'id' => $this->input->post('id'),
 			'qty' => $this->input->post('qty'),
@@ -34,7 +44,7 @@ class Data_berobat extends CI_Controller
 		);
 		$this->cart->insert($data);
 		$this->session->set_flashdata('pesan', 'Berhasil');
-		redirect('data_berobat');
+		redirect('data_berobat/resep_obat/' . $id_berobat);
 	}
 
 	public function delete($rowid)
@@ -45,10 +55,12 @@ class Data_berobat extends CI_Controller
 
 	public function checkout()
 	{
+		$id_berobat = $this->input->post('id_berobat');
 		$data = array(
 			'no_resep' => $this->input->post('no_resep'),
 			'status_berobat' => '3',
 		);
+		$this->db->where('id_berobat', $id_berobat);
 		$this->db->update('berobat', $data);
 
 		$i = 1;
