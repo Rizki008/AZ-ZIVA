@@ -43,7 +43,7 @@ class Pasien_login
 
 			redirect('home');
 		} else {
-			$this->ci->session->set_flashdata('pesan', 'Username atau password salah');
+			$this->ci->session->set_flashdata('error', 'Username atau password salah');
 			redirect('pasien/login');
 		}
 	}
@@ -51,7 +51,7 @@ class Pasien_login
 	public function proteksi_halaman()
 	{
 		if ($this->ci->session->userdata('username') == '') {
-			$this->ci->session->set_flashdata('pesan', 'Anda Belum Login Atau register');
+			$this->ci->session->set_flashdata('error', 'Anda Belum Login Atau register');
 			redirect('pasien/login');
 		}
 	}
