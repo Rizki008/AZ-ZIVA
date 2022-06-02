@@ -148,9 +148,9 @@
 													<i class="mdi mdi-cart-plus"></i> Periksa
 												</button>
 											<?php } else if ($value->status_berobat == '2') { ?>
-												<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update">
+												<a href="<?= base_url('data_berobat/resep_obat/' . $value->id_berobat)  ?>" class="btn btn-primary">
 													<i class="mdi mdi-cart-plus"></i> Resep Obat
-												</button>
+												</a>
 											<?php } elseif ($value->status_berobat == '3') { ?>
 												<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#selesai<?= $value->id_berobat ?>">
 													Selesai
@@ -173,49 +173,6 @@
 </div>
 
 
-<!-- /.modal resep -->
-<?php echo form_open('data_berobat/pesan') ?>
-<div class="modal fade" id="update">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h4 class="modal-title">Update Data Resep Obat</h4>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div class="form-group">
-					<label>Nama Obat</label>
-					<input type="hidden" name="name" class="name">
-					<input type="hidden" name="jenis_obat" class="form-control">
-					<select name="id" id="pesan_obat" class="form-control">
-						<option>---Pilih Resep Obat---</option>
-						<?php foreach ($obat as $key => $value) { ?>
-							<option value="<?= $value->id_obat_masuk ?>" data-name=<?= $value->nama_obat ?>><?= $value->nama_obat ?></option>
-						<?php } ?>
-					</select>
-				</div>
-				<input type="hidden" name="nama" class="nama form-control">
-				<div class="form-group">
-					<label>Jumlah Obat</label>
-					<input type="text" name="qty" class="form-control" placeholder="Enter ..." required>
-				</div>
-
-			</div>
-			<div class="modal-footer justify-content-between">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="submit" class="btn btn-primary">Save</button>
-			</div>
-		</div>
-		<!-- /.modal-content -->
-	</div>
-	<!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
-<?php
-echo form_close();
-?>
 <!-- /.modal resep -->
 <?php foreach ($berobat as $key => $value) { ?>
 	<div class="modal fade" id="berobat<?= $value->id_berobat ?>">
