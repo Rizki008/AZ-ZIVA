@@ -1,49 +1,68 @@
-<div class="col-md-6 grid-margin stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Horizontal Form</h4>
-            <p class="card-description">
-                Horizontal form layout
-            </p>
-            <?php
-            //notifikasi form kosong
-            echo validation_errors('<div class="alert alert-warning alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h5><i class="icon fas fa-exclamation-triangle"></i>', '</h5></div>');
+<div class="content-wrapper">
+    <h3 class="page-heading mb-4">Forms</h3>
+    <div class="row mb-2">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title mb-4">Basic form elements</h5>
+                    <form class="forms-sample" action="<?= base_url('data_berobat/pesan') ?>" method="POST">
+                        <input type="hidden" name="id_berobat" value="<?= $id ?>">
+                        <input type="hidden" name="name" class="name">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <select name="id" id="pesan_obat" class="form-control">
+                                <option>---Pilih Resep Obat---</option>
+                                <?php foreach ($obat as $key => $value) { ?>
+                                    <option value="<?= $value->id_obat_masuk ?>" data-name=<?= $value->nama_obat ?>><?= $value->nama_obat ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="text" name="qty" class="form-control" placeholder="Enter ..." required>
+                        </div>
 
-            //notifikasi gagal upload gambar
-            if (isset($error_upload)) {
-                echo '<div class="alert alert-warning alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h5><i class="icon fas fa-exclamation-triangle"></i>' . $error_upload . '</h5></div>';
-            } ?>
-            <form class="forms-sample" action="<?= base_url('obat/edit/' . $detail->id_obat) ?>" method="POST">
-                <div class="form-group row">
-                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Nama Obat</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" name="nama_obat" id="exampleInputUsername2" placeholder="Nama Obat" value="<?= $detail->nama_obat ?>">
-                    </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                    <form class="forms-sample" action="<?= base_url('data_berobat/checkout') ?>" method="POST">
+                        <?php
+                        $i = 1;
+                        foreach ($this->cart->contents() as $items) {
+                            echo form_hidden('qty' . $i++, $items['qty']);
+                        }
+                        $no_resep = date('Ymd') .  random_int(100, 9999);
+                        ?>
+                        <input type="hidden" name="no_resep" value="<?= $no_resep ?>">
+                        <input type="hidden" name="id_berobat" value="<?= $id ?>">
+                        <div class="table-responsive">
+                            <table class="table center-aligned-table">
+                                <thead>
+                                    <tr class="text-primary">
+                                        <th>Nama Obat</th>
+                                        <th>Qty</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($this->cart->contents() as $key => $value) {
+                                    ?>
+                                        <tr class="">
+                                            <td><?= $value['name'] ?></td>
+                                            <td><?= $value['qty'] ?></td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Simpan Resep</button>
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
-                <div class="form-group row">
-                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Jenis Obat</label>
-                    <div class="col-sm-9">
-                        <select class="form-control" name="jenis_obat" value="<?= $detail->jenis_obat ?>">
-                            <option name="jenis_obat" value="tablet">Tablet</option>
-                            <option name="jenis_obat" value="pil">Pil</option>
-                            <option name="jenis_obat" value="cair">Cair</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="exampleInputMobile" class="col-sm-3 col-form-label">Stock</label>
-                    <div class="col-sm-9">
-                        <input type="number" name="stock" class="form-control" id="exampleInputMobile" placeholder="Mobile number" value="<?= $detail->stock ?>" required>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                <a href="<?= base_url('obat') ?>" class="btn btn-light">Cancel</a>
-            </form>
-            <?php echo form_close() ?>
+            </div>
         </div>
     </div>
 </div>
+<!-- partial:../../partials/_footer.html -->
