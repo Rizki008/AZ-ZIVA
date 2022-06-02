@@ -18,6 +18,7 @@ class Berobat extends CI_Controller
 		$data = array(
 			'title' => 'Data Pasien Daftar Berobat',
 			'berobat' => $this->m_berobat->berobat(),
+			'grafik' => $this->m_berobat->grafik(),
 			'isi' => 'layout/backend/berobat/v_brobat'
 		);
 		$this->load->view('layout/backend/v_wrapper', $data, FALSE);
@@ -50,6 +51,12 @@ class Berobat extends CI_Controller
 			'status' => 1,
 		);
 		$this->m_berobat->update($data);
+
+		$data_berobat = array(
+			'id_boking' => $id_boking,
+			'status_berobat' => 1,
+		);
+		$this->m_berobat->insert_berobat($data_berobat);
 		$this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan');
 		redirect('berobat');
 	}
