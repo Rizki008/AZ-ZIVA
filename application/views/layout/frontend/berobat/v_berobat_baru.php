@@ -25,7 +25,15 @@
 			</div>
 			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
 				<div class="bg-light rounded h-100 d-flex align-items-center p-5">
-					<?php $antrian = $this->m_pasien->boking(); ?>
+					<?php
+					$date = date('Y-m-d');
+					$antrian = $this->m_pasien->cek_antrian($date);
+					if ($antrian) {
+						$no = $antrian->no_antrian + 1;
+					} else {
+						$no = 1;
+					}
+					?>
 					<form action="<?= base_url('pasien/berobat_baru') ?>" method="POST">
 						<div class="row g-3">
 							<div class="col-12 col-sm-6">
@@ -38,7 +46,7 @@
 							</div>
 							<div class="col-12 col-sm-6">
 								<label for="">No Antrian</label>
-								<input type="number" name="no_antrian" value="<?php echo $antrian->antrian ?>" class="form-control border-0" readonly style="height: 55px;">
+								<input type="number" name="no_antrian" value="<?= $no ?>" class="form-control border-0" readonly style="height: 55px;">
 							</div>
 							<div class="col-12 col-sm-6">
 								<label for="">Keluhan</label>
