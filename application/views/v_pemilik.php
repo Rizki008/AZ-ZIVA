@@ -1,228 +1,128 @@
 <div class="content-wrapper">
-
+	<h3 class="page-heading mb-4">Dashboard</h3>
 	<div class="row">
-		<div class="col-xl-6 grid-margin stretch-card flex-column">
-			<h5 class="mb-2 text-titlecase mb-4">Status statistics</h5>
-			<div class="row">
-				<div class="col-md-6 grid-margin stretch-card">
-					<div class="card">
-						<div class="card-body d-flex flex-column justify-content-between">
-							<div class="d-flex justify-content-between align-items-center mb-2">
-								<p class="mb-0 text-muted">Data Pasien</p>
-								<p class="mb-0 text-muted"></p>
-							</div>
-							<h4><?= $total_pasien ?></h4>
-							<canvas id="transactions-chart" class="mt-auto" height="65"></canvas>
+		<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 mb-4">
+			<div class="card card-statistics">
+				<div class="card-body">
+					<div class="clearfix">
+						<div class="float-left">
+							<h4 class="text-danger">
+								<i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i>
+							</h4>
+						</div>
+						<div class="float-right">
+							<p class="card-text text-dark">Data Pasien</p>
+							<h4 class="bold-text"><?= $total_pasien ?></h4>
 						</div>
 					</div>
+					<p class="text-muted">
+						<i class="fa fa-exclamation-circle mr-1" aria-hidden="true"></i> 65% lower growth
+					</p>
 				</div>
-				<div class="col-md-6 grid-margin stretch-card">
-					<div class="card">
-						<div class="card-body d-flex flex-column justify-content-between">
-							<div class="d-flex justify-content-between align-items-center mb-2">
-								<div>
-									<p class="mb-2 text-muted">Daftar Berobat</p>
-									<h6 class="mb-0"><?= $total_daftar ?></h6>
-								</div>
-								<div>
-									<p class="mb-2 text-muted">Total Pasien Berobat</p>
-									<h6 class="mb-0"><?= $total_berobat ?></h6>
-								</div>
-							</div>
-							<canvas id="sales-chart-a" class="mt-auto" height="65"></canvas>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row h-100">
-				<div class="col-md-6 stretch-card grid-margin grid-margin-md-0">
-					<div class="card">
-						<div class="card-body d-flex flex-column justify-content-between">
-							<p class="text-muted">Total Obat</p>
-							<div class="d-flex justify-content-between align-items-center mb-2">
-								<h3 class="mb-"><?= $total_obat ?></h3>
-							</div>
-							<canvas id="sales-chart-b" class="mt-auto" height="38"></canvas>
-						</div>
-					</div>
-				</div>
-				<!-- <div class="col-md-6 stretch-card">
-					<div class="card">
-						<div class="card-body">
-							<div class="row h-100">
-								<div class="col-6 d-flex flex-column justify-content-between">
-									<p class="text-muted">BPJS</p>
-									<h4>55%</h4>
-									<canvas id="cpu-chart" class="mt-auto"></canvas>
-								</div>
-								<div class="col-6 d-flex flex-column justify-content-between">
-									<p class="text-muted">Non BPJS</p>
-									<h4><?= $total_non_bpjs ?></h4>
-									<canvas id="memory-chart" class="mt-auto"></canvas>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> -->
 			</div>
 		</div>
-		<!-- <div class="col-xl-6 grid-margin stretch-card flex-column">
-			<h5 class="mb-2 text-titlecase mb-4">Income statistics</h5>
-			<div class="row h-100">
-				<div class="col-md-12 stretch-card">
-					<div class="card">
-						<div class="card-body">
-							<div class="d-flex justify-content-between align-items-start flex-wrap">
-								<div>
-									<p class="mb-3">Monthly Increase</p>
-									<h3>67842</h3>
-								</div>
-								<div id="income-chart-legend" class="d-flex flex-wrap mt-1 mt-md-0"></div>
-							</div>
-							<canvas id="income-chart"></canvas>
+		<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 mb-4">
+			<div class="card card-statistics">
+				<div class="card-body">
+					<div class="clearfix">
+						<div class="float-left">
+							<h4 class="text-warning">
+								<i class="fa fa-shopping-cart highlight-icon" aria-hidden="true"></i>
+							</h4>
+						</div>
+						<div class="float-right">
+							<p class="card-text text-dark">Daftar Berobat</p>
+							<h4 class="bold-text"><?= $total_daftar ?></h4>
 						</div>
 					</div>
+					<p class="text-muted">
+						<i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> Product-wise sales
+					</p>
 				</div>
 			</div>
-		</div> -->
-		<div class="col-md-6">
-			<div class="card">
-				<div class="table-responsive pt-3">
-					<table class="table table-striped project-orders-table">
-						<thead>
-							<tr>
-								<th class="ml-5">ID</th>
-								<th>Alamat</th>
-								<th>Total Alamat Pasein</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php $no = 1;
-							foreach ($grafik_alamat as $key => $value) {
-								$total = $this->m_pasien->grafik_alamat(); ?>
-								<tr>
-									<td><?= $no++ ?></td>
-									<td><?= $value->alamat ?></td>
-									<td><?= $value->total ?></td>
-								</tr>
-							<?php } ?>
-						</tbody>
-					</table>
+		</div>
+		<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 mb-4">
+			<div class="card card-statistics">
+				<div class="card-body">
+					<div class="clearfix">
+						<div class="float-left">
+							<h4 class="text-success">
+								<i class="fa fa-dollar highlight-icon" aria-hidden="true"></i>
+							</h4>
+						</div>
+						<div class="float-right">
+							<p class="card-text text-dark">Total Pasien Berobat</p>
+							<h4 class="bold-text"><?= $total_berobat ?></h4>
+						</div>
+					</div>
+					<p class="text-muted">
+						<i class="fa fa-calendar mr-1" aria-hidden="true"></i> Weekly Sales
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 mb-4">
+			<div class="card card-statistics">
+				<div class="card-body">
+					<div class="clearfix">
+						<div class="float-left">
+							<h4 class="text-primary">
+								<i class="fa fa-twitter highlight-icon" aria-hidden="true"></i>
+							</h4>
+						</div>
+						<div class="float-right">
+							<p class="card-text text-dark">Total Obat</p>
+							<h4 class="bold-text"><?= $total_obat ?></h4>
+						</div>
+					</div>
+					<p class="text-muted">
+						<i class="fa fa-repeat mr-1" aria-hidden="true"></i> Just Updated
+					</p>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<?php
-	foreach ($grafik as $key => $value) {
-		$nama_obat[] = $value->nama_obat;
-		$stock[] = $value->stock;
-	}
-	?>
-
-
-	<canvas id="myChart" height="100"></canvas>
-	<script>
-		var ctx = document.getElementById('myChart');
-		var myChart = new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: <?= json_encode($nama_obat) ?>,
-				datasets: [{
-					label: 'Grafik Analisis Stock Obat',
-					data: <?= json_encode($stock) ?>,
-					backgroundColor: [
-						'rgba(255, 99, 132, 0.80)',
-						'rgba(54, 162, 235, 0.80)',
-						'rgba(255, 206, 86, 0.80)',
-						'rgba(75, 192, 192, 0.80)',
-						'rgba(153, 102, 255, 0.80)',
-						'rgba(255, 159, 64, 0.80)',
-						'rgba(201, 76, 76, 0.3)',
-						'rgba(201, 77, 77, 1)',
-						'rgba(0, 140, 162, 1)',
-						'rgba(158, 109, 8, 1)',
-						'rgba(201, 76, 76, 0.8)',
-						'rgba(0, 129, 212, 1)',
-						'rgba(201, 77, 201, 1)',
-						'rgba(255, 207, 207, 1)',
-						'rgba(201, 77, 77, 1)',
-						'rgba(128, 98, 98, 1)',
-						'rgba(0, 0, 0, 1)',
-						'rgba(128, 128, 128, 1)',
-						'rgba(255, 99, 132, 0.80)',
-						'rgba(54, 162, 235, 0.80)',
-						'rgba(255, 206, 86, 0.80)',
-						'rgba(75, 192, 192, 0.80)',
-						'rgba(153, 102, 255, 0.80)',
-						'rgba(255, 159, 64, 0.80)',
-						'rgba(201, 76, 76, 0.3)',
-						'rgba(201, 77, 77, 1)',
-						'rgba(0, 140, 162, 1)',
-						'rgba(158, 109, 8, 1)',
-						'rgba(201, 76, 76, 0.8)',
-						'rgba(0, 129, 212, 1)',
-						'rgba(201, 77, 201, 1)',
-						'rgba(255, 207, 207, 1)',
-						'rgba(201, 77, 77, 1)',
-						'rgba(128, 98, 98, 1)',
-						'rgba(0, 0, 0, 1)',
-						'rgba(128, 128, 128, 1)'
-					],
-					borderColor: [
-						'rgba(255, 99, 132, 1)',
-						'rgba(54, 162, 235, 1)',
-						'rgba(255, 206, 86, 1)',
-						'rgba(75, 192, 192, 1)',
-						'rgba(153, 102, 255, 1)',
-						'rgba(255, 159, 64, 1)',
-						'rgba(201, 76, 76, 0.3)',
-						'rgba(201, 77, 77, 1)',
-						'rgba(0, 140, 162, 1)',
-						'rgba(158, 109, 8, 1)',
-						'rgba(201, 76, 76, 0.8)',
-						'rgba(0, 129, 212, 1)',
-						'rgba(201, 77, 201, 1)',
-						'rgba(255, 207, 207, 1)',
-						'rgba(201, 77, 77, 1)',
-						'rgba(128, 98, 98, 1)',
-						'rgba(0, 0, 0, 1)',
-						'rgba(128, 128, 128, 1)',
-						'rgba(255, 99, 132, 1)',
-						'rgba(54, 162, 235, 1)',
-						'rgba(255, 206, 86, 1)',
-						'rgba(75, 192, 192, 1)',
-						'rgba(153, 102, 255, 1)',
-						'rgba(255, 159, 64, 1)',
-						'rgba(201, 76, 76, 0.3)',
-						'rgba(201, 77, 77, 1)',
-						'rgba(0, 140, 162, 1)',
-						'rgba(158, 109, 8, 1)',
-						'rgba(201, 76, 76, 0.8)',
-						'rgba(0, 129, 212, 1)',
-						'rgba(201, 77, 201, 1)',
-						'rgba(255, 207, 207, 1)',
-						'rgba(201, 77, 77, 1)',
-						'rgba(128, 98, 98, 1)',
-						'rgba(0, 0, 0, 1)',
-						'rgba(128, 128, 128, 1)'
-					],
-					fill: false,
-					borderWidth: 1
-				}]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero: true
-						}
-					}]
-				}
-			}
-		});
-	</script>
-
-
-
+	<div class="row">
+		<div class="col-md-5 mb-4">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Orders</h5>
+					<div class="row">
+						<div class="col-12">
+							<canvas id="myChart" height="100"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 mb-4">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Sales region</h5>
+					<div class="table-responsive table-sales">
+						<table class="table">
+							<thead>
+								<tr>
+									<th colspan="2">No</th>
+									<th class="text-left">Alamat</th>
+									<th class="text-right">Total Alamat Pasein</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php $no = 1;
+								foreach ($grafik_alamat as $key => $value) {
+									$total = $this->m_pasien->grafik_alamat(); ?>
+									<tr>
+										<td colspan="2"><?= $no++ ?></td>
+										<td class="text-left"><?= $value->alamat ?></td>
+										<td class="text-right"><?= $value->total ?></td>
+									</tr>
+								<?php } ?>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
