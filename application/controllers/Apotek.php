@@ -58,7 +58,7 @@ class Apotek extends CI_Controller
 		$data = array(
 			'title' => 'Resep Obat',
 			'obat' => $this->m_obat->pesan_obat(),
-			'pesanan' => $this->m_obat->pemesanan(),
+			'pesanan' => $this->m_obat->resep(),
 			'berobat' => $this->m_obat->berobat(),
 			'isi' => 'layout/apotek/berobat/v_data_berobat'
 		);
