@@ -12,6 +12,24 @@ foreach ($grafik as $key => $value) {
 	$stock[] = $value->stock;
 }
 ?>
+<?php
+foreach ($grafik_alamat_pasien as $key => $value) {
+	$alamat[] = $value->alamat;
+	$total[] = $value->total;
+}
+?>
+<?php
+foreach ($grafik_gejala_pasien as $key => $value) {
+	$gejala[] = $value->gejala;
+	$total[] = $value->total;
+}
+?>
+<?php
+foreach ($grafik_bpjs as $key => $value) {
+	$bpjs[] = $value->bpjs;
+	$total[] = $value->total;
+}
+?>
 <!-- partial -->
 </div>
 </div>
@@ -108,6 +126,307 @@ foreach ($grafik as $key => $value) {
 			datasets: [{
 				label: 'Grafik Analisis Stock Obat',
 				data: <?= json_encode($stock) ?>,
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)'
+				],
+				fill: false,
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true
+					}
+				}]
+			}
+		}
+	});
+</script>
+
+<script>
+	var ctx = document.getElementById('myBar');
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: <?= json_encode($alamat) ?>,
+			datasets: [{
+				label: 'Grafik Analisis Alamat Pasien Berobat',
+				data: <?= json_encode($total) ?>,
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)'
+				],
+				fill: false,
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true
+					}
+				}]
+			}
+		}
+	});
+</script>
+<script>
+	var ctx = document.getElementById('myLinda');
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: <?= json_encode($gejala) ?>,
+			datasets: [{
+				label: 'Grafik Analisis Gejala Pasien',
+				data: <?= json_encode($total) ?>,
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 0.80)',
+					'rgba(54, 162, 235, 0.80)',
+					'rgba(255, 206, 86, 0.80)',
+					'rgba(75, 192, 192, 0.80)',
+					'rgba(153, 102, 255, 0.80)',
+					'rgba(255, 159, 64, 0.80)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(201, 76, 76, 0.3)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(0, 140, 162, 1)',
+					'rgba(158, 109, 8, 1)',
+					'rgba(201, 76, 76, 0.8)',
+					'rgba(0, 129, 212, 1)',
+					'rgba(201, 77, 201, 1)',
+					'rgba(255, 207, 207, 1)',
+					'rgba(201, 77, 77, 1)',
+					'rgba(128, 98, 98, 1)',
+					'rgba(0, 0, 0, 1)',
+					'rgba(128, 128, 128, 1)'
+				],
+				fill: false,
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true
+					}
+				}]
+			}
+		}
+	});
+</script>
+<script>
+	var ctx = document.getElementById('myHoney');
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: <?= json_encode($bpjs) ?>,
+			datasets: [{
+				label: 'Grafik Analisis BPJS ',
+				data: <?= json_encode($total) ?>,
 				backgroundColor: [
 					'rgba(255, 99, 132, 0.80)',
 					'rgba(54, 162, 235, 0.80)',
