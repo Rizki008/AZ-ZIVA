@@ -63,11 +63,13 @@ class Data_berobat extends CI_Controller
 		$this->db->where('id_berobat', $id_berobat);
 		$this->db->update('berobat', $data);
 
+		//simppan obat keluar
 		$i = 1;
 		foreach ($this->cart->contents() as $item) {
 			$data_rinci = array(
 				'no_resep' => $this->input->post('no_resep'),
 				'id_obat_masuk' => $item['id'],
+				'tgl_keluar' => date('Y-m-d'),
 				'qty' => $this->input->post('qty' . $i++)
 			);
 			$this->m_berobat->add_obat_keluar($data_rinci);
