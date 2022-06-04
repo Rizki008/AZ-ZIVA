@@ -6,20 +6,20 @@
 			<div class="row g-4">
 				<div class="col-sm-4">
 					<div class="border-start border-light ps-4">
-						<h2 class="text-white mb-1" data-toggle="counter-up">123</h2>
+						<h2 class="text-white mb-1" data-toggle="counter-up">4</h2>
 						<p class="text-light mb-0">Dokter Ahli</p>
 					</div>
 				</div>
 				<div class="col-sm-4">
 					<div class="border-start border-light ps-4">
-						<h2 class="text-white mb-1" data-toggle="counter-up">1234</h2>
+						<h2 class="text-white mb-1" data-toggle="counter-up">12</h2>
 						<p class="text-light mb-0">Barang Medis</p>
 					</div>
 				</div>
 				<div class="col-sm-4">
 					<div class="border-start border-light ps-4">
-						<h2 class="text-white mb-1" data-toggle="counter-up">12345</h2>
-						<p class="text-light mb-0">Jumlah Pasien</p>
+						<h2 class="text-white mb-1" data-toggle="counter-up"><?= $total_daftar ?></h2>
+						<p class="text-light mb-0">Jumlah Pasien Daftar Berobat</p>
 					</div>
 				</div>
 			</div>
