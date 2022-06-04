@@ -85,6 +85,30 @@ class M_berobat extends CI_Model
 		$this->db->order_by('stock', 'desc');
 		return $this->db->get()->result();
 	}
+	public function grafik_alamat()
+	{
+		$this->db->select('COUNT(alamat) AS total, pasien.alamat');
+		$this->db->from('berobat');
+		$this->db->join('booking_berobat', 'booking_berobat.id_boking = berobat.id_boking', 'left');
+		$this->db->join('pasien', 'booking_berobat.id_pasien = pasien.id_pasien', 'left');
+		$this->db->group_by('pasien.alamat');
+		return $this->db->get()->result();
+	}
+	public function grafik_penyakit()
+	{
+		$this->db->select('COUNT(gejala) AS total, berobat.gejala');
+		$this->db->from('berobat');
+		$this->db->group_by('gejala');
+		return $this->db->get()->result();
+	}
+	public function grafik_bpjs_analis()
+	{
+		return $this->db->query("SELECT pasien.bpjs, COUNT(bpjs) AS total_bpjs FROM `pasien` WHERE bpjs='BPJS' GROUP BY bpjs;")->result();
+	}
+	public function grafik_nonbpjs()
+	{
+		return $this->db->query("SELECT pasien.bpjs, COUNT(bpjs) AS total_non FROM `pasien` WHERE bpjs='NonBPJS' GROUP BY bpjs;")->result();
+	}
 
 	public function data_berobat_pasien($id_pasien)
 	{
