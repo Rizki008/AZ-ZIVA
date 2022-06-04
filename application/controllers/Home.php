@@ -8,6 +8,7 @@ class Home extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('m_pasien');
+		$this->load->model('m_admin');
 	}
 	public function index()
 	{
@@ -15,6 +16,7 @@ class Home extends CI_Controller
 			'title' => 'Home',
 			// 'hapus_otomatis' => $this->m_pasien->hapus_otomatis(),
 			// 'hapus_data' => $this->m_pasien->hapus_data(),
+			'total_daftar' => $this->m_admin->total_daftar(),
 			'isi' => 'v_home'
 		);
 		$this->load->view('layout/frontend/v_wrapper', $data, FALSE);
