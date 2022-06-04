@@ -6,44 +6,7 @@
 				<div class="card-body">
 					<h5 class="card-title mb-4"><?= $title ?></h5>
 					<div class="table-responsive">
-						<table class="table center-aligned-table">
-							<thead>
-								<tr class="text-primary">
-									<th>No</th>
-									<th>No Berobat</th>
-									<th>Nama Pasien</th>
-									<th>Jenis Kelamin</th>
-									<th>Usia</th>
-									<th>bpjs</th>
-									<th>Datang Berobat</th>
-									<th>alamat</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php
-								$no = 1;
-								foreach ($non_bpjs as $key => $value) { ?>
-									<tr class="">
-										<td><?= $no++ ?></td>
-										<td><?= $value->no_berobat ?></td>
-										<td><?= $value->nama_pasien ?></td>
-										<td><?php if ($value->jenis_kl == 1) { ?>
-												<label class="badge badge-success">Laki-Laki</label>
-											<?php } elseif ($value->jenis_kl == 2) { ?>
-												<label class="badge badge-success">Perempuan</label>
-											<?php } ?>
-										</td>
-										<td><?= $value->usia ?> thn</td>
-										<td><?php if ($value->bpjs == 2) { ?>
-												<label class="badge badge-warning">Non BPJS</label>
-											<?php } ?>
-										</td>
-										<td><?= $value->datang_berobat ?> x</td>
-										<td><?= $value->alamat ?></td>
-									</tr>
-								<?php } ?>
-							</tbody>
-						</table>
+						<canvas id="NONBPJS" height="100"></canvas>
 					</div>
 				</div>
 			</div>
