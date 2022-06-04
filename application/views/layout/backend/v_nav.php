@@ -23,7 +23,7 @@
 				<li class="nav-item">
 					<a class="nav-link" data-toggle="collapse" href="#sample-pages" aria-expanded="false" aria-controls="sample-pages">
 						<img src="<?= base_url() ?>backend/images/icons/9.png" alt="">
-						<span class="menu-title">Pasien Brobat<i class="fa fa-sort-down"></i></span>
+						<span class="menu-title">Pasien Berobat<i class="fa fa-sort-down"></i></span>
 					</a>
 					<div class="collapse" id="sample-pages">
 						<ul class="nav flex-column sub-menu">
