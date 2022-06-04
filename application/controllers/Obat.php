@@ -11,6 +11,7 @@ class Obat extends CI_Controller
 		$this->load->model('m_obat');
 		$this->load->model('m_admin');
 		$this->load->model('m_berobat');
+		$this->load->model('m_pasien');
 	}
 
 	public function index()
@@ -47,6 +48,7 @@ class Obat extends CI_Controller
 			'nama_obat' => $this->input->post('nama_obat'),
 			'jenis_obat' => $this->input->post('jenis_obat'),
 			'stock' => $this->input->post('stock'),
+			'tgl_masuk' => date('Y-m-d'),
 		);
 		$this->m_obat->add_obat_masuk($data);
 		$this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan');
@@ -60,6 +62,7 @@ class Obat extends CI_Controller
 			'nama_obat' => $this->input->post('nama_obat'),
 			'jenis_obat' => $this->input->post('jenis_obat'),
 			'stock' => $this->input->post('stock'),
+			'tgl_masuk' => date('Y-m-d'),
 		);
 		$this->m_obat->edit_obat_masuk($data);
 		$this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan');
@@ -83,6 +86,11 @@ class Obat extends CI_Controller
 			'title' => 'Data Pasien BPJS',
 			'bpjs' => $this->m_admin->bpjs(),
 			'grafik' => $this->m_berobat->grafik(),
+			'grafik_alamat' => $this->m_pasien->grafik_alamat(),
+			'grafik_alamat_pasien' => $this->m_berobat->grafik_alamat(),
+			'grafik_gejala_pasien' => $this->m_berobat->grafik_penyakit(),
+			'grafik_nonbpjs' => $this->m_berobat->grafik_nonbpjs(),
+			'grafik_bpjs_analis' => $this->m_berobat->grafik_bpjs_analis(),
 			'isi' => 'layout/pemilik/pasien/v_bpjs'
 		);
 		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
@@ -95,6 +103,11 @@ class Obat extends CI_Controller
 			'title' => 'Data Pasien Non BPJS',
 			'non_bpjs' => $this->m_admin->non_bpjs(),
 			'grafik' => $this->m_berobat->grafik(),
+			'grafik_alamat' => $this->m_pasien->grafik_alamat(),
+			'grafik_alamat_pasien' => $this->m_berobat->grafik_alamat(),
+			'grafik_gejala_pasien' => $this->m_berobat->grafik_penyakit(),
+			'grafik_bpjs_analis' => $this->m_berobat->grafik_bpjs_analis(),
+			'grafik_nonbpjs' => $this->m_berobat->grafik_nonbpjs(),
 			'isi' => 'layout/pemilik/pasien/v_non_bpjs'
 		);
 		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
