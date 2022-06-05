@@ -72,8 +72,8 @@
 						<div class="col-12 col-sm-6">
 							<select class="form-select border-0" style="height: 55px;" name="bpjs">
 								<option selected>---Pilih Penggunaan Kartu Kesehatan---</option>
-								<option value="1">BPJS</option>
-								<option value="2">Non BPJS</option>
+								<option value="BPJS">BPJS</option>
+								<option value="NonBPJS">Non BPJS</option>
 							</select>
 						</div>
 						<div class="col-12 col-sm-6">
