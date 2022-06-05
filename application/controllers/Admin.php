@@ -25,8 +25,6 @@ class Admin extends CI_Controller
 			'total_obat' => $this->m_admin->total_obat(),
 			'total_daftar' => $this->m_admin->total_daftar(),
 			'total_berobat' => $this->m_admin->total_berobat(),
-			'grafik' => $this->m_berobat->grafik(),
-			'grafik_alamat' => $this->m_pasien->grafik_alamat(),
 			'grafik_alamat_pasien' => $this->m_berobat->grafik_alamat(),
 			'grafik_gejala_pasien' => $this->m_berobat->grafik_penyakit(),
 			'grafik_bpjs' => $this->m_berobat->grafik_bpjs(),

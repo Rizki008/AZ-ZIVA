@@ -1,75 +1,116 @@
 <div class="content-wrapper">
-	<h3 class="page-heading mb-4"><?= $title ?></h3>
-
-	<div class="row mb-2">
-		<div class="col-lg-12">
-			<div class="card">
-				<div class="card-body">
-					<h5 class="card-title mb-4"><?= $title ?></h5>
-					<div class="table-responsive">
-						<table class="table center-aligned-table">
-							<thead>
-								<tr class="text-primary">
-									<th>
-										No
-									</th>
-									<th>
-										Id Berobat
-									</th>
-									<th>
-										Tanggal Berobat
-									</th>
-									<th>
-										status_berobat
-									</th>
-									<th>
-										Aksi
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php $no = 1;
-								foreach ($pesanan as $key => $value) { ?>
-									<tr class="">
-										<td class="py-1">
-											<?= $no++ ?>
-										</td>
-										<td>
-											<?= $value->id_berobat ?>
-										</td>
-										<td>
-											<?= $value->tgl_berobat ?>
-										</td>
-										<td>
-											<?php
-											if ($value->status_berobat == '1') {
-												echo '<span class="badge badge-danger">Periksa</span>';
-											} else if ($value->status_berobat == '2') {
-												echo '<span class="badge badge-primary">Resep Obat</span>';
-											} elseif ($value->status_berobat == '3') {
-												echo '<span class="badge badge-warning">Proses</span>';
-											} elseif ($value->status_berobat == '4') {
-												echo '<span class="badge badge-success">Selesai</span>';
-											} ?>
-										</td>
-										<td>
-											<?php
-											if ($value->status_berobat == '4') { ?>
-												<button type="button" class="btn btn-success" data-toggle="modal" data-target="#detail<?= $value->id_berobat ?>">
-													Detail Pasien
-												</button>
-											<?php } ?>
-										</td>
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-6">
+					<h1><?= $title ?></h1>
+				</div>
+				<div class="col-sm-6">
+					<ol class="breadcrumb float-sm-right">
+						<li class="breadcrumb-item"><a href="#">Home</a></li>
+						<li class="breadcrumb-item active"><?= $title ?></li>
+					</ol>
+				</div>
+			</div>
+		</div><!-- /.container-fluid -->
+	</section>
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12">
+					<div class="card">
+						<div class="card-header">
+							<!-- <button class="btn btn-primary btn rounded btn fw" data-toggle="modal" data-target="#add"><i class="fa fa-plus"></i>Add Obat Masuk</button> -->
+						</div>
+						<!-- /.card-header -->
+						<div class="card-body">
+							<table id="example1" class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th>
+											No
+										</th>
+										<th>
+											Id Berobat
+										</th>
+										<th>
+											Tanggal Berobat
+										</th>
+										<th>
+											status_berobat
+										</th>
+										<th>
+											Aksi
+										</th>
 									</tr>
-								<?php } ?>
-							</tbody>
-						</table>
+								</thead>
+								<tbody>
+									<?php $no = 1;
+									foreach ($pesanan as $key => $value) { ?>
+										<tr class="">
+											<td class="py-1">
+												<?= $no++ ?>
+											</td>
+											<td>
+												<?= $value->id_berobat ?>
+											</td>
+											<td>
+												<?= $value->tgl_berobat ?>
+											</td>
+											<td>
+												<?php
+												if ($value->status_berobat == '1') {
+													echo '<span class="badge badge-danger">Periksa</span>';
+												} else if ($value->status_berobat == '2') {
+													echo '<span class="badge badge-primary">Resep Obat</span>';
+												} elseif ($value->status_berobat == '3') {
+													echo '<span class="badge badge-warning">Proses</span>';
+												} elseif ($value->status_berobat == '4') {
+													echo '<span class="badge badge-success">Selesai</span>';
+												} ?>
+											</td>
+											<td>
+												<?php
+												if ($value->status_berobat == '4') { ?>
+													<button type="button" class="btn btn-success" data-toggle="modal" data-target="#detail<?= $value->id_berobat ?>">
+														Detail Pasien
+													</button>
+												<?php } ?>
+											</td>
+										</tr>
+									<?php } ?>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th>
+											No
+										</th>
+										<th>
+											Id Berobat
+										</th>
+										<th>
+											Tanggal Berobat
+										</th>
+										<th>
+											status_berobat
+										</th>
+										<th>
+											Aksi
+										</th>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+						<!-- /.card-body -->
 					</div>
+					<!-- /.card -->
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 </div>
+
 
 <?php foreach ($berobat as $key => $value) { ?>
 	<div class="modal fade" id="detail<?= $value->id_berobat ?>">

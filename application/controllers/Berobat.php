@@ -19,6 +19,8 @@ class Berobat extends CI_Controller
 			'title' => 'Data Pasien Daftar Berobat',
 			'berobat' => $this->m_berobat->berobat(),
 			'grafik' => $this->m_berobat->grafik(),
+			'grafik_alamat_pasien' => $this->m_berobat->grafik_alamat(),
+			'grafik_gejala_pasien' => $this->m_berobat->grafik_penyakit(),
 			'isi' => 'layout/backend/berobat/v_brobat'
 		);
 		$this->load->view('layout/backend/v_wrapper', $data, FALSE);

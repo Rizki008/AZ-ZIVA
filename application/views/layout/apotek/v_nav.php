@@ -1,62 +1,87 @@
-<!-- partial -->
-<div class="container-fluid">
-	<div class="row row-offcanvas row-offcanvas-right">
-		<!-- partial:partials/_sidebar.html -->
-		<nav class="bg-white sidebar sidebar-offcanvas" id="sidebar">
-			<div class="user-info">
-				<img src="<?= base_url() ?>backend/images/face.jpg" alt="">
-				<p class="name"><?= $this->session->userdata('username'); ?></p>
-				<p class="designation">Apoteker</p>
-				<span class="online"></span>
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+	<!-- Brand Logo -->
+	<a href="index3.html" class="brand-link">
+		<img src="<?= base_url() ?>template/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+		<span class="brand-text font-weight-light">Az-Ziva</span>
+	</a>
+
+	<!-- Sidebar -->
+	<div class="sidebar">
+		<!-- Sidebar user panel (optional) -->
+		<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+			<div class="image">
+				<img src="<?= base_url() ?>template/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
 			</div>
-			<ul class="nav">
-				<li class="nav-item active">
+			<div class="info">
+				<a href="<?= base_url('apotek') ?>" class="d-block"><?= $this->session->userdata('username'); ?></a>
+			</div>
+		</div>
+
+		<!-- Sidebar Menu -->
+		<nav class="mt-2">
+			<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+				<li class="nav-item has-treeview menu-open">
 					<a class="nav-link <?php if (
 											$this->uri->segment(1) == 'apotek' and $this->uri->segment(2) == " "
 										) {
 											echo "active";
 										} ?>" href="<?= base_url('apotek') ?>">
-						<img src="<?= base_url() ?>backend/images/icons/1.png" alt="">
-						<span class="menu-title">Dashboard</span>
+						<i class="nav-icon fas fa-tachometer-alt"></i>
+						<p>
+							Dashboard
+						</p>
 					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-toggle="collapse" href="#sample-pages" aria-expanded="false" aria-controls="sample-pages">
-						<img src="<?= base_url() ?>backend/images/icons/9.png" alt="">
-						<span class="menu-title">Kelola Obat<i class="fa fa-sort-down"></i></span>
-					</a>
-					<div class="collapse" id="sample-pages">
-						<ul class="nav flex-column sub-menu">
-							<li class="nav-item <?php if ($this->uri->segment(1) == 'berobat') {
-													echo "active";
-												} ?>">
-								<a class="nav-link" href="<?= base_url('obat/obat_masuk') ?>">
-									Data Obat Masuk
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link <?php if ($this->uri->segment(1) == "obat_keluar") {
-														echo "active";
-													} ?>" href="<?= base_url('obat/obat_keluar') ?>">
-									Data Obat Keluar
-								</a>
-							</li>
-						</ul>
-					</div>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link <?php if ($this->uri->segment(1) == "apotek/resep_pasien") {
 											echo "active";
 										} ?>" href="<?= base_url('apotek/resep_pasien') ?>">
-						<img src=" <?= base_url() ?>backend/images/icons/10.png" alt="">
-						<span class="menu-title">Resep Pasien</span>
+						<i class="nav-icon fas fa-th"></i>
+						<p>
+							Resep Pasien
+						</p>
 					</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="<?= base_url('auth/logout_user') ?>">
-						<img src="<?= base_url() ?>backend/images/icons/10.png" alt="">
-						<span class="menu-title">Logout</span>
+				<li class="nav-item has-treeview">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-tree"></i>
+						<p>
+							Kelola Obat
+							<i class="fas fa-angle-left right"></i>
+						</p>
+					</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item">
+							<a class="nav-link  <?php if ($this->uri->segment(1) == 'berobat') {
+													echo "active";
+												} ?>">
+								<a class="nav-link" href="<?= base_url('obat/obat_masuk') ?>">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Data Obat Masuk</p>
+								</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link<?php if ($this->uri->segment(1) == "obat_keluar") {
+													echo "active";
+												} ?>" href="<?= base_url('obat/obat_keluar') ?>">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Data Obat Keluar</p>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item has-treeview">
+					<a href="<?= base_url('auth/logout_user') ?>" class="nav-link">
+						<i class="nav-icon fas fa-copy"></i>
+						<p>
+							Logout
+						</p>
 					</a>
 				</li>
 			</ul>
 		</nav>
+		<!-- /.sidebar-menu -->
+	</div>
+	<!-- /.sidebar -->
+</aside>

@@ -1,28 +1,30 @@
-<body>
-	<div class=" container-scroller">
-		<!-- partial:partials/_navbar.html -->
-		<nav class="navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-			<div class="bg-white text-center navbar-brand-wrapper">
-				<a class="navbar-brand brand-logo" href="<?= base_url('pemilik') ?>"><img src="<?= base_url() ?>backend/images/logo_star_black.png" /></a>
-				<a class="navbar-brand brand-logo-mini" href="<?= base_url('pemilik') ?>"><img src="<?= base_url() ?>backend/images/logo_star_mini.jpg" alt=""></a>
-			</div>
-			<div class="navbar-menu-wrapper d-flex align-items-center">
-				<button class="navbar-toggler navbar-toggler d-none d-lg-block navbar-dark align-self-center mr-3" type="button" data-toggle="minimize">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<form class="form-inline mt-2 mt-md-0 d-none d-lg-block">
-					<!-- <input class="form-control mr-sm-2 search" type="text" placeholder="Search"> -->
-				</form>
-				<ul class="navbar-nav ml-lg-auto d-flex align-items-center flex-row">
-					<li class="nav-item">
-						<!-- <a class="nav-link profile-pic" href="#"><img class="rounded-circle" src="<?= base_url() ?>backend/images/face.jpg" alt=""></a> -->
-					</li>
-					<li class="nav-item">
-						<!-- <a class="nav-link" href="#"><i class="fa fa-th"></i></a> -->
-					</li>
-				</ul>
-				<button class="navbar-toggler navbar-dark navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-			</div>
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+		<!-- Navbar -->
+		<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+			<!-- Left navbar links -->
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+				</li>
+				<li class="nav-item d-none d-sm-inline-block">
+					<a href="<?= base_url('pemilik') ?>" class="nav-link">Home</a>
+				</li>
+				<li class="nav-item d-none d-sm-inline-block">
+					<!-- <a href="#" class="nav-link">Contact</a> -->
+				</li>
+			</ul>
+
+			<!-- SEARCH FORM -->
+			<form class="form-inline ml-3">
+				<div class="input-group input-group-sm">
+					<!-- <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search"> -->
+					<!-- <div class="input-group-append">
+						<button class="btn btn-navbar" type="submit">
+							<i class="fas fa-search"></i>
+						</button>
+					</div> -->
+				</div>
+			</form>
 		</nav>
+		<!-- /.navbar -->

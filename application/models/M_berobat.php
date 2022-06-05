@@ -87,7 +87,7 @@ class M_berobat extends CI_Model
 	}
 	public function grafik_alamat()
 	{
-		$this->db->select('COUNT(alamat) AS total, pasien.alamat');
+		$this->db->select('COUNT(alamat) AS total_alamat, pasien.alamat');
 		$this->db->from('berobat');
 		$this->db->join('booking_berobat', 'booking_berobat.id_boking = berobat.id_boking', 'left');
 		$this->db->join('pasien', 'booking_berobat.id_pasien = pasien.id_pasien', 'left');
@@ -96,10 +96,15 @@ class M_berobat extends CI_Model
 	}
 	public function grafik_penyakit()
 	{
-		$this->db->select('COUNT(gejala) AS total, berobat.gejala');
+		$this->db->select('COUNT(gejala) AS total_gejala, berobat.gejala');
 		$this->db->from('berobat');
 		$this->db->group_by('gejala');
 		return $this->db->get()->result();
+	}
+
+	public function grafik_bpjs()
+	{
+		return $this->db->query('SELECT pasien.bpjs, COUNT(bpjs)  AS total_bpjs FROM `pasien` GROUP BY bpjs;')->result();
 	}
 	public function grafik_bpjs_analis()
 	{

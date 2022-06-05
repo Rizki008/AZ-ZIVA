@@ -26,6 +26,7 @@ class Data_berobat extends CI_Controller
 	public function resep_obat($id)
 	{
 		$data = array(
+			'title' => 'Resep Obat',
 			'id' => $id,
 			'obat' => $this->m_obat->pesan_obat(),
 			'isi' => 'layout/dokter/berobat/v_resep'
