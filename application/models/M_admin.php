@@ -82,4 +82,73 @@ class M_admin extends CI_Model
 
 		return $this->db->get()->result();
 	}
+
+	//gejala
+	public function analisis_tanggal_gejala($tanggal, $bulan, $tahun)
+	{
+		$this->db->select('COUNT(gejala) AS total_gejala_tanggal, berobat.gejala');
+		$this->db->from('berobat');
+		$this->db->where('DAY(berobat.tgl_berobat)', $tanggal);
+		$this->db->where('MONTH(berobat.tgl_berobat)', $bulan);
+		$this->db->where('YEAR(berobat.tgl_berobat)', $tahun);
+		$this->db->group_by('berobat.gejala');
+		$this->db->order_by('gejala', 'desc');
+		return $this->db->get()->result();
+	}
+
+	public function analisis_bulan_gejala($bulan, $tahun)
+	{
+		$this->db->select('COUNT(gejala) AS total_gejala_bulan, berobat.gejala');
+		$this->db->from('berobat');
+		$this->db->where('MONTH(tgl_berobat)', $bulan);
+		$this->db->where('YEAR(tgl_berobat)', $tahun);
+		$this->db->group_by('berobat.gejala');
+		$this->db->order_by('gejala', 'desc');
+		return $this->db->get()->result();
+	}
+
+	public function analisis_tahun_gejala($tahun)
+	{
+		$this->db->select('COUNT(gejala) AS total_gejala, berobat.gejala');
+		$this->db->from('berobat');
+		$this->db->where('YEAR(tgl_berobat)', $tahun);
+		$this->db->group_by('berobat.gejala');
+		$this->db->order_by('gejala', 'desc');
+
+		return $this->db->get()->result();
+	}
+	//bpjs
+	public function analisis_tanggal_bpjs($tanggal, $bulan, $tahun)
+	{
+		$this->db->select('COUNT(bpjs) AS total_bpjs_tanggal, pasien.bpjs');
+		$this->db->from('pasien');
+		$this->db->where('DAY(pasien.tgl_daftar)', $tanggal);
+		$this->db->where('MONTH(pasien.tgl_daftar)', $bulan);
+		$this->db->where('YEAR(pasien.tgl_daftar)', $tahun);
+		$this->db->group_by('pasien.bpjs');
+		$this->db->order_by('bpjs', 'desc');
+		return $this->db->get()->result();
+	}
+
+	public function analisis_bulan_bpjs($bulan, $tahun)
+	{
+		$this->db->select('COUNT(bpjs) AS total_bpjs_bulan, pasien.bpjs');
+		$this->db->from('pasien');
+		$this->db->where('MONTH(tgl_daftar)', $bulan);
+		$this->db->where('YEAR(tgl_daftar)', $tahun);
+		$this->db->group_by('pasien.bpjs');
+		$this->db->order_by('bpjs', 'desc');
+		return $this->db->get()->result();
+	}
+
+	public function analisis_tahun_bpjs($tahun)
+	{
+		$this->db->select('COUNT(bpjs) AS total_bpjs_tahun, pasien.bpjs');
+		$this->db->from('pasien');
+		$this->db->where('YEAR(tgl_daftar)', $tahun);
+		$this->db->group_by('pasien.bpjs');
+		$this->db->order_by('bpjs', 'desc');
+
+		return $this->db->get()->result();
+	}
 }

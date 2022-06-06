@@ -33,7 +33,7 @@
 						</p>
 					</a>
 				</li>
-				<li class="nav-item has-treeview">
+				<!-- <li class="nav-item has-treeview">
 					<a href="#" class="nav-link">
 						<i class="nav-icon fas fa-tree"></i>
 						<p>
@@ -59,6 +59,30 @@
 							</a>
 						</li>
 					</ul>
+				</li> -->
+				<li class="nav-item">
+					<a class="nav-link <?php if (
+											$this->uri->segment(1) == 'gejala'
+										) {
+											echo "active";
+										} ?>" href="<?= base_url('pemilik/gejala') ?>">
+						<i class="nav-icon fas fa-tachometer-alt"></i>
+						<p>
+							Analisis Gejala
+						</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php if (
+											$this->uri->segment(1) == 'bpjs'
+										) {
+											echo "active";
+										} ?>" href="<?= base_url('pemilik/bpjs') ?>">
+						<i class="nav-icon fas fa-tachometer-alt"></i>
+						<p>
+							Analisis BPJS
+						</p>
+					</a>
 				</li>
 				<li class="nav-item has-treeview">
 					<a href="<?= base_url('auth/logout_user') ?>" class="nav-link">

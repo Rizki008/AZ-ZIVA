@@ -85,6 +85,26 @@ class M_berobat extends CI_Model
 		$this->db->order_by('stock', 'desc');
 		return $this->db->get()->result();
 	}
+	public function grafik_gejala()
+	{
+		// $this->db->select_sum('qty');
+		$this->db->select('*');
+		$this->db->from('berobat');
+		// $this->db->join('obat_masuk', 'obat_keluar.id_obat_masuk = obat_masuk.id_obat_masuk', 'left');
+		// $this->db->group_by('obat_keluar.id_obat_keluar');
+		$this->db->order_by('gejala', 'desc');
+		return $this->db->get()->result();
+	}
+	public function grafik_bpjsa()
+	{
+		// $this->db->select_sum('qty');
+		$this->db->select('*');
+		$this->db->from('pasien');
+		// $this->db->join('obat_masuk', 'obat_keluar.id_obat_masuk = obat_masuk.id_obat_masuk', 'left');
+		// $this->db->group_by('obat_keluar.id_obat_keluar');
+		$this->db->order_by('bpjs', 'desc');
+		return $this->db->get()->result();
+	}
 	public function grafik_alamat()
 	{
 		$this->db->select('COUNT(alamat) AS total_alamat, pasien.alamat');

@@ -40,6 +40,7 @@ class Pasien extends CI_Controller
 				'alamat' => $this->input->post('alamat'),
 				'bpjs' => $this->input->post('bpjs'),
 				'datang_berobat' => 1,
+				'tgl_daftar' => date('Y-m-d'),
 			);
 			$this->m_pasien->register($data);
 			$this->session->set_flashdata('pesan', 'Registrasi Berhasil, Silahkan Untuk Login');
