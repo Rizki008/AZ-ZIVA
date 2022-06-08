@@ -82,6 +82,36 @@ class M_admin extends CI_Model
 
 		return $this->db->get()->result();
 	}
+	public function analisis_stock_tanggal($tanggal, $bulan, $tahun)
+	{
+		$this->db->select('stock AS total_stock_obat_tanggal, obat_masuk.nama_obat');
+		$this->db->from('obat_masuk');
+		$this->db->where('DAY(obat_masuk.tgl_masuk)', $tanggal);
+		$this->db->where('MONTH(obat_masuk.tgl_masuk)', $bulan);
+		$this->db->where('YEAR(obat_masuk.tgl_masuk)', $tahun);
+		$this->db->order_by('stock', 'asc');
+		return $this->db->get()->result();
+	}
+
+	public function analisis_stock_bulan($bulan, $tahun)
+	{
+		$this->db->select('stock AS total_stock_obat_bulan, obat_masuk.nama_obat');
+		$this->db->from('obat_masuk');
+		$this->db->where('MONTH(tgl_masuk)', $bulan);
+		$this->db->where('YEAR(tgl_masuk)', $tahun);
+		$this->db->order_by('stock', 'asc');
+		return $this->db->get()->result();
+	}
+
+	public function analisis_stock_tahun($tahun)
+	{
+		$this->db->select('stock AS total_stock_obat, obat_masuk.nama_obat');
+		$this->db->from('obat_masuk');
+		$this->db->where('YEAR(tgl_masuk)', $tahun);
+		$this->db->order_by('stock', 'asc');
+
+		return $this->db->get()->result();
+	}
 
 	//gejala
 	public function analisis_tanggal_gejala($tanggal, $bulan, $tahun)
