@@ -256,7 +256,7 @@
 					</div>
 					<div class="form-group">
 						<label>Diagnosa</label>
-						<input type="text" name="gejala" value="<?= $value->gejala ?>" class="form-control" placeholder="Nama User" required>
+						<input type="text" name="gejala" value="<?= $value->gejala ?>" class="form-control" placeholder="Diagnosa" required>
 					</div>
 
 				</div>
