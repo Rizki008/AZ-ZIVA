@@ -66,9 +66,9 @@
 										) {
 											echo "active";
 										} ?>" href="<?= base_url('pemilik/gejala') ?>">
-						<i class="nav-icon fas fa-tachometer-alt"></i>
+						<i class="nav-icon fas fa-heartbeat"></i>
 						<p>
-							Analisis Gejala
+							Analisis Diagnosa
 						</p>
 					</a>
 				</li>
@@ -78,11 +78,50 @@
 										) {
 											echo "active";
 										} ?>" href="<?= base_url('pemilik/bpjs') ?>">
-						<i class="nav-icon fas fa-tachometer-alt"></i>
+						<i class="nav-icon fas fa-bed"></i>
 						<p>
-							Analisis BPJS
+							Analisis Pasien
 						</p>
 					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php if (
+											$this->uri->segment(1) == 'alamat'
+										) {
+											echo "active";
+										} ?>" href="<?= base_url('pemilik/alamat') ?>">
+						<i class="nav-icon fas fa-location-arrow"></i>
+						<p>
+							Analisis Alamat
+						</p>
+					</a>
+				</li>
+				<li class="nav-item has-treeview">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-flask"></i>
+						<p>
+							Analisis Obat
+							<i class="fas fa-angle-left right"></i>
+						</p>
+					</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item">
+							<a class="nav-link <?php if ($this->uri->segment(1) == 'keluar') {
+													echo "active";
+												} ?>" href="<?= base_url('pemilik/obat_keluar') ?>">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Analisis Obat Keluar</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link <?php if ($this->uri->segment(1) == 'masuk') {
+													echo "active";
+												} ?>" href="<?= base_url('pemilik/stock_obat') ?>">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Analisis Stock Obat</p>
+							</a>
+						</li>
+					</ul>
 				</li>
 				<li class="nav-item has-treeview">
 					<a href="<?= base_url('auth/logout_user') ?>" class="nav-link">
