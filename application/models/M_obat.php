@@ -35,7 +35,7 @@ class M_obat extends CI_Model
 		$this->db->join('pasien', 'booking_berobat.id_pasien = pasien.id_pasien', 'left');
 		$this->db->join('obat_keluar', 'berobat.no_resep = obat_keluar.no_resep', 'left');
 		$this->db->join('obat_masuk', 'obat_keluar.id_obat_masuk = obat_masuk.id_obat_masuk', 'left');
-		$this->db->order_by('id_berobat', 'desc');
+		$this->db->order_by('berobat.id_berobat', 'desc');
 		return $this->db->get()->result();
 	}
 
