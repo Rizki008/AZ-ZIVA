@@ -76,7 +76,7 @@
 					<div class="card-header border-0">
 						<h3 class="card-title">
 							<i class="fas fa-th mr-1"></i>
-							Analisis Data Obat
+							Analisis Data Diagnosa
 						</h3>
 
 						<div class="card-tools">
@@ -104,7 +104,7 @@
 								data: {
 									labels: <?= json_encode($gejala) ?>,
 									datasets: [{
-										label: 'Grafik Analisis Gejala Pasien',
+										label: 'Grafik Analisis Diagnosa Pasien',
 										data: <?= json_encode($total_gejala) ?>,
 										backgroundColor: [
 											'rgba(255, 99, 132, 0.80)',
