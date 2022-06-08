@@ -257,7 +257,7 @@
 									<a class="nav-link active" href="#revenue-chart" data-toggle="tab">Analisis Alamat</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#sales-chart" data-toggle="tab">Analisis Gejala</a>
+									<a class="nav-link" href="#sales-chart" data-toggle="tab">Analisis Diagnosa</a>
 								</li>
 							</ul>
 						</div>
@@ -393,7 +393,7 @@
 										data: {
 											labels: <?= json_encode($gejala) ?>,
 											datasets: [{
-												label: 'Grafik Analisis Gejala Pasien',
+												label: 'Grafik Analisis Diagnosa Pasien',
 												data: <?= json_encode($total_gejala) ?>,
 												backgroundColor: [
 													'rgba(255, 99, 132, 0.80)',
