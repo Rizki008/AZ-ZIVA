@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>General Form</h1>
+                    <h1><?= $title ?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">General Form</li>
+                        <li class="breadcrumb-item active"><?= $title ?></li>
                     </ol>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                 <div class="col-md-4">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Analisis BPJS Pertanggal</h3>
+                            <h3 class="card-title">Analisis Pasien Pertanggal</h3>
                         </div>
                         <div class="card-body">
                             <?php
@@ -87,7 +87,7 @@
                 <div class="col-md-4">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Analisis BPJS PerBulan</h3>
+                            <h3 class="card-title">Analisis Pasien PerBulan</h3>
                         </div>
                         <div class="card-body">
                             <?php
@@ -139,7 +139,7 @@
                 <div class="col-md-4">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Analisis BPJS Pertahun</h3>
+                            <h3 class="card-title">Analisis Pasien Pertahun</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
