@@ -51,7 +51,9 @@
 												<td><label class="badge badge-warning"><?= $value->jenis_obat ?></label></td>
 											<?php } ?>
 											<?php if ($value->stock <= 50) { ?>
-												<td class="text-danger"> <?= $value->stock ?> <i class="typcn typcn-arrow-down-thick"></i></td>
+												<td class="text-danger"> <?= $value->stock ?> <i class="typcn typcn-arrow-down-thick"></i><br>
+													<span class="badge badge-danger">Segera Melakukan Penambahan Stock</span>
+												</td>
 											<?php } else { ?>
 												<td class="text-success"> <?= $value->stock ?> <i class="typcn typcn-arrow-up-thick"></i></td>
 											<?php } ?>
