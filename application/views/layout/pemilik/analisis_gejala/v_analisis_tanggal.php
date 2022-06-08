@@ -9,7 +9,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Analisis Obat</li>
+                        <li class="breadcrumb-item active">Analisis Diagnosa</li>
                     </ol>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                                         data: {
                                             labels: <?= json_encode($gejala) ?>,
                                             datasets: [{
-                                                label: 'Grafik Analisis Penyakit',
+                                                label: 'Grafik Analisis Diagnosa',
                                                 data: <?= json_encode($total_gejala_tanggal) ?>,
                                                 backgroundColor: [
                                                     'rgba(255, 99, 132, 0.80)',
