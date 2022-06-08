@@ -41,6 +41,7 @@ class Data_berobat extends CI_Controller
 			'id' => $this->input->post('id'),
 			'qty' => $this->input->post('qty'),
 			'name' => $this->input->post('name'),
+			'dosis' => $this->input->post('dosis'),
 			'price' => '0'
 		);
 		$this->cart->insert($data);
@@ -60,15 +61,18 @@ class Data_berobat extends CI_Controller
 		$data = array(
 			'no_resep' => $this->input->post('no_resep'),
 			'status_berobat' => '3',
+			// 'dosis' => $this->input->post('dosis'),
 		);
 		$this->db->where('id_berobat', $id_berobat);
 		$this->db->update('berobat', $data);
 
 		//simppan obat keluar
 		$i = 1;
+		$j = 1;
 		foreach ($this->cart->contents() as $item) {
 			$data_rinci = array(
 				'no_resep' => $this->input->post('no_resep'),
+				'dosis' => $this->input->post('dosis' . $j++),
 				'id_obat_masuk' => $item['id'],
 				'tgl_keluar' => date('Y-m-d'),
 				'qty' => $this->input->post('qty' . $i++)
