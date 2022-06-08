@@ -44,7 +44,7 @@ class Pemilik extends CI_Controller
 	public function gejala()
 	{
 		$data = array(
-			'title' => 'Data Analisis Gejala',
+			'title' => 'Data Analisis Diagnosa',
 			'isi' => 'layout/pemilik/analisis_gejala/v_analisis'
 		);
 		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
@@ -57,7 +57,7 @@ class Pemilik extends CI_Controller
 		$bulan = $this->input->post('bulan');
 		$tahun = $this->input->post('tahun');
 		$data = array(
-			'title' => 'Analisis Gejala Pertanggal',
+			'title' => 'Analisis Diagnosa Pertanggal',
 			'grafik' => $this->m_berobat->grafik_gejala(),
 			'tanggal' => $tanggal,
 			'bulan' => $bulan,
@@ -72,7 +72,7 @@ class Pemilik extends CI_Controller
 		$bulan = $this->input->post('bulan');
 		$tahun = $this->input->post('tahun');
 		$data = array(
-			'title' => 'Analisis Gejala Perbulan',
+			'title' => 'Analisis Diagnosa Perbulan',
 			'grafik' => $this->m_berobat->grafik_gejala(),
 			'bulan' => $bulan,
 			'tahun' => $tahun,
@@ -86,7 +86,7 @@ class Pemilik extends CI_Controller
 
 		$tahun = $this->input->post('tahun');
 		$data = array(
-			'title' => 'Analisis Gejala Pertahun',
+			'title' => 'Analisis Diagnosa Pertahun',
 			'grafik' => $this->m_berobat->grafik_gejala(),
 			'tahun' => $tahun,
 			'analisis_tahun' => $this->m_admin->analisis_tahun_gejala($tahun),
@@ -147,7 +147,16 @@ class Pemilik extends CI_Controller
 		);
 		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
 	}
-	//obat
+
+	public function obat_keluar()
+	{
+		$data = array(
+			'title' => 'Analisis Obat Yang Di Gunakan',
+			'isi' => 'layout/pemilik/analisis_obat_keluar/v_analisis'
+		);
+		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
+	}
+	//obat keluar
 	public function analisis_tanggal()
 	{
 
@@ -161,7 +170,7 @@ class Pemilik extends CI_Controller
 			'bulan' => $bulan,
 			'tahun' => $tahun,
 			'analisis_tanggal' => $this->m_admin->analisis_tanggal($tanggal, $bulan, $tahun),
-			'isi' => 'layout/pemilik/analisis/v_analisis_tanggal'
+			'isi' => 'layout/pemilik/analisis_obat_keluar/v_analisis_tanggal'
 		);
 		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
 	}
@@ -175,7 +184,7 @@ class Pemilik extends CI_Controller
 			'bulan' => $bulan,
 			'tahun' => $tahun,
 			'analisis_bulan' => $this->m_admin->analisis_bulan($bulan, $tahun),
-			'isi' => 'layout/pemilik/analisis/v_analisis_bulan'
+			'isi' => 'layout/pemilik/analisis_obat_keluar/v_analisis_bulan'
 		);
 		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
 	}
@@ -188,7 +197,113 @@ class Pemilik extends CI_Controller
 			'grafik' => $this->m_berobat->grafik(),
 			'tahun' => $tahun,
 			'analisis_tahun' => $this->m_admin->analisis_tahun($tahun),
-			'isi' => 'layout/pemilik/analisis/v_analisis_tahun'
+			'isi' => 'layout/pemilik/analisis_obat_keluar/v_analisis_tahun'
+		);
+		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
+	}
+	public function stock_obat()
+	{
+		$data = array(
+			'title' => 'Analisis Stock Obat',
+			'isi' => 'layout/pemilik/analisis_stock_obat/v_analisis'
+		);
+		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
+	}
+	//obat stock
+	public function analisis_stock_tanggal()
+	{
+
+		$tanggal = $this->input->post('tanggal');
+		$bulan = $this->input->post('bulan');
+		$tahun = $this->input->post('tahun');
+		$data = array(
+			'title' => 'Analisis Stock Obat Pertanggal',
+			'grafik' => $this->m_berobat->grafik(),
+			'tanggal' => $tanggal,
+			'bulan' => $bulan,
+			'tahun' => $tahun,
+			'analisis_tanggal' => $this->m_admin->analisis_stock_tanggal($tanggal, $bulan, $tahun),
+			'isi' => 'layout/pemilik/analisis_stock_obat/v_analisis_tanggal'
+		);
+		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
+	}
+	public function analisis_stock_bulan()
+	{
+		$bulan = $this->input->post('bulan');
+		$tahun = $this->input->post('tahun');
+		$data = array(
+			'title' => 'Analisis Stock Obat Perbulan',
+			'grafik' => $this->m_berobat->grafik(),
+			'bulan' => $bulan,
+			'tahun' => $tahun,
+			'analisis_bulan' => $this->m_admin->analisis_stock_bulan($bulan, $tahun),
+			'isi' => 'layout/pemilik/analisis_stock_obat/v_analisis_bulan'
+		);
+		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
+	}
+	public function analisis_stock_tahun()
+	{
+
+		$tahun = $this->input->post('tahun');
+		$data = array(
+			'title' => 'Analisis Stock Obat Pertahun',
+			'grafik' => $this->m_berobat->grafik(),
+			'tahun' => $tahun,
+			'analisis_tahun' => $this->m_admin->analisis_stock_tahun($tahun),
+			'isi' => 'layout/pemilik/analisis_stock_obat/v_analisis_tahun'
+		);
+		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
+	}
+	public function alamat()
+	{
+		$data = array(
+			'title' => 'Analisis Alamat',
+			'isi' => 'layout/pemilik/analisis_alamat/v_analisis'
+		);
+		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
+	}
+	//Alamat
+	public function analisis_alamat_tanggal()
+	{
+
+		$tanggal = $this->input->post('tanggal');
+		$bulan = $this->input->post('bulan');
+		$tahun = $this->input->post('tahun');
+		$data = array(
+			'title' => 'Analisis Alamat Pertanggal',
+			'grafik' => $this->m_berobat->grafik(),
+			'tanggal' => $tanggal,
+			'bulan' => $bulan,
+			'tahun' => $tahun,
+			'analisis_tanggal' => $this->m_berobat->grafik_alamat_tanggal($tanggal, $bulan, $tahun),
+			'isi' => 'layout/pemilik/analisis_alamat/v_analisis_tanggal'
+		);
+		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
+	}
+	public function analisis_alamat_bulan()
+	{
+		$bulan = $this->input->post('bulan');
+		$tahun = $this->input->post('tahun');
+		$data = array(
+			'title' => 'Analisis Alamat Perbulan',
+			'grafik' => $this->m_berobat->grafik(),
+			'bulan' => $bulan,
+			'tahun' => $tahun,
+			'analisis_bulan' => $this->m_berobat->grafik_alamat_bulan($bulan, $tahun),
+			'isi' => 'layout/pemilik/analisis_alamat/v_analisis_bulan'
+		);
+		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
+	}
+	public function analisis_alamat_tahun()
+	{
+
+		$tahun = $this->input->post('tahun');
+		$data = array(
+			'title' => 'Analisis Alamat Pertahun',
+			'grafik' => $this->m_berobat->grafik(),
+			'tahun' => $tahun,
+			'analisis_tahun' => $this->m_berobat->grafik_alamat_tahun($tahun),
+			'isi' => 'layout/pemilik/analisis_alamat/v_analisis_tahun'
 		);
 		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
 	}
