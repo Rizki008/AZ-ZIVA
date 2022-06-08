@@ -48,6 +48,10 @@
                                     <label for="exampleInputPassword1">Qty</label>
                                     <input type="number" name="qty" class="form-control" id="exampleInputPassword1" placeholder="Qty">
                                 </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Dosis Obat</label>
+                                    <input type="text" name="dosis" class="form-control" id="exampleInputPassword1" placeholder="Dosis Obat">
+                                </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
@@ -57,8 +61,10 @@
                         <form class="forms-sample" action="<?= base_url('data_berobat/checkout') ?>" method="POST">
                             <?php
                             $i = 1;
+                            $j = 1;
                             foreach ($this->cart->contents() as $items) {
                                 echo form_hidden('qty' . $i++, $items['qty']);
+                                echo form_hidden('dosis' . $j++, $items['dosis']);
                             }
                             $no_resep = date('Ymd') .  random_int(100, 9999);
                             ?>
@@ -70,6 +76,7 @@
                                         <tr class="text-primary">
                                             <th>Nama Obat</th>
                                             <th>Qty</th>
+                                            <th>Dosis</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -78,6 +85,7 @@
                                             <tr class="">
                                                 <td><?= $value['name'] ?></td>
                                                 <td><?= $value['qty'] ?></td>
+                                                <td><?= $value['dosis'] ?></td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>
