@@ -295,27 +295,11 @@
 						<input type="text" name="username" value="<?= $value->username ?>" class="form-control" placeholder="Nama User" disabled>
 					</div>
 					<div class="form-group">
-						<label>Jenis Kelamin</label>
-						<?php if ($value->jenis_kl == 1) { ?>
-							<input type="text" class="form-control" placeholder="Laki-Laki" disabled>
-						<?php } elseif ($value->bpjs == 2) { ?>
-							<input type="text" class="form-control" placeholder="Perempuan" disabled>
-						<?php } ?>
-					</div>
-					<div class="form-group">
 						<label>Usia</label>
 						<input type="text" name="usia" value="<?= $value->usia ?>" class="form-control" placeholder="Nama User" disabled>
 					</div>
 					<div class="form-group">
-						<label>BPJS</label>
-						<?php if ($value->bpjs == 1) { ?>
-							<input type="text" class="form-control" placeholder="BPJS" disabled>
-						<?php } elseif ($value->bpjs == 2) { ?>
-							<input type="text" class="form-control" placeholder="Non BPJS" disabled>
-						<?php } ?>
-					</div>
-					<div class="form-group">
-						<label>Gejala</label>
+						<label>Diagnosa</label>
 						<input type="text" name="gejala" value="<?= $value->gejala ?>" class="form-control" placeholder="Nama User" disabled>
 					</div>
 					<div class="form-group">
@@ -328,7 +312,7 @@
 					</div>
 					<div class="form-group">
 						<label>Nama Obat</label>
-						<input type="text" name="nama_obat" value="<?= $value->nama_obat ?>" class="form-control" placeholder="Nama User" disabled>
+						<textarea class="form-control" rows="3" placeholder="Enter ..." readonly><?= $value->nama_obat ?> | <?= $value->dosis ?></textarea>
 					</div>
 
 				</div>
