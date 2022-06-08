@@ -155,7 +155,7 @@
 						<?php } ?>
 					</div>
 					<div class="form-group">
-						<label>Gejala</label>
+						<label>Diagnosa</label>
 						<input type="text" name="gejala" value="<?= $value->gejala ?>" class="form-control" placeholder="Nama User" disabled>
 					</div>
 					<div class="form-group">
