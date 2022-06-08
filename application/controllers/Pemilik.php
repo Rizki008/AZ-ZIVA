@@ -97,7 +97,7 @@ class Pemilik extends CI_Controller
 	public function bpjs()
 	{
 		$data = array(
-			'title' => 'Data Analisis BPJS',
+			'title' => 'Data Analisis Pasien BPJS dan Non BPJS',
 			'isi' => 'layout/pemilik/analisis_bpjs/v_analisis'
 		);
 		$this->load->view('layout/pemilik/v_wrapper', $data, FALSE);
@@ -110,7 +110,7 @@ class Pemilik extends CI_Controller
 		$bulan = $this->input->post('bulan');
 		$tahun = $this->input->post('tahun');
 		$data = array(
-			'title' => 'Analisis BPJS Pertanggal',
+			'title' => 'Analisis Pasien BPJS dan Non BPJS Pertanggal',
 			'grafik' => $this->m_berobat->grafik_bpjsa(),
 			'tanggal' => $tanggal,
 			'bulan' => $bulan,
@@ -125,7 +125,7 @@ class Pemilik extends CI_Controller
 		$bulan = $this->input->post('bulan');
 		$tahun = $this->input->post('tahun');
 		$data = array(
-			'title' => 'Analisis BPJS Perbulan',
+			'title' => 'Analisis Pasien BPJS dan Non BPJS Perbulan',
 			'grafik' => $this->m_berobat->grafik_bpjsa(),
 			'bulan' => $bulan,
 			'tahun' => $tahun,
@@ -139,7 +139,7 @@ class Pemilik extends CI_Controller
 
 		$tahun = $this->input->post('tahun');
 		$data = array(
-			'title' => 'Analisis BPJS Pertahun',
+			'title' => 'Analisis Pasien BPJS dan Non BPJS Pertahun',
 			'grafik' => $this->m_berobat->grafik_bpjsa(),
 			'tahun' => $tahun,
 			'analisis_tahun' => $this->m_admin->analisis_tahun_bpjs($tahun),
