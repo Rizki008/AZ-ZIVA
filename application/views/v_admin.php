@@ -106,7 +106,7 @@
 									<a class="nav-link active" href="#revenue-chart" data-toggle="tab">Analisis Alamat</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#sales-chart" data-toggle="tab">Analisis Gejala</a>
+									<a class="nav-link" href="#sales-chart" data-toggle="tab">Analisis Diagnosa</a>
 								</li>
 							</ul>
 						</div>
@@ -242,7 +242,7 @@
 										data: {
 											labels: <?= json_encode($gejala) ?>,
 											datasets: [{
-												label: 'Grafik Analisis Gejala Pasien',
+												label: 'Grafik Analisis Diagnosa Pasien',
 												data: <?= json_encode($total_gejala) ?>,
 												backgroundColor: [
 													'rgba(255, 99, 132, 0.80)',
@@ -347,7 +347,7 @@
 					<div class="card-header border-0">
 						<h3 class="card-title">
 							<i class="fas fa-th mr-1"></i>
-							Analisis BPJS dan Non BPJS
+							Analisis Pasien BPJS dan Non BPJS
 						</h3>
 
 						<div class="card-tools">
@@ -374,7 +374,7 @@
 								data: {
 									labels: <?= json_encode($bpjs) ?>,
 									datasets: [{
-										label: 'Grafik Analisis BPJS ',
+										label: 'Grafik Analisis Pasien BPJS dan Non BPJS ',
 										data: <?= json_encode($total_bpjs) ?>,
 										backgroundColor: [
 											'rgba(255, 99, 132, 0.80)',
