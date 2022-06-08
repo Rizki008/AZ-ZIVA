@@ -114,6 +114,39 @@ class M_berobat extends CI_Model
 		$this->db->group_by('pasien.alamat');
 		return $this->db->get()->result();
 	}
+	public function grafik_alamat_tanggal($tanggal, $bulan, $tahun)
+	{
+		$this->db->select('COUNT(alamat) AS total_alamat, pasien.alamat');
+		$this->db->from('berobat');
+		$this->db->join('booking_berobat', 'booking_berobat.id_boking = berobat.id_boking', 'left');
+		$this->db->join('pasien', 'booking_berobat.id_pasien = pasien.id_pasien', 'left');
+		$this->db->where('DAY(pasien.tgl_daftar)', $tanggal);
+		$this->db->where('MONTH(pasien.tgl_daftar)', $bulan);
+		$this->db->where('YEAR(pasien.tgl_daftar)', $tahun);
+		$this->db->group_by('pasien.alamat');
+		return $this->db->get()->result();
+	}
+	public function grafik_alamat_bulan($bulan, $tahun)
+	{
+		$this->db->select('COUNT(alamat) AS total_alamat, pasien.alamat');
+		$this->db->from('berobat');
+		$this->db->join('booking_berobat', 'booking_berobat.id_boking = berobat.id_boking', 'left');
+		$this->db->join('pasien', 'booking_berobat.id_pasien = pasien.id_pasien', 'left');
+		$this->db->where('MONTH(pasien.tgl_daftar)', $bulan);
+		$this->db->where('YEAR(pasien.tgl_daftar)', $tahun);
+		$this->db->group_by('pasien.alamat');
+		return $this->db->get()->result();
+	}
+	public function grafik_alamat_tahun($tahun)
+	{
+		$this->db->select('COUNT(alamat) AS total_alamat, pasien.alamat');
+		$this->db->from('berobat');
+		$this->db->join('booking_berobat', 'booking_berobat.id_boking = berobat.id_boking', 'left');
+		$this->db->join('pasien', 'booking_berobat.id_pasien = pasien.id_pasien', 'left');
+		$this->db->where('YEAR(pasien.tgl_daftar)', $tahun);
+		$this->db->group_by('pasien.alamat');
+		return $this->db->get()->result();
+	}
 	public function grafik_penyakit()
 	{
 		$this->db->select('COUNT(gejala) AS total_gejala, berobat.gejala');
