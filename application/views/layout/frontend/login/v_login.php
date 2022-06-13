@@ -71,10 +71,10 @@
 							<input type="password" name="password" value="<?= set_value('password') ?>" class="form-control border-0" placeholder="Your Password" style="height: 55px;" required>
 						</div>
 						<div class="col-12">
-							<button class="btn btn-primary w-100 py-3" type="submit">Login</button>
+							<button class="btn btn-warning w-100 py-3" type="submit">Login</button>
 						</div>
 						<div class="col-12">
-							<a href="<?= base_url('pasien/register') ?>" class="btn btn-warning w-100 py-3">Register</a>
+							<a href="<?= base_url('pasien/register') ?>" class="btn btn-primary w-100 py-3">Register</a>
 						</div>
 					</div>
 
