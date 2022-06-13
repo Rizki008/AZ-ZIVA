@@ -29,6 +29,8 @@ class Pemilik extends CI_Controller
 			'grafik_gejala_pasien' => $this->m_berobat->grafik_penyakit(),
 			'grafik_bpjs' => $this->m_berobat->grafik_bpjs(),
 			'grafik_nonbpjs' => $this->m_berobat->grafik_nonbpjs(),
+			'grafik_stock_obat' => $this->m_berobat->grafik_stock_obat(),
+			'obat_keluar' => $this->m_berobat->obat_keluar(),
 			'grafik_bpjs_analis' => $this->m_berobat->grafik_bpjs_analis(),
 			'tanggal' => $tanggal,
 			'bulan' => $bulan,
