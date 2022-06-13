@@ -39,6 +39,26 @@ class Apotek extends CI_Controller
 		$this->load->view('layout/apotek/v_wrapper', $data, FALSE);
 	}
 
+	public function resep($id_berobat)
+	{
+		$data = array(
+			'status_berobat' => '5'
+		);
+		$this->db->where('id_berobat', $id_berobat);
+		$this->db->update('berobat', $data);
+		$this->session->set_flashdata('pesan', 'Pesanan Diterima!!!');
+		redirect('apotek/resep_pasien');
+	}
+	public function selesai($id_berobat)
+	{
+		$data = array(
+			'status_berobat' => '6'
+		);
+		$this->db->where('id_berobat', $id_berobat);
+		$this->db->update('berobat', $data);
+		$this->session->set_flashdata('pesan', 'Pesanan Diterima!!!');
+		redirect('apotek/resep_pasien');
+	}
 	// Add a new item
 	public function bpjs()
 	{
