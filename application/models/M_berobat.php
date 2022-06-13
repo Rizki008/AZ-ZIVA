@@ -168,6 +168,15 @@ class M_berobat extends CI_Model
 		return $this->db->query("SELECT pasien.bpjs, COUNT(bpjs) AS total_non FROM `pasien` WHERE bpjs='NonBPJS' GROUP BY bpjs;")->result();
 	}
 
+	public function grafik_stock_obat()
+	{
+		return $this->db->query('SELECT SUM(stock) AS total_stock, `obat_masuk`.`nama_obat` FROM `obat_masuk` GROUP BY `nama_obat` ORDER BY `stock` DESC;')->result();
+	}
+	public function obat_keluar()
+	{
+		return $this->db->query('SELECT COUNT(qty) AS total_qty, `obat_masuk`.`nama_obat` FROM `obat_keluar` JOIN obat_masuk ON obat_keluar.id_obat_masuk=obat_masuk.id_obat_masuk GROUP BY `nama_obat` ORDER BY `qty` DESC;')->result();
+	}
+
 	public function data_berobat_pasien($id_pasien)
 	{
 		$this->db->select('*');
