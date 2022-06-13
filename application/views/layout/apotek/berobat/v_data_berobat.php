@@ -67,14 +67,22 @@
 												} elseif ($value->status_berobat == '3') {
 													echo '<span class="badge badge-warning">Proses</span>';
 												} elseif ($value->status_berobat == '4') {
-													echo '<span class="badge badge-success">Selesai</span>';
+													echo '<span class="badge badge-primary">Selesai Berobat</span>';
+												} elseif ($value->status_berobat == '5') {
+													echo '<span class="badge badge-warning">Selesai Berobat</span>';
+												} elseif ($value->status_berobat == '6') {
+													echo '<span class="badge badge-success">Resep Telah Diterima</span>';
 												} ?>
 											</td>
 											<td>
 												<?php
 												if ($value->status_berobat == '4') { ?>
-													<button type="button" class="btn btn-success" data-toggle="modal" data-target="#detail<?= $value->id_berobat ?>">
+													<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#detail<?= $value->id_berobat ?>">
 														Detail Pasien
+													</button>
+												<?php } elseif ($value->status_berobat == '5') { ?>
+													<button type="button" class="btn btn-success" data-toggle="modal" data-target="#selesai<?= $value->id_berobat ?>">
+														Selesai
 													</button>
 												<?php } ?>
 											</td>
@@ -122,25 +130,17 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
+				<?php
+				echo form_open('apotek/resep/' . $value->id_berobat);
+				?>
 				<div class="modal-body">
-					<?php
-					echo form_open('data_berobat/update/' . $value->id_berobat);
-					?>
-					<div class="form-group">
-						<label>Nama Dokter</label>
-						<input type="text" name="username" value="<?= $this->session->userdata('username'); ?>" class="form-control" placeholder="Nama User" disabled>
-					</div>
 					<div class="form-group">
 						<label>Nama Pasien</label>
 						<input type="text" name="username" value="<?= $value->username ?>" class="form-control" placeholder="Nama User" disabled>
 					</div>
 					<div class="form-group">
 						<label>Jenis Kelamin</label>
-						<?php if ($value->jenis_kl == 1) { ?>
-							<input type="text" class="form-control" placeholder="Laki-Laki" disabled>
-						<?php } elseif ($value->bpjs == 2) { ?>
-							<input type="text" class="form-control" placeholder="Perempuan" disabled>
-						<?php } ?>
+						<input type="text" name="jenis_kl" value="<?= $value->jenis_kl ?>" class="form-control" placeholder="<?= $value->jenis_kl ?>" disabled>
 					</div>
 					<div class="form-group">
 						<label>Usia</label>
@@ -148,11 +148,7 @@
 					</div>
 					<div class="form-group">
 						<label>BPJS</label>
-						<?php if ($value->bpjs == 1) { ?>
-							<input type="text" class="form-control" placeholder="BPJS" disabled>
-						<?php } elseif ($value->bpjs == 2) { ?>
-							<input type="text" class="form-control" placeholder="Non BPJS" disabled>
-						<?php } ?>
+						<input type="text" value="<?= $value->bpjs ?>" class="form-control" placeholder="<?= $value->bpjs ?>" disabled>
 					</div>
 					<div class="form-group">
 						<label>Diagnosa</label>
@@ -174,6 +170,7 @@
 				</div>
 				<div class="modal-footer justify-content-between">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-warning">Konfirmasi</button>
 				</div>
 				<?php
 				echo form_close();
@@ -182,3 +179,34 @@
 		</div>
 	</div>
 <?php } ?>
+
+<?php
+foreach ($pesanan as $key => $value) {
+	echo form_open('apotek/selesai/' . $value->id_berobat)
+?>
+	<div class="modal fade" id="selesai<?= $value->id_berobat ?>">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Pesanan Diterima</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Apakah Resep Obat <strong><?= $value->username ?></strong> Sudah Diterima?</p>
+				</div>
+				<div class="modal-footer justify-content-between">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+<?php
+	echo form_close();
+}
+?>
