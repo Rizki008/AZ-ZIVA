@@ -62,15 +62,18 @@ class M_obat extends CI_Model
 	}
 	public function resep()
 	{
+		$where = "status_berobat='4' OR status_berobat='5' OR status_berobat='6'";
+
 		$this->db->select('*');
 		$this->db->from('berobat');
-		$this->db->where('status_berobat=4');
+		$this->db->where($where);
 		$this->db->join('booking_berobat', 'booking_berobat.id_boking = berobat.id_boking', 'left');
 		$this->db->join('pasien', 'booking_berobat.id_pasien = pasien.id_pasien', 'left');
 		$this->db->order_by('berobat.tgl_berobat', 'desc');
 
 		return $this->db->get()->result();
 	}
+
 	public function detail_berobat($id_berobat)
 	{
 		$this->db->select('*');
