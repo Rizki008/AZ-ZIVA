@@ -62,8 +62,8 @@
 						<div class="col-12 col-sm-6">
 							<select class="form-select border-0" style="height: 55px;" name="jenis_kl">
 								<option selected>Jenis Kelamin</option>
-								<option value="1">Laki-laki</option>
-								<option value="2">Perempuan</option>
+								<option value="laki-laki">Laki-laki</option>
+								<option value="perempuan">Perempuan</option>
 							</select>
 						</div>
 						<div class="col-12 col-sm-6">
