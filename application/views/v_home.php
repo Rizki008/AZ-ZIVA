@@ -61,13 +61,13 @@
 				</div>
 			</div>
 			<div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-				<p class="d-inline-block border rounded-pill py-1 px-4">About Us</p>
-				<h1 class="mb-4">Mengapa Anda Harus Mempercayai Kami? Ketahui Tentang Kami!</h1>
-				<p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-				<p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos.</p>
-				<p><i class="far fa-check-circle text-primary me-3"></i>Perawatan kesehatan yang berkualitas</p>
-				<p><i class="far fa-check-circle text-primary me-3"></i>Hanya Dokter yang Berkualifikasi</p>
-				<p><i class="far fa-check-circle text-primary me-3"></i>Profesional Riset Medis</p>
+				<p class="d-inline-block border rounded-pill py-1 px-4">Tentang Az-Ziva</p>
+				<h1 class="mb-4">Deskripsi</h1>
+				<p>Klinik Az - Ziva merupakan sebuah klinik dokter keluarga yang memiliki slogan "Amanah Dalam Melayani Dan Mengabdi”</p>
+				<p class="mb-4">Tujuan : Memberikan perlindungan dan pemeliharaan untuk meningkatkan kesejahteraan dalam bentuk Program Pemeliharaan Kesehatan umumnya masyarakat secara keseluruhan, baik menengah ke bawah maupun menengah ke atas.</p>
+				<p><i class="far fa-check-circle text-primary me-3"></i>Jam Oprasional Klinik: <br> Senin – Sabtu</p>
+				<p><i class="far fa-check-circle text-primary me-3"></i>Pagi : 10.00</p>
+				<p><i class="far fa-check-circle text-primary me-3"></i>Sore : 15.30 – 19.00</p>
 			</div>
 		</div>
 	</div>
@@ -75,140 +75,6 @@
 <!-- About End -->
 
 
-<!-- Service Start -->
-<div class="container-xxl py-5">
-	<div class="container">
-		<div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-			<p class="d-inline-block border rounded-pill py-1 px-4">Services</p>
-			<h1>Solusi Perawatan Kesehatan</h1>
-		</div>
-		<div class="row g-4">
-			<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-				<div class="service-item bg-light rounded h-100 p-5">
-					<div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-						<i class="fa fa-heartbeat text-primary fs-4"></i>
-					</div>
-					<h4 class="mb-3">Cardiology</h4>
-					<p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-				<div class="service-item bg-light rounded h-100 p-5">
-					<div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-						<i class="fa fa-x-ray text-primary fs-4"></i>
-					</div>
-					<h4 class="mb-3">Pulmonary</h4>
-					<p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-				<div class="service-item bg-light rounded h-100 p-5">
-					<div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-						<i class="fa fa-brain text-primary fs-4"></i>
-					</div>
-					<h4 class="mb-3">Neurology</h4>
-					<p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-				<div class="service-item bg-light rounded h-100 p-5">
-					<div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-						<i class="fa fa-wheelchair text-primary fs-4"></i>
-					</div>
-					<h4 class="mb-3">Orthopedics</h4>
-					<p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-				<div class="service-item bg-light rounded h-100 p-5">
-					<div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-						<i class="fa fa-tooth text-primary fs-4"></i>
-					</div>
-					<h4 class="mb-3">Dental Surgery</h4>
-					<p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-				<div class="service-item bg-light rounded h-100 p-5">
-					<div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-						<i class="fa fa-vials text-primary fs-4"></i>
-					</div>
-					<h4 class="mb-3">Laboratory</h4>
-					<p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Service End -->
-
-
-<!-- Feature Start -->
-<div class="container-fluid bg-primary overflow-hidden my-5 px-lg-0">
-	<div class="container feature px-lg-0">
-		<div class="row g-0 mx-lg-0">
-			<div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.1s">
-				<div class="p-lg-5 ps-lg-0">
-					<p class="d-inline-block border rounded-pill text-light py-1 px-4">Fitur</p>
-					<h1 class="text-white mb-4">Mengapa Memilih Kami</h1>
-					<p class="text-white mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet</p>
-					<div class="row g-4">
-						<div class="col-6">
-							<div class="d-flex align-items-center">
-								<div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
-									<i class="fa fa-user-md text-primary"></i>
-								</div>
-								<div class="ms-4">
-									<p class="text-white mb-2">Experience</p>
-									<h5 class="text-white mb-0">Doctors</h5>
-								</div>
-							</div>
-						</div>
-						<div class="col-6">
-							<div class="d-flex align-items-center">
-								<div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
-									<i class="fa fa-check text-primary"></i>
-								</div>
-								<div class="ms-4">
-									<p class="text-white mb-2">Quality</p>
-									<h5 class="text-white mb-0">Services</h5>
-								</div>
-							</div>
-						</div>
-						<div class="col-6">
-							<div class="d-flex align-items-center">
-								<div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
-									<i class="fa fa-comment-medical text-primary"></i>
-								</div>
-								<div class="ms-4">
-									<p class="text-white mb-2">Positive</p>
-									<h5 class="text-white mb-0">Consultation</h5>
-								</div>
-							</div>
-						</div>
-						<div class="col-6">
-							<div class="d-flex align-items-center">
-								<div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
-									<i class="fa fa-headphones text-primary"></i>
-								</div>
-								<div class="ms-4">
-									<p class="text-white mb-2">24 Hours</p>
-									<h5 class="text-white mb-0">Support</h5>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-6 pe-lg-0 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
-				<div class="position-relative h-100">
-					<img class="position-absolute img-fluid w-100 h-100" src="<?= base_url() ?>template1/img/feature.jpg" style="object-fit: cover;" alt="">
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Feature End -->
 
 
 <!-- Team Start -->
@@ -225,7 +91,7 @@
 						<img class="img-fluid" src="<?= base_url() ?>template1/img/team-1.jpg" alt="">
 					</div>
 					<div class="team-text bg-light text-center p-4">
-						<h5>Doctor Name</h5>
+						<h5>Dr Yolan Sriwidiastuti</h5>
 						<p class="text-primary">Department</p>
 						<div class="team-social text-center">
 							<a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
@@ -241,7 +107,7 @@
 						<img class="img-fluid" src="<?= base_url() ?>template1/img/team-2.jpg" alt="">
 					</div>
 					<div class="team-text bg-light text-center p-4">
-						<h5>Doctor Name</h5>
+						<h5>Dr E.R Permana, MMRS, SpDLP</h5>
 						<p class="text-primary">Department</p>
 						<div class="team-social text-center">
 							<a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
@@ -257,7 +123,7 @@
 						<img class="img-fluid" src="<?= base_url() ?>template1/img/team-3.jpg" alt="">
 					</div>
 					<div class="team-text bg-light text-center p-4">
-						<h5>Doctor Name</h5>
+						<h5>Drg Hilman Rifki Mulyawan</h5>
 						<p class="text-primary">Department</p>
 						<div class="team-social text-center">
 							<a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
@@ -273,7 +139,7 @@
 						<img class="img-fluid" src="<?= base_url() ?>template1/img/team-4.jpg" alt="">
 					</div>
 					<div class="team-text bg-light text-center p-4">
-						<h5>Doctor Name</h5>
+						<h5>Dr. Ihsan Harismunandar</h5>
 						<p class="text-primary">Department</p>
 						<div class="team-social text-center">
 							<a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
