@@ -21,13 +21,16 @@
 			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
 				<p class="d-inline-block border rounded-pill py-1 px-4">Daftar Berobat</p>
 				<h1 class="mb-4">Buat Janji untuk Mengunjungi Dokter Kami</h1>
-				<p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+				<p class="mb-4">batas maksimal berobat 20 orang untuk jam operasional <br>
+					pagi : 10:00 <br>
+					sore : 15:00-19:00</p>
 			</div>
 			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
 				<div class="bg-light rounded h-100 d-flex align-items-center p-5">
 					<?php
 					$date = date('Y-m-d');
-					$antrian = $this->m_pasien->cek_antrian($date);
+					$waktu = 1;
+					$antrian = $this->m_pasien->cek_antrian($date, $waktu);
 					if ($antrian) {
 						$no = $antrian->no_antrian + 1;
 					} else {
@@ -52,9 +55,15 @@
 								<label for="">Keluhan</label>
 								<input type="text" name="keluhan" value="<?= set_value('keluhan') ?>" class="form-control border-0" style="height: 55px;">
 							</div>
-							<!-- <div class="col-12 col-sm-6">
-								<input type="date" name="tgl_berobat" value="<?= set_value('tgl_berobat') ?>" class="form-control border-0" placeholder="Tanggal Berobat" style="height: 55px;">
-							</div> -->
+							<div class="col-12 col-sm-6">
+								<input type="date" name="tgl_berobat" value="<?= $date ?>" class="form-control border-0" placeholder="Tanggal Berobat" readonly style="height: 55px;">
+							</div>
+							<div class="col-12 col-sm-6">
+								<select name="waktu" id="waktu" class="form-control border-0" style="height: 55px;">
+									<option value="1">PAGI</option>
+									<option value="2">SIANG</option>
+								</select>
+							</div>
 							<div class="col-12">
 								<button class="btn btn-primary w-100 py-3" type="submit">Daftar Berobat</button>
 							</div>
