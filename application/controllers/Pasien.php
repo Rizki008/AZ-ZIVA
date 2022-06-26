@@ -100,6 +100,7 @@ class Pasien extends CI_Controller
 				'no_antrian' => $this->input->post('no_antrian'),
 				'keluhan' => $this->input->post('keluhan'),
 				'tgl_berobat' => date('Y-m-d'),
+				'waktu' => $this->input->post('waktu'),
 				'status' => 0,
 				'berobat' => 1,
 			);
