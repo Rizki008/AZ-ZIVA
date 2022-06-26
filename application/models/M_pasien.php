@@ -33,9 +33,9 @@ class M_pasien extends CI_Model
 	}
 
 	//cek no antrian
-	public function cek_antrian($date)
+	public function cek_antrian($date, $waktu)
 	{
-		$data = $this->db->query("SELECT MAX(no_antrian) as no_antrian, tgl_berobat FROM `booking_berobat` WHERE tgl_berobat='" . $date . "' GROUP BY tgl_berobat")->row();
+		$data = $this->db->query("SELECT MAX(no_antrian) as no_antrian, tgl_berobat FROM `booking_berobat` WHERE tgl_berobat='" . $date . "' AND waktu='" . $waktu . "' GROUP BY tgl_berobat")->row();
 		return $data;
 	}
 
