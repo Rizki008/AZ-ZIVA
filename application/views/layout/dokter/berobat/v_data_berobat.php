@@ -295,6 +295,14 @@
 						<input type="text" name="username" value="<?= $value->username ?>" class="form-control" placeholder="Nama User" disabled>
 					</div>
 					<div class="form-group">
+						<label>Jenis Kelamin</label>
+						<?php if ($value->jenis_kl == 1) { ?>
+							<input type="text" class="form-control" placeholder="Laki-Laki" disabled>
+						<?php	} else { ?>
+							<input type="text" class="form-control" placeholder="Perempuan" disabled>
+						<?php } ?>
+					</div>
+					<div class="form-group">
 						<label>Usia</label>
 						<input type="text" name="usia" value="<?= $value->usia ?>" class="form-control" placeholder="Nama User" disabled>
 					</div>
