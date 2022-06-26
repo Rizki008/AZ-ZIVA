@@ -42,6 +42,9 @@
 											Nama Pasien
 										</th>
 										<th>
+											Jadwal
+										</th>
+										<th>
 											Jenis Kelamin
 										</th>
 										<th>
@@ -76,10 +79,16 @@
 											<td>
 												<?= $value->username ?>
 											</td>
+											<td><?php if ($value->waktu == 1) { ?>
+													<p>Pagi</p>
+												<?php } else { ?>
+													<p>Siang</p>
+												<?php } ?>
+											</td>
 											<td>
 												<?php if ($value->jenis_kl == 1) { ?>
 													<p>Laki-Laki</p>
-												<?php } elseif ($value->jenis_kl == 2) { ?>
+												<?php } else { ?>
 													<p>Perempuan</p>
 												<?php } ?>
 											</td>
