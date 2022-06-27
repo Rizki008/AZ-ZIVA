@@ -56,8 +56,8 @@
 		<div class="row g-5">
 			<div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
 				<div class="d-flex flex-column">
-					<img class="img-fluid rounded w-75 align-self-end" src="<?= base_url() ?>template1/img/about-1.jpg" alt="">
-					<img class="img-fluid rounded w-50 bg-white pt-3 pe-3" src="<?= base_url() ?>template1/img/about-2.jpg" alt="" style="margin-top: -25%;">
+					<img class="img-fluid rounded w-75 align-self-end" src="<?= base_url() ?>template1/img/abaout.jpg" alt="">
+					<img class="img-fluid rounded w-50 bg-white pt-3 pe-3" src="<?= base_url() ?>template1/img/abaot.jpg" alt="" style="margin-top: -25%;">
 				</div>
 			</div>
 			<div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
@@ -66,7 +66,7 @@
 				<p>Klinik Az - Ziva merupakan sebuah klinik dokter keluarga yang memiliki slogan "Amanah Dalam Melayani Dan Mengabdi”</p>
 				<p class="mb-4">Tujuan : Memberikan perlindungan dan pemeliharaan untuk meningkatkan kesejahteraan dalam bentuk Program Pemeliharaan Kesehatan umumnya masyarakat secara keseluruhan, baik menengah ke bawah maupun menengah ke atas.</p>
 				<p><i class="far fa-check-circle text-primary me-3"></i>Jam Oprasional Klinik: <br> Senin – Sabtu</p>
-				<p><i class="far fa-check-circle text-primary me-3"></i>Pagi : 10.00</p>
+				<p><i class="far fa-check-circle text-primary me-3"></i>Pagi : 07.00-10.00</p>
 				<p><i class="far fa-check-circle text-primary me-3"></i>Sore : 15.30 – 19.00</p>
 			</div>
 		</div>
