@@ -18,7 +18,7 @@
 				</div>
 				<div class="h-100 d-inline-flex align-items-center py-3">
 					<small class="far fa-clock text-primary me-2"></small>
-					<small>Senin - Sabtu : 10.00 Pagi - 19.00 Sore</small>
+					<small>Senin - Sabtu : Pagi 07.00 - 010.00. Sore: 15.30-19.00</small>
 				</div>
 			</div>
 			<div class="col-lg-5 px-5 text-end">
