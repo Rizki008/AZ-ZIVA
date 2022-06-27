@@ -61,7 +61,7 @@
 							<div class="col-12 col-sm-6">
 								<select name="waktu" id="waktu" class="form-control border-0" style="height: 55px;">
 									<option value="1">PAGI</option>
-									<option value="2">SIANG</option>
+									<option value="2">SORE</option>
 								</select>
 							</div>
 							<div class="col-12">
