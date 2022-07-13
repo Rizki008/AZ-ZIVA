@@ -22,8 +22,13 @@
 				<p class="d-inline-block border rounded-pill py-1 px-4">Daftar Berobat</p>
 				<h1 class="mb-4">Buat Janji untuk Mengunjungi Dokter Kami</h1>
 				<p class="mb-4">batas maksimal berobat 20 orang untuk jam operasional <br>
-					pagi : 10:00 <br>
-					sore : 15:00-19:00</p>
+					pagi : 07:00-10:00 <br>
+					sore : 15:30-19:00</p>
+				<p>No Antrian <?php if ($total_daftar == 20) { ?>
+				<p style="color: blue;">Antrian Sudah penuh Silahkan Kembali Nanti Sore </p>
+			<?php } else { ?>
+				<span style="color:blue"><?= $total_daftar ?></span></p>
+			<?php } ?>
 			</div>
 			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
 				<div class="bg-light rounded h-100 d-flex align-items-center p-5">
@@ -40,6 +45,10 @@
 					<form action="<?= base_url('pasien/berobat_baru') ?>" method="POST">
 						<div class="row g-3">
 							<div class="col-12 col-sm-6">
+								<label for="">Tanggal Berobat</label>
+								<input type="date" name="tgl_berobat" value="<?= $date ?>" class="form-control border-0" placeholder="Tanggal Berobat" readonly style="height: 55px;">
+							</div>
+							<div class="col-12 col-sm-6">
 								<label for="">No Berobat</label>
 								<input type="text" name="no_berobat" value="<?= $this->session->userdata('no_berobat') ?>" class="form-control border-0" readonly style="height: 55px;">
 							</div>
@@ -55,10 +64,9 @@
 								<label for="">Keluhan</label>
 								<input type="text" name="keluhan" value="<?= set_value('keluhan') ?>" class="form-control border-0" style="height: 55px;">
 							</div>
+
 							<div class="col-12 col-sm-6">
-								<input type="date" name="tgl_berobat" value="<?= $date ?>" class="form-control border-0" placeholder="Tanggal Berobat" readonly style="height: 55px;">
-							</div>
-							<div class="col-12 col-sm-6">
+								<label for="">Waktu Berobat</label>
 								<select name="waktu" id="waktu" class="form-control border-0" style="height: 55px;">
 									<option value="1">PAGI</option>
 									<option value="2">SORE</option>
