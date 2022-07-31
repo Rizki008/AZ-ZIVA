@@ -40,6 +40,22 @@
 
 <!-- Template Javascript -->
 <script src="<?= base_url() ?>template1/js/main.js"></script>
+<script>
+	console.log = function() {}
+	$("#waktu").on('change', function() {
+
+		$(".waktu").html($(this).find(':selected').attr('data-waktu'));
+		$(".waktu").val($(this).find(':selected').attr('data-waktu'));
+
+
+		$(".alert").html($(this).find(':selected').attr('data-alert'));
+		$(".alert").val($(this).find(':selected').attr('data-alert'));
+
+		$(".antrian_sel").html($(this).find(':selected').attr('data-sel'));
+		$(".antrian_sel").val($(this).find(':selected').attr('data-sel'));
+
+	});
+</script>
 </body>
 
 </html>
