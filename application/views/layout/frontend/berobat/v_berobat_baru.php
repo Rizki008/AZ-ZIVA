@@ -21,12 +21,14 @@
 			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
 				<p class="d-inline-block border rounded-pill py-1 px-4">Form Daftar Berobat</p>
 				<h1 class="mb-4">Silahkan Buat Janji untuk Mengunjungi Dokter Kami</h1>
-				<p class="mb-4"><center><b>INFORMASI </b></center><br>
+				<p class="mb-4">
+					<center><b>INFORMASI </b></center><br>
 					Batas Maksimal Berobat 20 Antrian setiap Jam Operasional. <br>
 					Berikut Merupkan Jam Operasional Pelayanan Klinik Az-Ziva : <br>
 					PAGI : 07:00 - 10:00 <br>
 					SORE : 15:30 - 19:00 <br>
-					Jika Sudah mencapai Kapasitas antrian, silahkan Lakukan Daftar Ulang di Jam Operasional Selanjutnya!! Terimakasih</p>
+					Jika Sudah mencapai Kapasitas antrian, silahkan Lakukan Daftar Ulang di Jam Operasional Selanjutnya!! Terimakasih
+				</p>
 				<p>Antrian : <strong class="waktu"></strong> <span class="alert text-danger"></span></p>
 				<!-- <p>No Antrian <?php if ($total_daftar == 20) { ?>
 				<p style="color: blue;">Antrian Sudah penuh Silahkan Kembali Nanti Sore </p>
