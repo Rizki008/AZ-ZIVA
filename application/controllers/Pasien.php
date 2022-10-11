@@ -77,7 +77,8 @@ class Pasien extends CI_Controller
 		$this->pasien_login->proteksi_halaman();
 		$data = array(
 			'title' => 'Daftar Berobat',
-			'isi' => 'layout/frontend/berobat/v_berobat'
+			'isi' => 'layout/frontend/berobat/v_berobat',
+
 		);
 		$this->load->view('layout/frontend/v_wrapper', $data, FALSE);
 	}
@@ -92,23 +93,32 @@ class Pasien extends CI_Controller
 				'title' => 'Daftar Berobat',
 				// 'hapus_otomatis' => $this->m_pasien->hapus_otomatis(),
 				// 'hapus_data' => $this->m_pasien->hapus_data(),
+				'waktu_cek' => $this->m_pasien->cek_total(),
 				'total_daftar' => $this->m_admin->total_daftar(),
 				'isi' => 'layout/frontend/berobat/v_berobat_baru'
 			);
 			$this->load->view('layout/frontend/v_wrapper', $data, FALSE);
 		} else {
-			$data = array(
-				'id_pasien' => $this->session->userdata('id_pasien'),
-				'no_antrian' => $this->input->post('no_antrian'),
-				'keluhan' => $this->input->post('keluhan'),
-				'tgl_berobat' => date('Y-m-d'),
-				'waktu' => $this->input->post('waktu'),
-				'status' => 0,
-				'berobat' => 1,
-			);
-			$this->m_pasien->add($data);
-			$this->session->set_flashdata('pesan', 'Daftar Berobat Berhasil');
-			redirect('home');
+			$antrian = $this->input->post('no_antrian');
+			// echo $antrian;
+			if ($antrian >= 20) {
+				$this->session->set_flashdata('error', 'Antrian Sudah Penuh, Silahkan Daftar Diwaktu Selanjutnya!!');
+				redirect('Pasien/berobat_baru');
+			} else {
+				$data = array(
+					'id_pasien' => $this->session->userdata('id_pasien'),
+					'no_antrian' => $this->input->post('no_antrian'),
+					'keluhan' => $this->input->post('keluhan'),
+					'tgl_berobat' => date('Y-m-d'),
+					'waktu' => $this->input->post('waktu_cek'),
+					'status' => 0,
+					'berobat' => 1,
+				);
+				$this->m_pasien->add($data);
+				$this->session->set_flashdata('pesan', 'Daftar Berobat Berhasil');
+				redirect('home');
+			}
+
 			// }
 		}
 	}

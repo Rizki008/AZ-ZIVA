@@ -38,6 +38,11 @@ class M_pasien extends CI_Model
 		$data = $this->db->query("SELECT MAX(no_antrian) as no_antrian, tgl_berobat FROM `booking_berobat` WHERE tgl_berobat='" . $date . "' AND waktu='" . $waktu . "' GROUP BY tgl_berobat")->row();
 		return $data;
 	}
+	public function cek_total()
+	{
+		$date = date('Y-m-d');
+		return $this->db->query("SELECT COUNT(tgl_berobat) as jml, waktu FROM `booking_berobat` WHERE tgl_berobat='" . $date . "' GROUP BY waktu;")->result();
+	}
 
 	// public function hapus_otomatis()
 	// {
