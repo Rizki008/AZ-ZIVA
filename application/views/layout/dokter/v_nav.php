@@ -43,6 +43,16 @@
 						</p>
 					</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php if ($this->uri->segment(1) == 'rekam_medis') {
+											echo "active";
+										} ?>" href="<?= base_url('rekam_medis') ?>">
+						<i class="nav-icon fas fa-th"></i>
+						<p>
+							Rekam Medis
+						</p>
+					</a>
+				</li>
 				<li class="nav-item has-treeview">
 					<a href="<?= base_url('auth/logout_user') ?>" class="nav-link">
 						<i class="nav-icon fas fa-copy"></i>
