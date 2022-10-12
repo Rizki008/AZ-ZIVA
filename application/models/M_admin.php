@@ -181,4 +181,15 @@ class M_admin extends CI_Model
 
 		return $this->db->get()->result();
 	}
+
+	public function rekam_medis()
+	{
+		$this->db->select('*');
+		$this->db->from('berobat');
+		$this->db->join('booking_berobat', 'berobat.id_boking = booking_berobat.id_boking', 'left');
+		$this->db->join('pasien', 'booking_berobat.id_pasien = pasien.id_pasien', 'left');
+		$this->db->order_by('berobat.id_berobat', 'desc');
+		// $this->db->group_by('booking_berobat.id_pasien');
+		return $this->db->get()->result();
+	}
 }
