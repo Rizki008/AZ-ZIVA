@@ -67,7 +67,7 @@
 								<input type="date" name="tgl_berobat" value="<?= $date ?>" class="form-control border-0" placeholder="Tanggal Berobat" readonly style="height: 55px;">
 							</div>
 							<div class="col-12 col-sm-6">
-								<label for="">No Berobat</label>
+								<label for="">ID Berobat</label>
 								<input type="text" name="no_berobat" value="<?= $this->session->userdata('no_berobat') ?>" class="form-control border-0" readonly style="height: 55px;">
 							</div>
 							<div class="col-12 col-sm-6">
