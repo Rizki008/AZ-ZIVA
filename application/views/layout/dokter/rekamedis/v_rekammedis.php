@@ -39,10 +39,10 @@
 											Jenis Kelamin
 										</th>
 										<th>
-											Id Berobat
+											No Berobat
 										</th>
 										<th>
-											No Berobat
+											ID Berobat
 										</th>
 										<th>
 											Tanggal Berobat
@@ -55,6 +55,12 @@
 										</th>
 										<th>
 											Gejala
+										</th>
+										<th>
+											Dosis
+										</th>
+										<th>
+											Obat Yang Digunakan
 										</th>
 										<th>
 											Usia
@@ -87,6 +93,8 @@
 											</td>
 											<td><?= $value->keluhan ?></td>
 											<td><?= $value->gejala ?></td>
+											<td><?= $value->dosis ?></td>
+											<td><?= $value->nama_obat ?></td>
 											<td><?= $value->usia ?></td>
 											<td><?= $value->alamat ?></td>
 
@@ -121,6 +129,12 @@
 										</th>
 										<th>
 											Gejala
+										</th>
+										<th>
+											Dosis
+										</th>
+										<th>
+											Obat Yang Digunakan
 										</th>
 										<th>
 											Usia
