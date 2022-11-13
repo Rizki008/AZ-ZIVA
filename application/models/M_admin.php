@@ -187,6 +187,8 @@ class M_admin extends CI_Model
 		$this->db->select('*');
 		$this->db->from('berobat');
 		$this->db->join('booking_berobat', 'berobat.id_boking = booking_berobat.id_boking', 'left');
+		$this->db->join('obat_keluar', 'berobat.no_resep = obat_keluar.no_resep', 'left');
+		$this->db->join('obat_masuk', 'obat_keluar.id_obat_masuk = obat_masuk.id_obat_masuk', 'left');
 		$this->db->join('pasien', 'booking_berobat.id_pasien = pasien.id_pasien', 'left');
 		$this->db->order_by('berobat.id_berobat', 'desc');
 		// $this->db->group_by('booking_berobat.id_pasien');
