@@ -54,20 +54,9 @@
 											Diagnosa
 										</th>
 										<th>
-											Gejala
+											Action
 										</th>
-										<th>
-											Dosis
-										</th>
-										<th>
-											Obat Yang Digunakan
-										</th>
-										<th>
-											Usia
-										</th>
-										<th>
-											Alamat
-										</th>
+
 									</tr>
 								</thead>
 								<tbody>
@@ -91,15 +80,13 @@
 											<td>
 												<?= $value->datang_berobat ?>
 											</td>
-											<td><?= $value->keluhan ?></td>
-											<td><?= $value->gejala ?></td>
-											<td><?= $value->dosis ?></td>
-											<td><?= $value->nama_obat ?></td>
-											<td><?= $value->usia ?></td>
-											<td><?= $value->alamat ?></td>
 
+											<td><?= $value->keluhan ?></td>
+											<td><a href="<?= base_url('rekam_medis/detail/' . $value->no_resep) ?>" class="btn btn-sm btn-primary">Detail</a></td>
 										</tr>
 									<?php } ?>
+
+
 								</tbody>
 								<tfoot>
 									<tr>
@@ -128,19 +115,7 @@
 											Diagnosa
 										</th>
 										<th>
-											Gejala
-										</th>
-										<th>
-											Dosis
-										</th>
-										<th>
-											Obat Yang Digunakan
-										</th>
-										<th>
-											Usia
-										</th>
-										<th>
-											Alamat
+											Action
 										</th>
 									</tr>
 								</tfoot>
