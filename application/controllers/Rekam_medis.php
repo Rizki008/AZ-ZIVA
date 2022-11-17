@@ -17,8 +17,23 @@ class Rekam_medis extends CI_Controller
 		$data = array(
 			'title' => 'Data Rekam Medis',
 			'rekam' => $this->m_admin->rekam_medis(),
+			// 'obat' => $this->m_admin->obat(),
 			'isi' => 'layout/dokter/rekamedis/v_rekammedis'
 		);
+		// echo $this->db->last_query($data);
+
+		$this->load->view('layout/dokter/v_wrapper', $data, FALSE);
+	}
+
+	public function detail($no_resep)
+	{
+		$data = array(
+			'title' => 'Data Rekam Medis',
+			'detail' => $this->m_admin->detail($no_resep),
+			'isi' => 'layout/dokter/rekamedis/v_detail'
+		);
+		// echo $this->db->last_query($data);
+
 		$this->load->view('layout/dokter/v_wrapper', $data, FALSE);
 	}
 }
