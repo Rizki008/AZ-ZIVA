@@ -191,7 +191,16 @@ class M_admin extends CI_Model
 		$this->db->join('obat_masuk', 'obat_keluar.id_obat_masuk = obat_masuk.id_obat_masuk', 'left');
 		$this->db->join('pasien', 'booking_berobat.id_pasien = pasien.id_pasien', 'left');
 		$this->db->order_by('berobat.id_berobat', 'desc');
-		// $this->db->group_by('booking_berobat.id_pasien');
+		$this->db->group_by('berobat.id_boking');
 		return $this->db->get()->result();
+	}
+	public function detail($no_resep)
+	{
+		return $this->db->query("SELECT *
+		FROM `booking_berobat`
+		LEFT JOIN `berobat` ON `booking_berobat`.`id_boking` = `berobat`.`id_boking`
+		LEFT JOIN `obat_keluar` ON `berobat`.`no_resep` = `obat_keluar`.`no_resep`
+		LEFT JOIN `obat_masuk` ON `obat_keluar`.`id_obat_masuk` = `obat_masuk`.`id_obat_masuk`
+		LEFT JOIN `pasien` ON `booking_berobat`.`id_pasien` = `pasien`.`id_pasien` WHERE berobat.no_resep='" . $no_resep . "'")->result();
 	}
 }
